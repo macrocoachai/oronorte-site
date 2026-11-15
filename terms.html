@@ -33,7 +33,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:28px 0 50px;colo
 </head>
 <body>
 <header><div class="wrap bar">
-  <a class="brand" href="/" aria-label="ORONORTE home">
+  <a class="brand" href="./" aria-label="ORONORTE home">
     <svg width="26" height="26" viewBox="0 0 34 34" aria-hidden="true"><path d="M22.6 11.4 L18.3 17 L22.6 22.6 L17 18.3 L11.4 22.6 L15.7 17 L11.4 11.4 L17 15.7 Z" fill="none" stroke="#E9C46A" stroke-width="1.1" stroke-linejoin="round" opacity=".8"/><path d="M17 0.8 L19 15 L31.5 17 L19 19 L17 31 L15 19 L2.5 17 L15 15 Z" fill="#F2D27C"/></svg>
     <span><span class="oro">ORO</span>NORTE</span>
   </a>
@@ -44,7 +44,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:28px 0 50px;colo
 </div></header>
 
 <main class="wrap" id="doc" aria-live="polite"></main>
-<footer><div class="wrap">© 2026 ORONORTE · <a href="/">oronorte.com</a> · <a href="https://www.instagram.com/oronorteai/">@oronorteai</a> · <a href="mailto:hello@oronorte.com">hello@oronorte.com</a></div></footer>
+<footer><div class="wrap">© 2026 ORONORTE · <a href="./">oronorte.com</a> · <a href="https://www.instagram.com/oronorteai/">@oronorteai</a> · <a href="mailto:hello@oronorte.com">hello@oronorte.com</a></div></footer>
 
 <script>
 // Legal operator name: update to the registered entity (for example "ORONORTE LLC") once it is formed.
@@ -206,7 +206,7 @@ privacy:`
 
 let lang = (()=>{try{return localStorage.getItem('ov-lang')}catch(e){return null}})() || (navigator.language||'en').slice(0,2);
 if(!DOCS[lang]) lang='en';
-let doc = (location.hash==='#privacy' || location.pathname.startsWith('/privacy')) ? 'privacy' : 'terms';
+let doc = (location.hash==='#privacy' || /privacy/.test(location.pathname)) ? 'privacy' : 'terms';
 function render(){
   const u=UI[lang];
   document.documentElement.lang=lang;
@@ -217,7 +217,7 @@ function render(){
   document.querySelectorAll('[data-l]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===lang));
   document.getElementById('doc').innerHTML='<h1>'+(doc==='terms'?u.tt:u.pt)+'</h1><div class="meta">'+u.eff+' '+EFFECTIVE[lang]+(lang==='en'?'':' · '+u.pre)+'</div>'+DOCS[lang][doc];
 }
-document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{doc=b.dataset.d;history.replaceState(null,'','#'+doc);render();scrollTo(0,0)});
+document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{doc=b.dataset.d;try{history.replaceState(null,'','#'+doc)}catch(e){};render();scrollTo(0,0)});
 document.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem('ov-lang',lang)}catch(e){};render()});
 addEventListener('hashchange',()=>{doc=location.hash==='#privacy'?'privacy':'terms';render()});
 render();
