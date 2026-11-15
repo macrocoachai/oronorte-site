@@ -430,8 +430,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
     <div class="engine reveal">
       <div class="orrery" id="orrery" aria-label="Interactive 3D map of the ORONORTE agents" role="img">
         <canvas id="orc"></canvas>
-        <div class="scan"></div>
-        <div class="hint" data-t="e_hint">Drag to rotate · Click an agent</div>
+                <div class="hint" data-t="e_hint">Drag to rotate · Click an agent</div>
         <div class="legend"><span><i style="background:#F7DC86;box-shadow:0 0 8px #F7DC86"></i><span data-t="e_lg1">Task</span></span><span><i style="background:#7FD1A8;box-shadow:0 0 8px #7FD1A8"></i><span data-t="e_lg2">Verified money</span></span></div>
       </div>
       <aside class="apanel" aria-live="polite">
@@ -514,7 +513,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
           <div class="learn">
             <div class="card-m"><h5 data-t="m_pb">Playbooks</h5><p data-t="m_pbp">When something earns twice with proof, it becomes a playbook every agent follows next time.</p></div>
             <div class="card-m"><h5 data-t="m_gf">Second-opinion review</h5><p data-t="m_gfp">An independent reviewer checks every spend, scale-up and playbook. If it can't review, the answer is no.</p></div>
-            <div class="card-m" style="grid-column:1/-1"><h5 data-t="m_rk">Ranks earned from the ledger</h5><div class="ranks" aria-hidden="true"><i style="height:30%"></i><i style="height:45%;transition-delay:.1s"></i><i style="height:55%;transition-delay:.2s"></i><i style="height:72%;transition-delay:.3s"></i><i style="height:86%;transition-delay:.4s"></i><i style="height:100%;transition-delay:.5s"></i></div></div>
+            <div class="card-m" style="grid-column:1/-1"><h5 data-t="m_rk">Ranks earned from the ledger</h5><p class="mono" style="font-size:12px;color:var(--gold2);margin:4px 0 6px" data-t="m_ladder">ROOKIE → ASSOCIATE → CLOSER → PARTNER (3×) → TITAN</p><div class="ranks" aria-hidden="true"><i style="height:30%"></i><i style="height:45%;transition-delay:.1s"></i><i style="height:55%;transition-delay:.2s"></i><i style="height:72%;transition-delay:.3s"></i><i style="height:86%;transition-delay:.4s"></i><i style="height:100%;transition-delay:.5s"></i></div></div>
           </div>
         </div>
       </div>
@@ -720,13 +719,13 @@ en:{
      ['They work around the clock','Every few hours the team runs a work cycle: research demand, build offers, find clients, publish content.','live activity'],
      ['You approve what matters','Spending above your limit, new accounts, contracts and any live trade come to your desk first, with a second-opinion review attached.','approvals'],
      ['The ledger proves it','Revenue counts only when money actually arrives, with a reference you can check. Costs and losses are recorded too.','the ledger'],
-     ['They get better','What works twice becomes a playbook. Agents rise in rank only from verified results, and an independent reviewer keeps them honest.','learning']],
+     ['They earn their own teams','What works twice becomes a playbook. Agents rise in rank only from verified results. One that holds 3× its funding for 30 days becomes a Partner and can propose its own team, with your approval for every new agent.','learning']],
  feed:[['ATLAS','Mapped 3 under-served local markets in Houston and Miami','research'],['VEGA','Built a bilingual booking template, ready to sell','product'],['ORION','Drafted 6 personalized proposals in Spanish','sales'],['LYRA','Scheduled 3 reels and a carousel for review','content'],['SIRIUS','Found 41 businesses with a public need, opt-outs respected','leads'],['POLARIS','Moved budget toward the template; weekly briefing sent','ceo']],
  ledger:[['VEGA · template sale','Stripe pi_…8F2','+$29.00'],['ORION · client retainer','Invoice #0042','+$400.00'],['LYRA · ad test (approved)','Meta ads','−$40.00'],['VEGA · template sale','Stripe pi_…A91','+$29.00'],['AI usage this week','Provider bill','−$18.00'],['VEGA · template sale','Stripe pi_…C07','+$24.00']],
  m_mk:'Markets',m_mk1:'Local services',m_mk2:'Digital products',m_mk3:'Agencies',m_mk4:'E-commerce',m_lg:'Languages',m_lim:'Daily spending limit',m_ap:'Ask me before',m_ap1:'Any spend over $10',m_ap2:'New accounts',m_ap3:'Contracts',m_ap4:'Live trading',
  m_ak:'Founder approval needed',m_ah:'VEGA wants to launch a $29 bilingual booking template',m_ap:'ATLAS found 140 local salons searching for Spanish booking pages. ORION has 6 warm leads. Budget needed for the first ad test.',m_m1:'Spend',m_m2:'Review',m_m3:'Risk',m_y:'Approve',m_n:'Decline',
  m_l1:'Entry',m_l2:'Proof',m_l3:'Amount',m_net:'Net this week',m_ex:'Example numbers for illustration. Real ledgers show real results, including losses.',
- m_pb:'Playbooks',m_pbp:'When something earns twice with proof, it becomes a playbook every agent follows next time.',m_gf:'Second-opinion review',m_gfp:"An independent reviewer checks every spend, scale-up and playbook. If it can't review, the answer is no.",m_rk:'Ranks earned from the ledger',
+ m_pb:'Playbooks',m_pbp:'When something earns twice with proof, it becomes a playbook every agent follows next time.',m_gf:'Second-opinion review',m_gfp:"An independent reviewer checks every spend, scale-up and playbook. If it can't review, the answer is no.",m_rk:'Ranks earned from the ledger',m_ladder:'ROOKIE → ASSOCIATE → CLOSER → PARTNER (3×, EARNS A TEAM) → TITAN',
  b_eye:"What's built",b_h:'Not a chatbot. A complete operating system for your company.',b_p:'Eight systems work together underneath ORONORTE. Each one exists to make the agents more useful, more accountable, or safer.',
  mods:[['cc','Command Center','Your desk: live activity, approvals, the ledger and a weekly briefing from POLARIS. Works on desktop and phone.'],
        ['board','The Board','Ranks, trophies and leaderboards for your agents, computed only from real ledger entries.'],
@@ -765,6 +764,7 @@ en:{
   ['What does "limits in code" mean?','Your spending caps, approval thresholds and trading limits are fixed rules in the software, not instructions an AI could talk its way around. No agent can raise its own limits.'],
   ['What languages does it work in?','English and Spanish from day one, with Portuguese built in. Your agents write, sell and report in the languages you choose.'],
   ['Who is it for?','Small business owners, creators, agencies and consultants, entrepreneurs launching a product, and bilingual businesses in the U.S. and Latin America.'],
+  ['Can agents grow their own team?','Yes, but only by earning it. An agent that holds 3× its funding for 30 straight days reaches Partner rank and may propose new agents to work under it. Every new agent needs your approval, and when that team turns a profit, its leader becomes a Titan.'],
   ['When can I start?','Founding members get early access first. Message “NORTE” to @oronorteai on Instagram to reserve one of the first 100 spots.']],
  j_eye:'Founding members',j_h:'The first 100 get 40% off for life.',j_p:"We're proving ORONORTE on our own company first, with every result in a live ledger. Founding members get early access, the founding price for life, and a front-row seat to the build.",
  j_c1:'Message “NORTE” on Instagram',j_c2:'Follow @oronorteai',f_name:'Name',f_email:'Email',f_go:'Reserve my spot',ok:"You're on the list. Watch your inbox for founding updates.",err:'Please enter your name and a valid email.',fail:'Something went wrong. Please try again in a minute.',
@@ -784,13 +784,13 @@ es:{
      ['Trabajan las 24 horas','Cada pocas horas el equipo corre un ciclo: investiga la demanda, crea ofertas, encuentra clientes y publica contenido.','actividad en vivo'],
      ['Tú apruebas lo importante','El gasto por encima de tu límite, las cuentas nuevas, los contratos y cualquier operación real llegan primero a tu escritorio, con una segunda opinión adjunta.','aprobaciones'],
      ['El libro contable lo demuestra','Un ingreso cuenta solo cuando el dinero llega de verdad, con una referencia que puedes comprobar. Los costos y pérdidas también se registran.','el libro contable'],
-     ['Mejoran con el tiempo','Lo que funciona dos veces se vuelve una guía. Los agentes suben de rango solo con resultados verificados, y un revisor independiente los mantiene honestos.','aprendizaje']],
+     ['Se ganan su propio equipo','Lo que funciona dos veces se vuelve una guía. Los agentes suben de rango solo con resultados verificados. El que mantiene 3× su fondeo durante 30 días se vuelve Socio y puede proponer su propio equipo, con tu aprobación para cada agente nuevo.','aprendizaje']],
  feed:[['ATLAS','Mapeó 3 mercados locales desatendidos en Houston y Miami','investigación'],['VEGA','Creó una plantilla de reservas bilingüe, lista para vender','producto'],['ORION','Redactó 6 propuestas personalizadas en español','ventas'],['LYRA','Programó 3 reels y un carrusel para revisión','contenido'],['SIRIUS','Encontró 41 negocios con una necesidad pública, respetando las bajas','prospectos'],['POLARIS','Movió presupuesto hacia la plantilla; informe semanal enviado','ceo']],
  ledger:[['VEGA · venta de plantilla','Stripe pi_…8F2','+$29.00'],['ORION · cliente con iguala','Factura #0042','+$400.00'],['LYRA · prueba de anuncios (aprobada)','Meta ads','−$40.00'],['VEGA · venta de plantilla','Stripe pi_…A91','+$29.00'],['Uso de IA esta semana','Factura del proveedor','−$18.00'],['VEGA · venta de plantilla','Stripe pi_…C07','+$24.00']],
  m_mk:'Mercados',m_mk1:'Servicios locales',m_mk2:'Productos digitales',m_mk3:'Agencias',m_mk4:'E-commerce',m_lg:'Idiomas',m_lim:'Límite de gasto diario',m_ap:'Pregúntame antes de',m_ap1:'Gastos de más de $10',m_ap2:'Cuentas nuevas',m_ap3:'Contratos',m_ap4:'Trading real',
  m_ak:'Se necesita tu aprobación',m_ah:'VEGA quiere lanzar una plantilla de reservas bilingüe de $29',m_ap:'ATLAS encontró 140 salones locales que buscan páginas de reservas en español. ORION tiene 6 prospectos interesados. Se necesita presupuesto para la primera prueba de anuncios.',m_m1:'Gasto',m_m2:'Revisión',m_m3:'Riesgo',m_y:'Aprobar',m_n:'Rechazar',
  m_l1:'Registro',m_l2:'Comprobante',m_l3:'Monto',m_net:'Neto de la semana',m_ex:'Cifras de ejemplo. Los libros reales muestran resultados reales, incluidas las pérdidas.',
- m_pb:'Guías',m_pbp:'Cuando algo genera ingresos dos veces con pruebas, se vuelve una guía que todos los agentes siguen.',m_gf:'Segunda opinión',m_gfp:'Un revisor independiente revisa cada gasto, cada escalamiento y cada guía. Si no puede revisar, la respuesta es no.',m_rk:'Rangos ganados con el libro contable',
+ m_pb:'Guías',m_pbp:'Cuando algo genera ingresos dos veces con pruebas, se vuelve una guía que todos los agentes siguen.',m_gf:'Segunda opinión',m_gfp:'Un revisor independiente revisa cada gasto, cada escalamiento y cada guía. Si no puede revisar, la respuesta es no.',m_rk:'Rangos ganados con el libro contable',m_ladder:'NOVATO → ASOCIADO → CERRADOR → SOCIO (3×, GANA UN EQUIPO) → TITÁN',
  b_eye:'Qué construimos',b_h:'No es un chatbot. Es un sistema operativo completo para tu empresa.',b_p:'Ocho sistemas trabajan juntos debajo de ORONORTE. Cada uno existe para que los agentes sean más útiles, más responsables o más seguros.',
  mods:[['cc','Centro de mando','Tu escritorio: actividad en vivo, aprobaciones, el libro contable y un informe semanal de POLARIS. En computadora y celular.'],
        ['board','La Junta','Rangos, trofeos y tablas de posiciones para tus agentes, calculados solo con registros reales.'],
@@ -829,6 +829,7 @@ es:{
   ['¿Qué significa "límites en el código"?','Tus topes de gasto, umbrales de aprobación y límites de trading son reglas fijas del software, no instrucciones que una IA pueda evadir. Ningún agente puede subir sus propios límites.'],
   ['¿En qué idiomas funciona?','Inglés y español desde el primer día, con portugués incluido. Tus agentes escriben, venden y reportan en los idiomas que elijas.'],
   ['¿Para quién es?','Dueños de pequeños negocios, creadores, agencias y consultores, emprendedores que lanzan un producto y negocios bilingües en EE. UU. y Latinoamérica.'],
+  ['¿Los agentes pueden formar su propio equipo?','Sí, pero solo si se lo ganan. El agente que mantiene 3× su fondeo durante 30 días seguidos llega a Socio y puede proponer agentes nuevos que trabajen bajo su mando. Cada agente nuevo necesita tu aprobación, y cuando ese equipo genera utilidad, su líder se vuelve Titán.'],
   ['¿Cuándo puedo empezar?','Los miembros fundadores tienen acceso anticipado primero. Envía “NORTE” a @oronorteai en Instagram para apartar uno de los primeros 100 lugares.']],
  j_eye:'Miembros fundadores',j_h:'Los primeros 100 tienen 40% de descuento de por vida.',j_p:'Primero estamos probando ORONORTE en nuestra propia empresa, con cada resultado en un libro contable en vivo. Los fundadores tienen acceso anticipado, el precio fundador de por vida y un lugar en primera fila.',
  j_c1:'Envía “NORTE” por Instagram',j_c2:'Sigue a @oronorteai',f_name:'Nombre',f_email:'Correo',f_go:'Apartar mi lugar',ok:'Ya estás en la lista. Revisa tu correo para las novedades fundadoras.',err:'Escribe tu nombre y un correo válido.',fail:'Algo salió mal. Inténtalo de nuevo en un minuto.',
@@ -848,13 +849,13 @@ pt:{
      ['Trabalham sem parar','A cada poucas horas a equipe roda um ciclo: pesquisa a demanda, cria ofertas, encontra clientes e publica conteúdo.','atividade ao vivo'],
      ['Você aprova o que importa','Gastos acima do limite, contas novas, contratos e qualquer operação real chegam primeiro à sua mesa, com uma segunda opinião anexada.','aprovações'],
      ['O livro-caixa comprova','Receita só conta quando o dinheiro chega de verdade, com uma referência que você pode conferir. Custos e perdas também são registrados.','o livro-caixa'],
-     ['Eles melhoram','O que funciona duas vezes vira um manual. Os agentes sobem de nível só com resultados verificados, e um revisor independente os mantém honestos.','aprendizado']],
+     ['Eles conquistam a própria equipe','O que funciona duas vezes vira um manual. Os agentes sobem de nível só com resultados verificados. Quem mantém 3× o seu financiamento por 30 dias vira Sócio e pode propor a própria equipe, com a sua aprovação para cada novo agente.','aprendizado']],
  feed:[['ATLAS','Mapeou 3 mercados locais mal atendidos em Houston e Miami','pesquisa'],['VEGA','Criou um modelo de agendamento bilíngue, pronto para vender','produto'],['ORION','Redigiu 6 propostas personalizadas em espanhol','vendas'],['LYRA','Agendou 3 reels e um carrossel para revisão','conteúdo'],['SIRIUS','Encontrou 41 negócios com uma necessidade pública, respeitando opt-outs','leads'],['POLARIS','Moveu verba para o modelo; relatório semanal enviado','ceo']],
  ledger:[['VEGA · venda de modelo','Stripe pi_…8F2','+$29.00'],['ORION · cliente mensal','Fatura #0042','+$400.00'],['LYRA · teste de anúncios (aprovado)','Meta ads','−$40.00'],['VEGA · venda de modelo','Stripe pi_…A91','+$29.00'],['Uso de IA na semana','Conta do provedor','−$18.00'],['VEGA · venda de modelo','Stripe pi_…C07','+$24.00']],
  m_mk:'Mercados',m_mk1:'Serviços locais',m_mk2:'Produtos digitais',m_mk3:'Agências',m_mk4:'E-commerce',m_lg:'Idiomas',m_lim:'Limite diário de gastos',m_ap:'Pergunte antes de',m_ap1:'Gastos acima de $10',m_ap2:'Contas novas',m_ap3:'Contratos',m_ap4:'Trading real',
  m_ak:'Aprovação do Fundador',m_ah:'VEGA quer lançar um modelo de agendamento bilíngue de $29',m_ap:'ATLAS encontrou 140 salões locais buscando páginas de agendamento em espanhol. ORION tem 6 leads interessados. É preciso verba para o primeiro teste de anúncios.',m_m1:'Gasto',m_m2:'Revisão',m_m3:'Risco',m_y:'Aprovar',m_n:'Recusar',
  m_l1:'Lançamento',m_l2:'Comprovante',m_l3:'Valor',m_net:'Líquido da semana',m_ex:'Números de exemplo. Livros reais mostram resultados reais, inclusive perdas.',
- m_pb:'Manuais',m_pbp:'Quando algo gera receita duas vezes com prova, vira um manual que todos os agentes seguem.',m_gf:'Segunda opinião',m_gfp:'Um revisor independente confere cada gasto, expansão e manual. Se não puder revisar, a resposta é não.',m_rk:'Níveis conquistados pelo livro-caixa',
+ m_pb:'Manuais',m_pbp:'Quando algo gera receita duas vezes com prova, vira um manual que todos os agentes seguem.',m_gf:'Segunda opinião',m_gfp:'Um revisor independente confere cada gasto, expansão e manual. Se não puder revisar, a resposta é não.',m_rk:'Níveis conquistados pelo livro-caixa',m_ladder:'NOVATO → ASSOCIADO → FECHADOR → SÓCIO (3×, GANHA UMA EQUIPE) → TITÃ',
  b_eye:'O que construímos',b_h:'Não é um chatbot. É um sistema operacional completo para sua empresa.',b_p:'Oito sistemas trabalham juntos por baixo do ORONORTE. Cada um existe para tornar os agentes mais úteis, mais responsáveis ou mais seguros.',
  mods:[['cc','Central de comando','Sua mesa: atividade ao vivo, aprovações, o livro-caixa e um relatório semanal do POLARIS. No computador e no celular.'],
        ['board','O Conselho','Níveis, troféus e rankings dos seus agentes, calculados só com lançamentos reais.'],
@@ -893,6 +894,7 @@ pt:{
   ['O que significa "limites no código"?','Seus tetos de gasto, limites de aprovação e de trading são regras fixas do software, não instruções que uma IA possa contornar. Nenhum agente aumenta os próprios limites.'],
   ['Em quais idiomas funciona?','Inglês e espanhol desde o primeiro dia, com português incluído. Seus agentes escrevem, vendem e reportam nos idiomas que você escolher.'],
   ['Para quem é?','Donos de pequenos negócios, criadores, agências e consultores, empreendedores lançando um produto e negócios bilíngues nos EUA e na América Latina.'],
+  ['Os agentes podem formar a própria equipe?','Sim, mas só conquistando. O agente que mantém 3× o seu financiamento por 30 dias seguidos chega a Sócio e pode propor novos agentes trabalhando para ele. Cada novo agente precisa da sua aprovação, e quando essa equipe dá lucro, o líder vira Titã.'],
   ['Quando posso começar?','Os membros fundadores têm acesso antecipado primeiro. Mande “NORTE” para @oronorteai no Instagram para reservar uma das 100 primeiras vagas.']],
  j_eye:'Membros fundadores',j_h:'Os 100 primeiros têm 40% de desconto vitalício.',j_p:'Estamos provando o ORONORTE na nossa própria empresa primeiro, com cada resultado em um livro-caixa ao vivo. Fundadores têm acesso antecipado, o preço fundador para sempre e um lugar na primeira fila.',
  j_c1:'Mande “NORTE” no Instagram',j_c2:'Siga @oronorteai',f_name:'Nome',f_email:'E-mail',f_go:'Reservar minha vaga',ok:'Você está na lista. Fique de olho no seu e-mail.',err:'Digite seu nome e um e-mail válido.',fail:'Algo deu errado. Tente de novo em um minuto.',
@@ -988,7 +990,7 @@ en:{n_built:'Live demo',
  mf:[['Every founder knows the 2 a.m. feeling.',0],['Too many roles. Not enough hours.',0],['No one to hand the night shift to.',0],['ORONORTE is the team that keeps working while you sleep,',1],['and shows you every dollar in the morning.',1]],
  e_eye:'The engine, live',e_h:'Watch your company think.',e_p:'Drag to turn the system. Click any agent to see what it does and where its work goes next. Every gold pulse is a task moving through the company: research becomes a product, a product becomes a sale, a sale becomes a ledger entry.',
  e_hint:'Drag to rotate · Click an agent',e_lg1:'Task',e_lg2:'Verified money',e_sel:'Selected agent',e_now:'Working now',e_to:'Sends work to',e_from:'Gets work from',
- n_founder:'YOU',n_ledger:'LEDGER',
+ n_founder:'FOUNDER',n_ledger:'LEDGER',e_sample:'sample data',e_child:'3× PROVEN · TEAM EARNED',
  ag:{polaris:['Reviewing the week. Moving $20 of budget from the ad test to the template that is selling.','every agent, and your desk'],
      atlas:['Ranking 12 local markets by unmet demand. Top find: salons that need Spanish booking pages.','VEGA and ORION'],
      vega:['Finishing a bilingual booking template and its checkout page.','ORION, LYRA and the ledger'],
@@ -1004,13 +1006,13 @@ en:{n_built:'Live demo',
  r_ap:'A separate AI reviewer that did not write the code went through billing, security and the agents’ limits looking for ways things could go wrong. Every critical and high-risk issue was fixed and is now covered by a test that runs on every change.',
  tc:[['Your keys never leave you','Agents work through your own accounts. They never see passwords, recovery phrases or wallet keys.'],['Limits in code, not promises','Spending caps and approval rules are fixed in the software. No agent can raise its own limits.'],['A second opinion on big decisions','An independent reviewer checks spends, scale-ups and playbooks, and says no if it cannot check.'],['Built in public','We run our own company on ORONORTE first and share the real ledger every week on @oronorteai.']],
  r_lt:'A letter from the Founder',r_sig:'Diego · Founder, ORONORTE',
- letter:['I grew up in Argentina and came to the United States when I was twelve. Since then I have built businesses in fitness, sales, product invention, food and beverage, construction, venture capital and fashion, on both sides of the border.','Every one of them taught me the same lesson: the hardest part of a business is not the idea. It is carrying everything at once.','I built ORONORTE to give every founder the team I wished I had: one that works through the night, speaks your customers’ language, and shows you every dollar in the morning. No promises. Just a north star, and a ledger that tells the truth.']
+ letter:['I was born in Burlington, Vermont, grew up in Argentina, and came back to the United States when I was twelve. Since then I have built businesses in fitness, sales, product invention, food and beverage, construction, venture capital and fashion, on both sides of the border.','Every one of them taught me the same lesson: the hardest part of a business is not the idea. It is carrying everything at once.','I built ORONORTE to give every founder the team I wished I had: one that works through the night, speaks your customers’ language, and shows you every dollar in the morning. No promises. Just a north star, and a ledger that tells the truth.']
 },
 es:{n_built:'Demo en vivo',
  mf:[['Todo fundador conoce la sensación de las 2 de la mañana.',0],['Demasiados roles. Muy pocas horas.',0],['Nadie a quien pasarle el turno de noche.',0],['ORONORTE es el equipo que sigue trabajando mientras duermes,',1],['y te muestra cada dólar por la mañana.',1]],
  e_eye:'El motor, en vivo',e_h:'Mira pensar a tu empresa.',e_p:'Arrastra para girar el sistema. Haz clic en cualquier agente para ver qué hace y a dónde va su trabajo. Cada pulso dorado es una tarea que recorre la empresa: la investigación se vuelve producto, el producto se vuelve venta y la venta se vuelve un registro en el libro contable.',
  e_hint:'Arrastra para girar · Haz clic en un agente',e_lg1:'Tarea',e_lg2:'Dinero verificado',e_sel:'Agente seleccionado',e_now:'Trabajando ahora',e_to:'Envía trabajo a',e_from:'Recibe trabajo de',
- n_founder:'TÚ',n_ledger:'LIBRO',
+ n_founder:'FUNDADOR',n_ledger:'LIBRO',e_sample:'datos de ejemplo',e_child:'3× COMPROBADO · EQUIPO GANADO',
  ag:{polaris:['Revisando la semana. Mueve $20 del presupuesto de la prueba de anuncios a la plantilla que se está vendiendo.','todos los agentes y tu escritorio'],
      atlas:['Ordenando 12 mercados locales por demanda sin atender. Hallazgo principal: salones que necesitan reservas en español.','VEGA y ORION'],
      vega:['Terminando una plantilla de reservas bilingüe y su página de pago.','ORION, LYRA y el libro contable'],
@@ -1026,13 +1028,13 @@ es:{n_built:'Demo en vivo',
  r_ap:'Un revisor de IA independiente, que no escribió el código, recorrió los cobros, la seguridad y los límites de los agentes buscando qué podía salir mal. Cada problema crítico y de alto riesgo se corrigió y hoy lo cubre una prueba que corre con cada cambio.',
  tc:[['Tus llaves nunca salen de tus manos','Los agentes trabajan con tus propias cuentas. Nunca ven contraseñas, frases de recuperación ni llaves de wallet.'],['Límites en el código, no promesas','Los topes de gasto y las reglas de aprobación están fijos en el software. Ningún agente puede subir sus propios límites.'],['Segunda opinión en las decisiones grandes','Un revisor independiente revisa gastos, escalamientos y guías, y dice que no si no puede revisar.'],['Construido en público','Primero operamos nuestra propia empresa con ORONORTE y compartimos el libro real cada semana en @oronorteai.']],
  r_lt:'Una carta del Fundador',r_sig:'Diego · Fundador, ORONORTE',
- letter:['Crecí en Argentina y llegué a Estados Unidos a los doce años. Desde entonces he creado negocios en fitness, ventas, invención de productos, alimentos y bebidas, construcción, capital de riesgo y moda, de los dos lados de la frontera.','Cada uno me enseñó lo mismo: lo más difícil de un negocio no es la idea. Es cargar con todo a la vez.','Creé ORONORTE para darle a cada fundador el equipo que yo hubiera querido tener: uno que trabaja toda la noche, habla el idioma de tus clientes y te muestra cada dólar por la mañana. Sin promesas. Solo una estrella del norte y un libro contable que dice la verdad.']
+ letter:['Nací en Burlington, Vermont, crecí en Argentina y volví a Estados Unidos a los doce años. Desde entonces he creado negocios en fitness, ventas, invención de productos, alimentos y bebidas, construcción, capital de riesgo y moda, de los dos lados de la frontera.','Cada uno me enseñó lo mismo: lo más difícil de un negocio no es la idea. Es cargar con todo a la vez.','Creé ORONORTE para darle a cada fundador el equipo que yo hubiera querido tener: uno que trabaja toda la noche, habla el idioma de tus clientes y te muestra cada dólar por la mañana. Sin promesas. Solo una estrella del norte y un libro contable que dice la verdad.']
 },
 pt:{n_built:'Demo ao vivo',
  mf:[['Todo fundador conhece a sensação das 2 da manhã.',0],['Papéis demais. Horas de menos.',0],['Ninguém para assumir o turno da noite.',0],['O ORONORTE é a equipe que continua trabalhando enquanto você dorme,',1],['e mostra cada dólar pela manhã.',1]],
  e_eye:'O motor, ao vivo',e_h:'Veja sua empresa pensar.',e_p:'Arraste para girar o sistema. Clique em qualquer agente para ver o que ele faz e para onde vai o trabalho dele. Cada pulso dourado é uma tarefa percorrendo a empresa: pesquisa vira produto, produto vira venda, venda vira lançamento no livro-caixa.',
  e_hint:'Arraste para girar · Clique em um agente',e_lg1:'Tarefa',e_lg2:'Dinheiro verificado',e_sel:'Agente selecionado',e_now:'Trabalhando agora',e_to:'Envia trabalho para',e_from:'Recebe trabalho de',
- n_founder:'VOCÊ',n_ledger:'LIVRO',
+ n_founder:'FUNDADOR',n_ledger:'LIVRO',e_sample:'dados de exemplo',e_child:'3× COMPROVADO · EQUIPE CONQUISTADA',
  ag:{polaris:['Revisando a semana. Movendo $20 da verba do teste de anúncios para o modelo que está vendendo.','todos os agentes e a sua mesa'],
      atlas:['Classificando 12 mercados locais por demanda não atendida. Destaque: salões que precisam de agendamento em espanhol.','VEGA e ORION'],
      vega:['Finalizando um modelo de agendamento bilíngue e sua página de pagamento.','ORION, LYRA e o livro-caixa'],
@@ -1048,7 +1050,7 @@ pt:{n_built:'Demo ao vivo',
  r_ap:'Um revisor de IA independente, que não escreveu o código, analisou cobrança, segurança e os limites dos agentes procurando o que poderia dar errado. Todo problema crítico e de alto risco foi corrigido e hoje é coberto por um teste que roda a cada mudança.',
  tc:[['Suas chaves nunca saem das suas mãos','Os agentes trabalham pelas suas próprias contas. Nunca veem senhas, frases de recuperação ou chaves de carteira.'],['Limites no código, não promessas','Tetos de gasto e regras de aprovação são fixos no software. Nenhum agente aumenta os próprios limites.'],['Segunda opinião nas grandes decisões','Um revisor independente confere gastos, expansões e manuais, e diz não se não puder conferir.'],['Construído em público','Rodamos a nossa própria empresa no ORONORTE primeiro e mostramos o livro-caixa real toda semana no @oronorteai.']],
  r_lt:'Uma carta do Fundador',r_sig:'Diego · Fundador, ORONORTE',
- letter:['Cresci na Argentina e cheguei aos Estados Unidos aos doze anos. Desde então criei negócios em fitness, vendas, invenção de produtos, alimentos e bebidas, construção, capital de risco e moda, dos dois lados da fronteira.','Cada um deles me ensinou a mesma lição: a parte mais difícil de um negócio não é a ideia. É carregar tudo ao mesmo tempo.','Criei o ORONORTE para dar a cada fundador a equipe que eu gostaria de ter tido: uma que trabalha a noite toda, fala o idioma dos seus clientes e mostra cada dólar pela manhã. Sem promessas. Só uma estrela do norte e um livro-caixa que diz a verdade.']
+ letter:['Nasci em Burlington, Vermont, cresci na Argentina e voltei aos Estados Unidos aos doze anos. Desde então criei negócios em fitness, vendas, invenção de produtos, alimentos e bebidas, construção, capital de risco e moda, dos dois lados da fronteira.','Cada um deles me ensinou a mesma lição: a parte mais difícil de um negócio não é a ideia. É carregar tudo ao mesmo tempo.','Criei o ORONORTE para dar a cada fundador a equipe que eu gostaria de ter tido: uma que trabalha a noite toda, fala o idioma dos seus clientes e mostra cada dólar pela manhã. Sem promessas. Só uma estrela do norte e um livro-caixa que diz a verdade.']
 }};
 for (const k in T2) Object.assign(T[k], T2[k]);
 
@@ -1146,75 +1148,219 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   frame();
 })();
 
-// Engine: the syndicate in 3D, with task and money packets flowing between agents.
+// Engine: the syndicate in a galaxy. 3D POLARIS, the Founder's mind above, a ledger that stacks real coins below.
 window.orrery = (() => {
-  const box = $('#orrery'), c = $('#orc'); const sp = Space(c, {yaw: .5, pitch: .38, dist: 3.6, cy: .5});
-  const ring = ['atlas', 'vega', 'orion', 'sirius', 'lyra', 'nova'];
-  const N = {polaris: {p: [0, 0, 0], r: 1}, founder: {p: [0, 1.05, 0], r: .55}, ledger: {p: [0, -1.0, 0], r: .7}};
-  const edges = [['atlas', 'vega', 0], ['vega', 'orion', 0], ['sirius', 'orion', 0], ['vega', 'lyra', 0], ['orion', 'ledger', 1], ['vega', 'ledger', 1], ['nova', 'ledger', 0], ['polaris', 'founder', 0],
-                 ...ring.map(k => ['polaris', k, 0])];
-  let packets = [], t = 0, focus = 'polaris', hover = null, drag = null, moved = 0;
-  function layout() { ring.forEach((k, i) => { const a = i / ring.length * 6.283 + t * .05; N[k] = {p: [1.25 * Math.cos(a), .18 * Math.sin(a * 2 + t * .4), 1.25 * Math.sin(a)], r: .62}; }); }
-  function spawn() { const pool = edges.filter(e => focus === 'polaris' || e[0] === focus || e[1] === focus); const e = pool[Math.random() * pool.length | 0]; packets.push({e, u: 0, v: .006 + Math.random() * .006}); }
-  function lerpArc(a, b, u) { const m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + .35, (a[2] + b[2]) / 2], k = 1 - u;
+  const box = $('#orrery'), c = $('#orc'); const sp = Space(c, {yaw: .55, pitch: .40, dist: 3.9, cy: .5, scale: () => Math.min(sp.w * .78, sp.h) * .31});
+  const x = sp.x, ring = ['atlas', 'vega', 'orion', 'sirius', 'lyra', 'nova'];
+  const N = {polaris: {p: [0, 0, 0]}, founder: {p: [0, 1.22, 0]}, ledger: {p: [0, -1.12, 0]}};
+  const MONEY = [29, 400, 24, 29, 300, 49, 29, 150];
+  let t = 0, focus = 'polaris', hover = null, drag = null, moved = 0, packets = [], floats = [], sparks = [], total = 0, mi = 0;
+  const born = {at: 7, done: false, flash: 0};
+
+  // camera-space rotation (no projection) for lighting
+  function rot(p) { const cy = Math.cos(sp.S.yaw), sy = Math.sin(sp.S.yaw), cp = Math.cos(sp.S.pitch), s2 = Math.sin(sp.S.pitch);
+    const X = p[0] * cy - p[2] * sy, Z = p[0] * sy + p[2] * cy; return [X, p[1] * cp - Z * s2, p[1] * s2 + Z * cp]; }
+  const ok = q => q && (sp.S.dist + q.z) > .25;
+
+  // ---- deep space: nebula (cached), a spiral galaxy and a star shell, all in 3D ----
+  let neb = null;
+  function nebula() { const w = sp.w, h = sp.h; neb = document.createElement('canvas'); neb.width = w; neb.height = h; const g = neb.getContext('2d');
+    const blobs = [[.18, .25, .55, '74,40,120', .35], [.82, .2, .5, '20,70,95', .30], [.7, .85, .6, '120,80,20', .22], [.3, .8, .45, '40,30,90', .28], [.5, .45, .35, '233,194,90', .07]];
+    for (const [bx, by, br, col, a] of blobs) { const r = Math.max(w, h) * br, gr = g.createRadialGradient(bx * w, by * h, 0, bx * w, by * h, r);
+      gr.addColorStop(0, `rgba(${col},${a})`); gr.addColorStop(1, `rgba(${col},0)`); g.fillStyle = gr; g.fillRect(0, 0, w, h); } }
+  const galaxy = Array.from({length: 2600}, (_, i) => { const arm = i % 3, d = Math.pow(Math.random(), .6) * 4.2, a = arm * 2.094 + d * 1.35 + (Math.random() - .5) * .55 * (1.2 - d / 4.2);
+    const hue = Math.random(); return {r: d, a, y: (Math.random() - .5) * .12 * (1.2 - d / 4.2), m: Math.random(),
+      col: d < .9 ? '255,236,190' : hue < .55 ? '244,233,204' : hue < .8 ? '180,160,255' : '140,220,255'}; });
+  const shell = Array.from({length: 700}, () => { const u = Math.random() * 2 - 1, th = Math.random() * 6.283, r = 7 + Math.random() * 5, q = Math.sqrt(1 - u * u);
+    return {p: [r * q * Math.cos(th), r * u, r * q * Math.sin(th)], m: Math.random(), ph: Math.random() * 6.28}; });
+  const GC = [-2.2, -.2, 6.5], GT = .45;
+
+  // ---- POLARIS: a faceted 3D north star ----
+  const L4 = .30, LZ = .15, W = .055;
+  const tips = [[0, L4, 0], [0, -L4, 0], [L4, 0, 0], [-L4, 0, 0], [0, 0, LZ], [0, 0, -LZ]];
+  const waist = []; for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) waist.push([sx * W, sy * W, sz * W]);
+  const faces = [];
+  tips.forEach(tp => { const ax = tp.map(v => Math.sign(v)), k = ax.findIndex(v => v !== 0);
+    const ws = waist.filter(w => Math.sign(w[k]) === ax[k]);
+    const o = [0, 1, 2].filter(i => i !== k);
+    ws.sort((A, B) => Math.atan2(A[o[1]], A[o[0]]) - Math.atan2(B[o[1]], B[o[0]]));
+    for (let i = 0; i < 4; i++) faces.push([tp, ws[i], ws[(i + 1) % 4]]); });
+  function starSpin(p, a) { const ca = Math.cos(a), sa = Math.sin(a), ct = Math.cos(.35), st = Math.sin(.35);
+    const X = p[0] * ca + p[2] * sa, Z = -p[0] * sa + p[2] * ca; return [X, p[1] * ct - Z * st, p[1] * st + Z * ct]; }
+
+  // ---- the Founder: a brain drawn as folded light ----
+  const curves = [];
+  for (const sd of [-1, 1]) {
+    for (let j = 0; j < 9; j++) { const u0 = .18 + j * .19, pts = [];
+      for (let v = -1.35; v <= 1.351; v += .06) { const u = u0 + .09 * Math.sin(v * 8 + j * 1.9) * Math.sin(u0 * 2);
+        pts.push([sd * (.022 + .23 * Math.sin(u) * Math.cos(v * .92)), .17 * Math.cos(u) * Math.cos(v * .92) * (Math.cos(u) < 0 ? .7 : 1), .29 * Math.sin(v)]); }
+      curves.push(pts); }
+    for (let k = 0; k < 5; k++) { const v0 = -1.1 + k * .55, pts = [];
+      for (let u = .1; u <= 1.95; u += .07) { const v = v0 + .07 * Math.sin(u * 9 + k); pts.push([sd * (.022 + .23 * Math.sin(u) * Math.cos(v * .92)), .17 * Math.cos(u) * Math.cos(v * .92) * (Math.cos(u) < 0 ? .7 : 1), .29 * Math.sin(v)]); }
+      curves.push(pts); } }
+  const bEdges = curves.map((c, i) => [i]);
+
+  // ---- the ledger: coin stacks ----
+  const stacks = [0, 1, 2, 3, 4].map(i => ({p: [Math.cos(i * 1.2566) * .2, 0, Math.sin(i * 1.2566) * .2], n: 2 + (i % 2)}));
+  const COIN_R = .075, COIN_H = .03, MAXC = 12;
+
+  function layout() { ring.forEach((k, i) => { const a = i / ring.length * 6.283 + t * .045; N[k] = {p: [1.3 * Math.cos(a), .16 * Math.sin(a * 2 + t * .4), 1.3 * Math.sin(a)]}; });
+    const v = N.vega.p, ca = t * .9; N.vega2 = {p: [v[0] + .3 * Math.cos(ca), v[1] + .08, v[2] + .3 * Math.sin(ca)]}; }
+  const edges = () => { const e = [['atlas', 'vega', 0], ['vega', 'orion', 0], ['sirius', 'orion', 0], ['vega', 'lyra', 0], ['orion', 'ledger', 1], ['vega', 'ledger', 1], ['nova', 'ledger', 0],
+    ['polaris', 'founder', 0], ['founder', 'polaris', 2], ...ring.map(k => ['polaris', k, 0])]; if (born.done) e.push(['vega', 'vega2', 0], ['vega2', 'ledger', 1]); return e; };
+  function arc(a, b, u) { const m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + .4, (a[2] + b[2]) / 2], k = 1 - u;
     return [k * k * a[0] + 2 * k * u * m[0] + u * u * b[0], k * k * a[1] + 2 * k * u * m[1] + u * u * b[1], k * k * a[2] + 2 * k * u * m[2] + u * u * b[2]]; }
-  function label(k) { const L = T[lang]; return k === 'founder' ? L.n_founder : k === 'ledger' ? L.n_ledger : k.toUpperCase(); }
+  function spawn() { const pool = edges().filter(e => focus === 'polaris' || e[0] === focus || e[1] === focus || (focus === 'vega' && e[0] === 'vega2'));
+    const e = pool[Math.random() * pool.length | 0]; packets.push({e, u: 0, v: .005 + Math.random() * .006}); }
+  function label(k) { const L = T[lang]; return k === 'founder' ? L.n_founder : k === 'ledger' ? L.n_ledger : k === 'vega2' ? 'VEGA·II' : k.toUpperCase(); }
+
+  function orb(q, R, col, hot) { // a lit sphere with a halo
+    glow(x, q.x, q.y, R * 4, hot ? .45 : .3, col);
+    const g = x.createRadialGradient(q.x - R * .35, q.y - R * .4, R * .1, q.x, q.y, R);
+    g.addColorStop(0, 'rgba(255,250,230,1)'); g.addColorStop(.35, `rgba(${col},.95)`); g.addColorStop(1, 'rgba(60,40,10,.9)');
+    x.fillStyle = g; x.beginPath(); x.arc(q.x, q.y, R, 0, 6.283); x.fill(); }
+  function ringAround(c3, r, tilt, alpha) { x.beginPath(); for (let a = 0; a <= 6.3; a += .2) { const q = sp.proj([c3[0] + r * Math.cos(a), c3[1] + r * Math.sin(a) * tilt, c3[2] + r * Math.sin(a)]); a ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
+    x.strokeStyle = `rgba(233,194,90,${alpha})`; x.lineWidth = .6; x.stroke(); }
+  function coin(c3, k) { const pts = []; for (let a = 0; a < 6.283; a += .5236) pts.push(sp.proj([c3[0] + COIN_R * Math.cos(a), c3[1], c3[2] + COIN_R * Math.sin(a)]));
+    const top = []; for (let a = 0; a < 6.283; a += .5236) top.push(sp.proj([c3[0] + COIN_R * Math.cos(a), c3[1] + COIN_H, c3[2] + COIN_R * Math.sin(a)]));
+    x.fillStyle = 'rgba(120,84,22,.95)'; x.beginPath(); pts.forEach((q, i) => i ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y)); top.slice().reverse().forEach(q => x.lineTo(q.x, q.y)); x.fill();
+    const ct = sp.proj([c3[0], c3[1] + COIN_H, c3[2]]), g = x.createLinearGradient(ct.x - 20, ct.y - 6, ct.x + 20, ct.y + 6);
+    g.addColorStop(0, '#B8872E'); g.addColorStop(.45, k ? '#FFF3C4' : '#F7DC86'); g.addColorStop(1, '#C99A3E');
+    x.fillStyle = g; x.beginPath(); top.forEach((q, i) => i ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y)); x.closePath(); x.fill();
+    x.strokeStyle = 'rgba(255,240,190,.5)'; x.lineWidth = .6; x.stroke(); }
+
   function frame() {
     requestAnimationFrame(frame); if (!sp.running) return;
-    const x = sp.x, w = sp.w, h = sp.h; t += reduceMotion ? 0 : .016;
-    if (!drag) { sp.S.yaw += sp.S.vyaw + (reduceMotion ? 0 : .0018); sp.S.pitch += sp.S.vpitch; sp.S.vyaw *= .94; sp.S.vpitch *= .9; }
-    sp.S.pitch = Math.max(-.2, Math.min(1.1, sp.S.pitch));
-    layout(); if (!reduceMotion && Math.random() < .22) spawn();
-    x.clearRect(0, 0, w, h);
-    // floor grid
-    x.lineWidth = 1;
-    for (let i = -4; i <= 4; i++) { const a = sp.proj([i * .4, -1.25, -1.6]), b = sp.proj([i * .4, -1.25, 1.6]); x.strokeStyle = 'rgba(233,194,90,.05)'; x.beginPath(); x.moveTo(a.x, a.y); x.lineTo(b.x, b.y); x.stroke();
-      const c2 = sp.proj([-1.6, -1.25, i * .4]), d = sp.proj([1.6, -1.25, i * .4]); x.beginPath(); x.moveTo(c2.x, c2.y); x.lineTo(d.x, d.y); x.stroke(); }
-    // orbit ring
-    x.beginPath(); for (let a = 0; a <= 6.29; a += .05) { const q = sp.proj([1.25 * Math.cos(a), 0, 1.25 * Math.sin(a)]); a ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
-    x.strokeStyle = 'rgba(233,194,90,.16)'; x.setLineDash([3, 6]); x.stroke(); x.setLineDash([]);
-    // ledger ring
-    const lq = sp.proj(N.ledger.p); x.beginPath(); for (let a = 0; a <= 6.29; a += .1) { const q = sp.proj([.32 * Math.cos(a), -1.0, .32 * Math.sin(a)]); a ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
-    x.strokeStyle = 'rgba(127,209,168,.45)'; x.stroke();
+    const w = sp.w, h = sp.h; if (!neb || neb.width !== w || neb.height !== h) nebula();
+    t += reduceMotion ? 0 : .016;
+    if (!drag) { sp.S.yaw += sp.S.vyaw + (reduceMotion ? 0 : .0016); sp.S.pitch += sp.S.vpitch; sp.S.vyaw *= .94; sp.S.vpitch *= .9; }
+    sp.S.pitch = Math.max(.12, Math.min(1.0, sp.S.pitch));
+    layout();
+    if (!born.done && t > born.at) { born.done = true; born.flash = 1; }
+    born.flash = Math.max(0, born.flash - .004);
+    if (!reduceMotion && Math.random() < .2) spawn();
+
+    x.clearRect(0, 0, w, h); x.drawImage(neb, (Math.sin(t * .05) * 10), 0);
     x.globalCompositeOperation = 'lighter';
-    // edges
-    for (const [a, b, money] of edges) { const on = focus === 'polaris' || a === focus || b === focus; x.beginPath();
-      for (let u = 0; u <= 1.001; u += .05) { const q = sp.proj(lerpArc(N[a].p, N[b].p, u)); u ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
-      x.strokeStyle = money ? `rgba(${GREEN},${on ? .28 : .06})` : `rgba(${GOLD},${on ? .22 : .05})`; x.lineWidth = on ? 1.3 : 1; x.stroke(); }
-    // packets
-    packets = packets.filter(pk => (pk.u += pk.v) < 1);
-    for (const pk of packets) { const [a, b, money] = pk.e, col = money ? GREEN : GOLD;
-      for (let k = 0; k < 6; k++) { const u = Math.max(0, pk.u - k * .018), q = sp.proj(lerpArc(N[a].p, N[b].p, u)); glow(x, q.x, q.y, (9 - k) * q.s + 2, .5 - k * .07, col); } }
-    // nodes, back to front
-    const order = Object.keys(N).map(k => ({k, q: sp.proj(N[k].p)})).sort((A, B) => B.q.z - A.q.z);
-    for (const {k, q} of order) {
-      const base = N[k].r, isF = k === focus, isH = k === hover, depth = Math.max(.35, Math.min(1, 1.1 - q.z * .35));
-      const R = (k === 'polaris' ? 34 : 15) * base * q.s * (isF || isH ? 1.25 : 1);
-      const col = k === 'ledger' ? GREEN : GOLD;
-      glow(x, q.x, q.y, R * (k === 'polaris' ? 4.5 : 3.4) * (1 + .08 * Math.sin(t * 3 + q.z)), (k === 'polaris' ? .55 : .42) * depth, col);
-      if (k === 'polaris' || k === 'founder') { x.save(); x.translate(q.x, q.y); x.rotate(t * .2 * (k === 'polaris' ? 1 : -1)); const s = R * 1.1; x.fillStyle = `rgba(255,243,196,${depth})`;
-        x.beginPath(); x.moveTo(0, -s); x.lineTo(s * .16, -s * .16); x.lineTo(s, 0); x.lineTo(s * .16, s * .16); x.lineTo(0, s); x.lineTo(-s * .16, s * .16); x.lineTo(-s, 0); x.lineTo(-s * .16, -s * .16); x.closePath(); x.fill(); x.restore(); }
-      else { x.fillStyle = `rgba(${k === 'ledger' ? '200,255,225' : '255,243,196'},${depth})`; x.beginPath(); x.arc(q.x, q.y, Math.max(2.5, R * .32), 0, 6.283); x.fill(); }
-      if (isF && k !== 'polaris') { x.strokeStyle = `rgba(${GOLD},.8)`; x.lineWidth = 1.2; x.beginPath(); x.arc(q.x, q.y, R * 1.3 + 4 + Math.sin(t * 4) * 2, 0, 6.283); x.stroke(); }
-      N[k].q = q; N[k].R = R;
-    }
+    for (const s of shell) { const q = sp.proj(s.p); if (!ok(q)) continue; const a = (.35 + .65 * s.m) * (.6 + .4 * Math.sin(t * 2 + s.ph));
+      x.fillStyle = `rgba(244,233,204,${a * .55})`; x.fillRect(q.x, q.y, .9, .9); }
+    const gr = t * .03;
+    for (const s of galaxy) { const a = s.a + gr * (1.5 - s.r / 4.2), lx = s.r * Math.cos(a), lz = s.r * Math.sin(a);
+      const p = [GC[0] + lx, GC[1] + s.y + lz * Math.sin(GT), GC[2] + lz * Math.cos(GT)], q = sp.proj(p); if (!ok(q)) continue;
+      x.fillStyle = `rgba(${s.col},${(.12 + .38 * s.m) * (s.r < .9 ? 1 : .65)})`; const z = (s.r < .5 ? 1.4 : .9) * Math.max(.6, q.s); x.fillRect(q.x, q.y, z, z); }
+    const gq = sp.proj(GC); if (ok(gq)) glow(x, gq.x, gq.y, 90 * gq.s * 3, .35, '255,226,170');
     x.globalCompositeOperation = 'source-over';
-    for (const {k, q} of order) { const depth = Math.max(.35, Math.min(1, 1.1 - q.z * .35)), big = k === 'polaris';
-      x.font = `700 ${big ? 13 : 11}px Syncopate, Inter, sans-serif`; x.textAlign = 'center'; x.letterSpacing = '3px';
-      x.fillStyle = k === focus || k === hover ? `rgba(255,240,184,${depth})` : `rgba(201,194,178,${depth * .85})`;
-      x.fillText(label(k), q.x, q.y + (big ? 52 : 30) * Math.max(.7, q.s)); }
+
+    // orbit + floor disc
+    ringAround([0, 0, 0], 1.3, 0, .12);
+    const lq = sp.proj(N.ledger.p);
+    x.globalCompositeOperation = 'lighter'; glow(x, lq.x, lq.y, 120 * lq.s, .22, '127,209,168');
+    for (let r = .32; r <= .5; r += .09) ringAround(N.ledger.p, r, 0, .25 - r * .3);
+    x.globalCompositeOperation = 'source-over';
+
+    // edges
+    x.globalCompositeOperation = 'lighter';
+    for (const [a, b, kind] of edges()) { if (kind === 2) continue; const on = focus === 'polaris' || a === focus || b === focus; x.beginPath();
+      for (let u = 0; u <= 1.001; u += .05) { const q = sp.proj(arc(N[a].p, N[b].p, u)); u ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
+      x.strokeStyle = kind === 1 ? `rgba(${GREEN},${on ? .22 : .05})` : `rgba(${GOLD},${on ? .16 : .04})`; x.lineWidth = .7; x.stroke(); }
+    // packets
+    packets = packets.filter(pk => { pk.u += pk.v; if (pk.u < 1) return true;
+      const [a, b, kind] = pk.e;
+      if (b === 'ledger' && kind === 1) { const amt = MONEY[mi++ % MONEY.length]; total += amt;
+        const st = stacks.slice().sort((A, B) => A.n - B.n)[0]; if (st.n < MAXC) st.n++; else stacks.forEach(s => s.n = Math.max(2, s.n - 6));
+        floats.push({p: [st.p[0] + (Math.random() - .5) * .5, -1.12 + st.n * COIN_H + .12, st.p[2]], amt, life: 1}); }
+      if (b === 'founder') for (let i = 0; i < 5; i++) sparks.push({e: [Math.random() * curves.length | 0], u: Math.random() * .3});
+      return false; });
+    for (const pk of packets) { const [a, b, kind] = pk.e, col = kind === 1 ? GREEN : kind === 2 ? '200,220,255' : GOLD;
+      for (let k = 0; k < 10; k++) { const u = Math.max(0, pk.u - k * .01), q = sp.proj(arc(N[a].p, N[b].p, u)); glow(x, q.x, q.y, (6 - k * .45) * q.s + 1.5, .5 - k * .045, col); } }
+    x.globalCompositeOperation = 'source-over';
+
+    // painter's order for the big objects
+    const items = [];
+    items.push({z: lq.z, draw: drawLedger});
+    items.push({z: sp.proj(N.founder.p).z, draw: drawBrain});
+    items.push({z: sp.proj(N.polaris.p).z, draw: drawStar});
+    for (const k of ring) items.push({z: sp.proj(N[k].p).z, draw: () => drawAgent(k)});
+    if (born.done) items.push({z: sp.proj(N.vega2.p).z, draw: () => drawAgent('vega2')});
+    items.sort((A, B) => B.z - A.z).forEach(it => it.draw());
+
+    // floating amounts
+    floats = floats.filter(f => (f.life -= .014) > 0).slice(-3);
+    for (const f of floats) { f.p[1] += .004; const q = sp.proj(f.p); x.globalAlpha = Math.min(1, f.life * 1.5); x.fillStyle = '#9EE6C0'; x.letterSpacing = '0px'; x.font = '500 13px JetBrains Mono, monospace'; x.textAlign = 'center';
+      x.fillText(`+$${f.amt}`, q.x, q.y); x.globalAlpha = 1; }
+    // ledger total
+    const L = T[lang]; x.textAlign = 'center'; x.font = '600 10px Inter, sans-serif'; x.letterSpacing = '3px'; x.fillStyle = 'rgba(158,230,192,.95)';
+    x.fillText(`${label('ledger')} · $${total.toLocaleString('en-US')}`, lq.x, lq.y + 70 * Math.max(.7, lq.s));
+    x.font = '400 10px Inter, sans-serif'; x.letterSpacing = '1px'; x.fillStyle = 'rgba(142,136,120,.9)'; x.fillText(L.e_sample, lq.x, lq.y + 86 * Math.max(.7, lq.s));
+    if (born.flash > 0) { const q0b = N.vega2.q || sp.proj(N.vega2.p), q = {x: Math.max(130, Math.min(w - 130, q0b.x)), y: q0b.y}; x.globalAlpha = Math.min(1, born.flash * 2); x.font = '600 10px Inter, sans-serif'; x.letterSpacing = '3px'; x.fillStyle = '#FFF0B8';
+      x.fillText(L.e_child, q.x, q.y - 34); x.globalAlpha = 1; }
   }
+
+  function drawStar() {
+    const q0 = sp.proj(N.polaris.p), hot = focus === 'polaris' || hover === 'polaris';
+    x.globalCompositeOperation = 'lighter';
+    glow(x, q0.x, q0.y, 170 * q0.s, .26, GOLD); glow(x, q0.x, q0.y, 55 * q0.s, .45, '255,240,200');
+    const fl = 130 * q0.s * (1 + .08 * Math.sin(t * 2)); const lg = x.createLinearGradient(q0.x - fl, 0, q0.x + fl, 0);
+    lg.addColorStop(0, 'rgba(255,226,150,0)'); lg.addColorStop(.5, 'rgba(255,240,200,.55)'); lg.addColorStop(1, 'rgba(255,226,150,0)'); x.fillStyle = lg; x.fillRect(q0.x - fl, q0.y - 1, fl * 2, 2);
+    x.globalCompositeOperation = 'source-over';
+    const spin = t * .45, light = [-.45, .65, -.6], ln = Math.hypot(...light);
+    const F = faces.map(f => { const cam = f.map(v => rot(starSpin(v, spin))), sc = f.map(v => sp.proj(starSpin(v, spin)));
+      const u = cam[1].map((v, i) => v - cam[0][i]), v2 = cam[2].map((v, i) => v - cam[0][i]);
+      let n = [u[1] * v2[2] - u[2] * v2[1], u[2] * v2[0] - u[0] * v2[2], u[0] * v2[1] - u[1] * v2[0]]; const nl = Math.hypot(...n) || 1; n = n.map(a => a / nl);
+      const cz = (cam[0][2] + cam[1][2] + cam[2][2]) / 3; if (n[2] > 0) n = n.map(a => -a);
+      const b = Math.max(0, (n[0] * light[0] + n[1] * light[1] + n[2] * light[2]) / ln); return {sc, z: cz, b}; }).sort((A, B) => B.z - A.z);
+    for (const f of F) { const b = .25 + .75 * f.b, r = Math.round(110 + 145 * b), g = Math.round(76 + 160 * b), bl = Math.round(20 + 170 * b * b);
+      x.fillStyle = `rgb(${r},${g},${bl})`; x.beginPath(); f.sc.forEach((q, i) => i ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y)); x.closePath(); x.fill();
+      x.strokeStyle = `rgba(255,245,215,${.15 + .35 * f.b})`; x.lineWidth = .7; x.stroke(); }
+    if (hot) { x.strokeStyle = 'rgba(255,226,150,.5)'; x.beginPath(); x.arc(q0.x, q0.y, 70 * q0.s + Math.sin(t * 4) * 3, 0, 6.283); x.stroke(); }
+    N.polaris.q = q0; N.polaris.R = 50 * q0.s;
+    txt('polaris', q0, 78);
+  }
+  function drawBrain() {
+    const c3 = N.founder.p, q0 = sp.proj(c3), a = t * .22, ca = Math.cos(a), sa = Math.sin(a);
+    const P = b => sp.proj([c3[0] + b[0] * ca + b[2] * sa, c3[1] + b[1], c3[2] - b[0] * sa + b[2] * ca]);
+    x.globalCompositeOperation = 'lighter'; glow(x, q0.x, q0.y, 120 * q0.s, .22, '160,185,255'); glow(x, q0.x, q0.y, 40 * q0.s, .2, '230,236,255');
+    x.lineWidth = .8; x.lineJoin = 'round';
+    curves.forEach((cv, i) => { const pr = cv.map(P); x.strokeStyle = `rgba(205,218,255,${.22 + .1 * Math.sin(t * 1.5 + i)})`;
+      x.beginPath(); pr.forEach((q, n) => n ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y)); x.stroke(); cv.q = pr; });
+    sparks = sparks.filter(sk => (sk.u += .012) < 1);
+    if (!reduceMotion && Math.random() < .05) sparks.push({e: [Math.random() * curves.length | 0], u: 0});
+    for (const sk of sparks) { const cv = curves[sk.e[0]]; if (!cv.q) continue; const i = Math.min(cv.q.length - 1, sk.u * cv.q.length | 0), q = cv.q[i];
+      glow(x, q.x, q.y, 9, .8 * (1 - sk.u), '255,236,180'); }
+    x.globalCompositeOperation = 'source-over';
+    N.founder.q = q0; N.founder.R = 40 * q0.s; txt('founder', q0, 50, '200,215,255');
+  }
+  function drawLedger() {
+    const base = N.ledger.p; const order = stacks.map(s => ({s, z: sp.proj([base[0] + s.p[0], base[1], base[2] + s.p[2]]).z})).sort((A, B) => B.z - A.z);
+    for (const {s} of order) for (let i = 0; i < s.n; i++) coin([base[0] + s.p[0], base[1] + i * COIN_H, base[2] + s.p[2]], i === s.n - 1);
+    N.ledger.q = sp.proj(base); N.ledger.R = 40;
+  }
+  function drawAgent(k) {
+    const q = sp.proj(N[k].p); if (!ok(q)) return; const child = k === 'vega2', hot = focus === k || hover === k || (child && focus === 'vega');
+    const grow = child ? Math.min(1, (t - born.at) / 1.5) : 1, R = (child ? 7 : 12) * q.s * (hot ? 1.2 : 1) * grow;
+    x.globalCompositeOperation = 'lighter'; if (child && born.flash > 0) glow(x, q.x, q.y, 120 * born.flash * q.s, .5 * born.flash, GOLD); x.globalCompositeOperation = 'source-over';
+    x.globalCompositeOperation = 'lighter'; ringAround(N[k].p, child ? .07 : .12, .35, hot ? .6 : .28); x.globalCompositeOperation = 'source-over';
+    orb(q, R, GOLD, hot);
+    if (focus === k) { x.strokeStyle = 'rgba(255,226,150,.8)'; x.lineWidth = 1.2; x.beginPath(); x.arc(q.x, q.y, R * 2 + Math.sin(t * 4) * 2, 0, 6.283); x.stroke(); }
+    N[k].q = q; N[k].R = R; txt(k, q, child ? 22 : 30);
+  }
+  function txt(k, q, off, col) { const depth = Math.max(.4, Math.min(1, 1.1 - q.z * .3)), big = k === 'polaris';
+    x.font = `${big ? 600 : 500} ${big ? 12 : k === 'vega2' ? 9 : 10}px Inter, sans-serif`; x.textAlign = 'center'; x.letterSpacing = big ? '5px' : '3.5px';
+    x.fillStyle = k === focus || k === hover ? `rgba(255,240,184,${depth})` : col ? `rgba(${col},${depth})` : `rgba(214,206,188,${depth * .9})`;
+    x.fillText(label(k), q.x, q.y + off * Math.max(.75, q.s)); }
+
   function hit(ev) { const r = c.getBoundingClientRect(), px = ev.clientX - r.left, py = ev.clientY - r.top; let best = null, bd = 1e9;
-    for (const k of ['polaris', ...ring]) { const q = N[k].q; if (!q) continue; const d = Math.hypot(q.x - px, q.y - py); if (d < Math.max(26, N[k].R * 1.6) && d < bd) { bd = d; best = k; } } return best; }
+    for (const k of ['polaris', 'founder', 'vega2', ...ring]) { const q = N[k] && N[k].q; if (!q) continue; const d = Math.hypot(q.x - px, q.y - py); if (d < Math.max(24, (N[k].R || 10) * 1.6) && d < bd) { bd = d; best = k; } } return best; }
   box.addEventListener('pointerdown', e => { drag = {x: e.clientX, y: e.clientY}; moved = 0; box.classList.add('drag'); box.setPointerCapture(e.pointerId); });
   box.addEventListener('pointermove', e => { if (drag) { const dx = e.clientX - drag.x, dy = e.clientY - drag.y; moved += Math.abs(dx) + Math.abs(dy);
       sp.S.yaw += dx * .006; sp.S.pitch += dy * .004; sp.S.vyaw = dx * .0008; sp.S.vpitch = dy * .0004; drag = {x: e.clientX, y: e.clientY}; }
     else { hover = hit(e); box.style.cursor = hover ? 'pointer' : 'grab'; } });
-  box.addEventListener('pointerup', e => { box.classList.remove('drag'); if (moved < 6) { const k = hit(e); if (k) selectAgent(k); } drag = null; });
+  box.addEventListener('pointerup', e => { box.classList.remove('drag'); if (moved < 6) { let k = hit(e); if (k === 'vega2') k = 'vega'; if (k === 'founder') k = 'polaris'; if (k) selectAgent(k); } drag = null; });
   box.addEventListener('pointerleave', () => { hover = null; });
   frame();
   return {focus: k => { focus = k; packets = []; }};
 })();
+
 
 // ===== outcomes + plan finder =====
 const T3 = {
