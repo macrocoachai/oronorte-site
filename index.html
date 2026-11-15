@@ -258,6 +258,106 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
 .flinks a:hover{color:var(--gold2)}
 .disc{margin-top:26px;max-width:900px;line-height:1.7}
 @media (max-width:760px){.fgrid{grid-template-columns:1fr}.flinks{justify-content:flex-start}}
+
+/* ===== v2: cinematic layer ===== */
+.hero h1{text-shadow:0 0 60px rgba(233,194,90,.15)}
+#manifesto{padding:150px 0 120px;text-align:center;overflow:hidden}
+#manifesto .line{display:block;font:600 clamp(26px,4vw,50px)/1.25 Inter,sans-serif;letter-spacing:-.02em;color:rgba(242,238,228,.14);transition:color 1.2s ease}
+#manifesto .line.lit{color:var(--text)}
+#manifesto .line.gold.lit{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+#manifesto .line+.line{margin-top:.35em}
+
+#engine{padding-top:60px;background:radial-gradient(ellipse 55% 60% at 35% 55%,rgba(233,194,90,.08),transparent 70%)}
+.engine{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:stretch}
+.orrery{position:relative;border:1px solid var(--line2);border-radius:30px;overflow:hidden;min-height:620px;background:radial-gradient(ellipse at 50% 45%,#0d0f1a 0%,#05060b 70%);box-shadow:0 0 0 1px rgba(233,194,90,.05),0 50px 140px -50px rgba(233,194,90,.35),inset 0 0 120px rgba(0,0,0,.6);cursor:grab;touch-action:pan-y}
+.orrery.drag{cursor:grabbing}
+.orrery canvas{position:absolute;inset:0;width:100%;height:100%}
+.orrery .hint{position:absolute;left:22px;bottom:18px;font:500 12px "JetBrains Mono";color:var(--mute);letter-spacing:.06em;pointer-events:none}
+.orrery .legend{position:absolute;right:22px;bottom:18px;display:flex;gap:16px;font:500 12px Inter;color:var(--mute);pointer-events:none}
+.orrery .legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.orrery .scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
+.apanel{border:1px solid var(--line2);border-radius:30px;padding:30px;background:linear-gradient(180deg,rgba(20,22,32,.9),rgba(8,9,15,.95));display:flex;flex-direction:column;position:relative;overflow:hidden;overflow:clip}
+.apanel::before{content:"";position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(233,194,90,.22),transparent 70%)}
+.apanel .k{font:600 11px Inter;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.apanel h3{font:700 30px/1 Syncopate,Inter;letter-spacing:.14em;margin:14px 0 6px}
+.apanel .role{color:var(--soft);font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.apanel p{color:var(--soft);font-size:15px;margin:18px 0 0}
+.apanel .now{margin-top:22px;border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(0,0,0,.25)}
+.apanel .now small{display:flex;align-items:center;gap:8px;font:600 10px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--good)}
+.apanel .now small::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 10px var(--good);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.apanel .now div{margin-top:8px;font:400 14px/1.5 "JetBrains Mono";color:var(--text)}
+.apanel .flows{margin-top:auto;padding-top:22px;font-size:13px;color:var(--mute)}
+.apanel .flows b{color:var(--gold2);font-weight:600}
+.apanel .pick{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.apanel .pick button{background:none;border:1px solid var(--line);color:var(--mute);border-radius:999px;padding:6px 11px;font:700 10px Syncopate,Inter;letter-spacing:.14em;cursor:pointer;min-height:32px}
+.apanel .pick button[aria-pressed=true]{border-color:rgba(233,194,90,.6);color:#FFF0B8;background:rgba(233,194,90,.1)}
+@media (max-width:980px){.engine{grid-template-columns:1fr}.orrery{min-height:480px}}
+
+#demo{background:linear-gradient(180deg,transparent,rgba(233,194,90,.035) 40%,transparent)}
+.dtabs{display:flex;justify-content:center;gap:8px;margin:0 auto 26px}
+.dtabs button{background:rgba(255,255,255,.02);border:1px solid var(--line2);color:var(--soft);border-radius:999px;padding:0 20px;min-height:44px;font:600 14px Inter;cursor:pointer}
+.dtabs button[aria-selected=true]{background:var(--gold2);color:#1a1205;border-color:transparent}
+.device{position:relative;max-width:1180px;margin:0 auto;border-radius:22px;padding:12px;background:linear-gradient(145deg,#2a2618,#0c0c10 40%,#1b1810);box-shadow:0 0 0 1px rgba(233,194,90,.25),0 60px 160px -40px rgba(233,194,90,.45),0 30px 80px -30px #000;transform:perspective(2200px) rotateX(var(--tilt,10deg));transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.device.flat{--tilt:0deg}
+.device .bar{display:flex;align-items:center;gap:8px;padding:6px 10px 12px;font:500 12px "JetBrains Mono";color:var(--mute)}
+.device .bar i{width:10px;height:10px;border-radius:50%;background:#33302a}
+.device .bar .url{margin-left:12px;padding:5px 14px;border-radius:999px;background:rgba(0,0,0,.35);border:1px solid var(--line)}
+.device .bar a{margin-left:auto;color:var(--gold2);text-decoration:none;font-family:Inter;font-weight:600}
+.device iframe{display:block;width:100%;height:min(76vh,760px);border:0;border-radius:12px;background:#05060a}
+.device::after{content:"";position:absolute;left:8%;right:8%;bottom:-60px;height:60px;background:radial-gradient(ellipse at 50% 0%,rgba(233,194,90,.35),transparent 70%);filter:blur(10px);pointer-events:none}
+.dnote{text-align:center;color:var(--mute);font-size:13px;margin-top:70px}
+.dfeat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.dfeat div{border:1px solid var(--line);border-radius:18px;padding:22px;background:rgba(255,255,255,.015)}
+.dfeat b{display:block;font:600 16px Inter;margin-bottom:6px}
+.dfeat span{color:var(--soft);font-size:14px}
+@media (max-width:820px){.dfeat{grid-template-columns:1fr}.device{--tilt:0deg}.device iframe{height:70vh}}
+
+#trust .tgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:stretch}
+.audit{border:1px solid rgba(233,194,90,.45);border-radius:28px;padding:38px;background:radial-gradient(ellipse at 0% 0%,rgba(233,194,90,.14),transparent 60%),var(--ink2);position:relative;overflow:hidden}
+.audit .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+.audit .nums div{border:1px solid var(--line2);border-radius:16px;padding:18px 14px;text-align:center;background:rgba(0,0,0,.25)}
+.audit .nums b{display:block;font:700 40px/1 Syncopate,Inter}
+.audit .nums span{display:block;margin-top:10px;font-size:12px;color:var(--mute);letter-spacing:.06em}
+.audit p{color:var(--soft);margin:0}
+.tcards{display:grid;gap:14px}
+.tcard{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;border:1px solid var(--line);border-radius:20px;padding:20px 22px;background:rgba(255,255,255,.015)}
+.tcard svg{width:34px;height:34px}
+.tcard b{display:block;font:600 16px Inter;margin-bottom:4px}
+.tcard span{color:var(--soft);font-size:14px}
+.letter{margin-top:22px;border:1px solid var(--line2);border-radius:28px;padding:48px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;background:linear-gradient(120deg,rgba(255,255,255,.03),rgba(255,255,255,.005))}
+.letter .seal{width:120px;height:120px}
+.letter blockquote{margin:0;font:300 clamp(18px,1.8vw,22px)/1.7 Inter;color:var(--text)}
+.letter blockquote p{margin:0 0 1em}
+.letter cite{display:block;margin-top:8px;font:normal 600 13px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+@media (max-width:900px){#trust .tgrid{grid-template-columns:1fr}.letter{grid-template-columns:1fr;padding:30px}.letter .seal{width:80px;height:80px}.audit{padding:26px}.audit .nums b{font-size:30px}}
+#outcomes{padding-top:40px}
+.ogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.oc{position:relative;border:1px solid var(--line);border-radius:24px;padding:34px 28px;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.03),rgba(255,255,255,.005) 60%);transition:border-color .4s,transform .4s}
+.oc:hover{border-color:rgba(233,194,90,.45);transform:translateY(-4px)}
+.oc .num{font:500 12px "JetBrains Mono";color:var(--gold);letter-spacing:.1em}
+.oc h3{font:600 23px/1.25 Inter;letter-spacing:-.01em;margin:16px 0 10px}
+.oc p{margin:0;color:var(--soft);font-size:15px}
+.oc::after{content:"";position:absolute;right:-40px;bottom:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(233,194,90,.12),transparent 70%)}
+@media (max-width:980px){.ogrid{grid-template-columns:1fr 1fr}}@media (max-width:600px){.ogrid{grid-template-columns:1fr}}
+#finder .fbox{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.fq{border:1px solid var(--line2);border-radius:28px;padding:32px;background:var(--panel)}
+.fq h4{margin:0 0 14px;font:600 12px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.fq .opts{display:grid;gap:10px;margin-bottom:28px}
+.fq .opts:last-child{margin-bottom:0}
+.fq button{text-align:left;background:rgba(255,255,255,.02);border:1px solid var(--line);color:var(--soft);border-radius:16px;padding:15px 18px;font:500 15px Inter;cursor:pointer;min-height:52px;transition:border-color .2s,background .2s,color .2s}
+.fq button:hover{border-color:rgba(233,194,90,.35)}
+.fq button[aria-pressed=true]{border-color:rgba(233,194,90,.7);background:rgba(233,194,90,.10);color:var(--text)}
+.fr{border:1px solid rgba(233,194,90,.55);border-radius:28px;padding:34px;background:radial-gradient(ellipse at 100% 0%,rgba(233,194,90,.16),transparent 60%),var(--ink2);display:flex;flex-direction:column;box-shadow:0 40px 100px -50px rgba(233,194,90,.5)}
+.fr .k{font:600 11px Inter;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.fr .pn{font:700 34px/1 Syncopate,Inter;letter-spacing:.14em;margin:14px 0 8px}
+.fr .pp{font:600 18px Inter;color:var(--soft)}
+.fr .pp b{font-size:30px;color:var(--text)}
+.fr ul{list-style:none;padding:0;margin:24px 0;display:grid;gap:12px;flex:1}
+.fr li{display:grid;grid-template-columns:26px 1fr;gap:10px;color:var(--soft);font-size:15px}
+.fr li span{font:600 12px "JetBrains Mono";color:var(--gold)}
+@media (max-width:900px){#finder .fbox{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -270,7 +370,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
     </a>
     <div class="links" id="links">
       <a href="#tour" data-t="n_tour">The tour</a>
-      <a href="#built" data-t="n_built">What's built</a>
+      <a href="#demo" data-t="n_built">What's built</a>
       <a href="#why" data-t="n_why">Why ORONORTE</a>
       <a href="#pricing" data-t="n_price">Pricing</a>
       <a href="#faq" data-t="n_faq">FAQ</a>
@@ -304,6 +404,48 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
     <div class="stat reveal"><b class="metal">0</b><span data-t="s4">promises. Only the ledger.</span></div>
   </div>
 </div>
+
+<section id="manifesto" aria-label="Manifesto">
+  <div class="wrap" id="mlines"></div>
+</section>
+
+<section id="outcomes">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow" data-t="o_eye">What you really get</div>
+      <h2 data-t="o_h">You're not buying software. You're buying back your business.</h2>
+      <p data-t="o_p">Nobody wants an AI agent. People want customers, time, clarity and peace of mind. That is what ORONORTE is built to deliver.</p>
+    </div>
+    <div class="ogrid" id="ogrid"></div>
+  </div>
+</section>
+
+<section id="engine">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow" data-t="e_eye">The engine, live</div>
+      <h2 data-t="e_h">Watch your company think.</h2>
+      <p data-t="e_p">Drag to turn the system. Click any agent to see what it does and where its work goes next. Every gold pulse is a task moving through the company: research becomes a product, a product becomes a sale, a sale becomes a ledger entry.</p>
+    </div>
+    <div class="engine reveal">
+      <div class="orrery" id="orrery" aria-label="Interactive 3D map of the ORONORTE agents" role="img">
+        <canvas id="orc"></canvas>
+        <div class="scan"></div>
+        <div class="hint" data-t="e_hint">Drag to rotate · Click an agent</div>
+        <div class="legend"><span><i style="background:#F7DC86;box-shadow:0 0 8px #F7DC86"></i><span data-t="e_lg1">Task</span></span><span><i style="background:#7FD1A8;box-shadow:0 0 8px #7FD1A8"></i><span data-t="e_lg2">Verified money</span></span></div>
+      </div>
+      <aside class="apanel" aria-live="polite">
+        <div class="k" data-t="e_sel">Selected agent</div>
+        <h3 class="metal" id="apName">POLARIS</h3>
+        <div class="role" id="apRole"></div>
+        <p id="apDesc"></p>
+        <div class="now"><small data-t="e_now">Working now</small><div id="apNow"></div></div>
+        <div class="pick" id="apPick" role="group" aria-label="Agents"></div>
+        <div class="flows" id="apFlow"></div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <section id="tour">
   <div class="wrap">
@@ -391,6 +533,26 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
   </div>
 </section>
 
+<section id="demo">
+  <div class="wrap">
+    <div class="head c reveal">
+      <div class="eyebrow" data-t="d_eye">The product</div>
+      <h2 data-t="d_h">Step inside the command center.</h2>
+      <p data-t="d_p">This is the real ORONORTE interface, running on sample data. Explore The Board, a living circuit map of your company where gold traces light up only when real work or money moves. Then open the command center where you approve what matters.</p>
+    </div>
+    <div class="dtabs" role="tablist" aria-label="Product demo">
+      <button role="tab" aria-selected="true" data-demo="demo/board.html" data-t="d_t1">The Board</button>
+      <button role="tab" aria-selected="false" data-demo="demo/command-center.html" data-t="d_t2">Command center</button>
+    </div>
+    <div class="device reveal" id="device">
+      <div class="bar"><i></i><i></i><i></i><span class="url" id="durl">oronorte.com/board</span><a id="dfull" href="demo/board.html" target="_blank" rel="noopener" data-t="d_full">Open full screen ↗</a></div>
+      <iframe id="dframe" title="ORONORTE product demo" loading="lazy" src="demo/board.html"></iframe>
+    </div>
+    <p class="dnote" data-t="d_note">Sample data for illustration, not real results. Live numbers appear once your engine runs. Try the Tour button on The Board.</p>
+    <div class="dfeat" id="dfeat"></div>
+  </div>
+</section>
+
 <section id="why">
   <div class="wrap">
     <div class="head c reveal">
@@ -402,6 +564,36 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
   </div>
 </section>
 
+<section id="trust">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow" data-t="r_eye">Trust</div>
+      <h2 data-t="r_h">Built to be trusted before it asks for anything.</h2>
+      <p data-t="r_p">The AI money world is full of hype. We went the other way: an independent audit before the first customer, limits written in code, and our own ledger in public.</p>
+    </div>
+    <div class="tgrid">
+      <div class="audit reveal">
+        <div class="eyebrow" data-t="r_aud">Independent pre-launch audit · November 2026</div>
+        <div class="nums">
+          <div><b class="metal" data-count="46">46</b><span data-t="r_n1">issues found</span></div>
+          <div><b class="metal" data-count="38">38</b><span data-t="r_n2">fixed before launch</span></div>
+          <div><b class="metal" data-count="65">65</b><span data-t="r_n3">automated tests</span></div>
+        </div>
+        <p data-t="r_ap">A separate AI reviewer that did not write the code went through billing, security and the agents' limits looking for ways things could go wrong. Every critical and high-risk issue was fixed and is now covered by a test that runs on every change.</p>
+      </div>
+      <div class="tcards" id="tcards"></div>
+    </div>
+    <div class="letter reveal">
+      <svg class="seal" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A6E22"/><stop offset=".35" stop-color="#FFF3C4"/><stop offset=".6" stop-color="#D9AE4E"/><stop offset="1" stop-color="#F7DC86"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="none" stroke="#E9C46A" stroke-opacity=".5"/><circle cx="32" cy="32" r="26" fill="none" stroke="#E9C46A" stroke-opacity=".35" stroke-dasharray="2 4"/><path d="M32 6 L35.2 28.8 L56 32 L35.2 35.2 L32 56 L28.8 35.2 L8 32 L28.8 28.8 Z" fill="url(#sg)"/></svg>
+      <div>
+        <div class="eyebrow" style="margin-bottom:18px" data-t="r_lt">A letter from the Founder</div>
+        <blockquote id="letter"></blockquote>
+        <cite data-t="r_sig">Diego · Founder, ORONORTE</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="team">
   <div class="wrap">
     <div class="head reveal">
@@ -410,6 +602,29 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
       <p data-t="a_p">Each agent has a role, a character and a rank. Authority is earned from verified results, never from hype.</p>
     </div>
     <div class="team" id="agents"></div>
+  </div>
+</section>
+
+<section id="finder">
+  <div class="wrap">
+    <div class="head c reveal">
+      <div class="eyebrow" data-t="fi_eye">Find your plan</div>
+      <h2 data-t="fi_h">Two questions. Your first week, mapped.</h2>
+      <p data-t="fi_p">Tell us where you are. We'll show you the plan that fits and exactly what your syndicate does first.</p>
+    </div>
+    <div class="fbox reveal">
+      <div class="fq">
+        <h4 data-t="fi_q1">Where is your business today?</h4><div class="opts" id="fq1"></div>
+        <h4 data-t="fi_q2">Who are your customers?</h4><div class="opts" id="fq2"></div>
+      </div>
+      <div class="fr" aria-live="polite">
+        <div class="k" data-t="fi_rec">Your recommended plan</div>
+        <div class="pn metal" id="frName">SYNDICATE</div>
+        <div class="pp" id="frPrice"></div>
+        <ul id="frWeek"></ul>
+        <a class="btn gold" href="https://ig.me/m/oronorteai" target="_blank" rel="noopener" data-t="fi_cta">Reserve my founding price</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -731,6 +946,7 @@ function render() {
   $('#faqs').innerHTML = L.faqs.map((f, i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join('');
   observe();
   go(chapter, true);
+  if (typeof renderV2 === "function") { renderV2(); renderV3(); }
 }
 
 function go(i, keep) {
@@ -765,31 +981,289 @@ if (WAITLIST_API) {
   });
 }
 
-// The sky: a slow starfield with the syndicate's constellation around POLARIS.
-(() => {
-  const c = $('#sky'), x = c.getContext('2d'); let w, h, dpr, stars = [], t = 0, mx = 0, my = 0;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const cons = [[0,0],[-.46,-.30],[.46,-.30],[-.56,.22],[.56,.22],[-.40,.62],[.40,.62]];
-  function size() { dpr = Math.min(devicePixelRatio || 1, 2); w = c.clientWidth; h = c.clientHeight; c.width = w * dpr; c.height = h * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = Math.round(w * h / 5200); stars = Array.from({length:n}, () => ({x:Math.random() * w, y:Math.random() * h, r:Math.random() * 1.1 + .2, a:Math.random() * .6 + .2, p:Math.random() * 6.28, z:Math.random() * .8 + .2})); }
-  function frame() {
-    t += .006; x.clearRect(0, 0, w, h);
-    for (const s of stars) { const tw = .55 + .45 * Math.sin(t * 2 * s.z + s.p); x.globalAlpha = s.a * tw; x.fillStyle = '#F4E9CC';
-      x.beginPath(); x.arc(s.x + mx * s.z * 12, s.y + my * s.z * 12, s.r, 0, 6.28); x.fill(); }
-    const cx = w / 2 + mx * 18, cy = h * .2 + my * 18, sc = Math.min(w, 1300) * .9;
-    const pts = cons.map(([a, b], i) => [cx + a * sc + Math.sin(t + i) * 3, cy + b * sc * .55 + Math.cos(t * .8 + i) * 3]);
-    x.globalAlpha = .16; x.strokeStyle = '#E9C25A'; x.lineWidth = 1; x.setLineDash([2, 6]);
-    for (let i = 1; i < pts.length; i++) { x.beginPath(); x.moveTo(pts[0][0], pts[0][1]); x.lineTo(pts[i][0], pts[i][1]); x.stroke(); }
-    x.setLineDash([]);
-    pts.forEach(([px, py], i) => { const g = x.createRadialGradient(px, py, 0, px, py, i ? 14 : 60); g.addColorStop(0, 'rgba(255,240,190,' + (i ? .45 : .32) + ')'); g.addColorStop(1, 'rgba(233,194,90,0)');
-      x.globalAlpha = 1; x.fillStyle = g; x.beginPath(); x.arc(px, py, i ? 14 : 60, 0, 6.28); x.fill();
-      x.fillStyle = '#FFF3C4'; x.beginPath(); x.arc(px, py, i ? 1.8 : 2.6, 0, 6.28); x.fill(); });
-    x.globalAlpha = 1;
-    if (!reduce) requestAnimationFrame(frame);
+
+// ===== v2 content: manifesto, live engine, product demo, trust =====
+const T2 = {
+en:{n_built:'Live demo',
+ mf:[['Every founder knows the 2 a.m. feeling.',0],['Too many roles. Not enough hours.',0],['No one to hand the night shift to.',0],['ORONORTE is the team that keeps working while you sleep,',1],['and shows you every dollar in the morning.',1]],
+ e_eye:'The engine, live',e_h:'Watch your company think.',e_p:'Drag to turn the system. Click any agent to see what it does and where its work goes next. Every gold pulse is a task moving through the company: research becomes a product, a product becomes a sale, a sale becomes a ledger entry.',
+ e_hint:'Drag to rotate · Click an agent',e_lg1:'Task',e_lg2:'Verified money',e_sel:'Selected agent',e_now:'Working now',e_to:'Sends work to',e_from:'Gets work from',
+ n_founder:'YOU',n_ledger:'LEDGER',
+ ag:{polaris:['Reviewing the week. Moving $20 of budget from the ad test to the template that is selling.','every agent, and your desk'],
+     atlas:['Ranking 12 local markets by unmet demand. Top find: salons that need Spanish booking pages.','VEGA and ORION'],
+     vega:['Finishing a bilingual booking template and its checkout page.','ORION, LYRA and the ledger'],
+     orion:['Following up with 6 warm leads, in English and Spanish, with proof attached.','the ledger'],
+     sirius:['Scanning public listings for businesses with a real need. Opt-outs respected.','ORION'],
+     lyra:['Drafting 3 reels from this week’s ledger. Every claim checked against real entries.','your audience'],
+     nova:['Paper-trading a fee-aware strategy. No real money until the record proves itself.','the ledger, paper only']},
+ d_eye:'The product',d_h:'Step inside the command center.',d_p:'This is the real ORONORTE interface, running on sample data. Explore The Board, a living circuit map of your company where gold traces light up only when real work or money moves. Then open the command center where you approve what matters.',
+ d_t1:'The Board',d_t2:'Command center',d_full:'Open full screen ↗',d_note:'Sample data for illustration, not real results. Live numbers appear once your engine runs. Try the Tour button on The Board.',
+ dfeat:[['A living map','Every agent is a chip on the board. Gold traces light up when work or money actually moves.'],['Your desk','Approvals arrive with the reason, the cost and a second opinion. One tap to approve or decline.'],['Ranks and trophies','Agents earn rank and trophies from the ledger, so you can see at a glance who is delivering.']],
+ r_eye:'Trust',r_h:'Built to be trusted before it asks for anything.',r_p:'The AI money world is full of hype. We went the other way: an independent audit before the first customer, limits written in code, and our own ledger in public.',
+ r_aud:'Independent pre-launch audit · November 2026',r_n1:'issues found',r_n2:'fixed before launch',r_n3:'automated tests',
+ r_ap:'A separate AI reviewer that did not write the code went through billing, security and the agents’ limits looking for ways things could go wrong. Every critical and high-risk issue was fixed and is now covered by a test that runs on every change.',
+ tc:[['Your keys never leave you','Agents work through your own accounts. They never see passwords, recovery phrases or wallet keys.'],['Limits in code, not promises','Spending caps and approval rules are fixed in the software. No agent can raise its own limits.'],['A second opinion on big decisions','An independent reviewer checks spends, scale-ups and playbooks, and says no if it cannot check.'],['Built in public','We run our own company on ORONORTE first and share the real ledger every week on @oronorteai.']],
+ r_lt:'A letter from the Founder',r_sig:'Diego · Founder, ORONORTE',
+ letter:['I grew up in Argentina and came to the United States when I was twelve. Since then I have built businesses in fitness, sales, product invention, food and beverage, construction, venture capital and fashion, on both sides of the border.','Every one of them taught me the same lesson: the hardest part of a business is not the idea. It is carrying everything at once.','I built ORONORTE to give every founder the team I wished I had: one that works through the night, speaks your customers’ language, and shows you every dollar in the morning. No promises. Just a north star, and a ledger that tells the truth.']
+},
+es:{n_built:'Demo en vivo',
+ mf:[['Todo fundador conoce la sensación de las 2 de la mañana.',0],['Demasiados roles. Muy pocas horas.',0],['Nadie a quien pasarle el turno de noche.',0],['ORONORTE es el equipo que sigue trabajando mientras duermes,',1],['y te muestra cada dólar por la mañana.',1]],
+ e_eye:'El motor, en vivo',e_h:'Mira pensar a tu empresa.',e_p:'Arrastra para girar el sistema. Haz clic en cualquier agente para ver qué hace y a dónde va su trabajo. Cada pulso dorado es una tarea que recorre la empresa: la investigación se vuelve producto, el producto se vuelve venta y la venta se vuelve un registro en el libro contable.',
+ e_hint:'Arrastra para girar · Haz clic en un agente',e_lg1:'Tarea',e_lg2:'Dinero verificado',e_sel:'Agente seleccionado',e_now:'Trabajando ahora',e_to:'Envía trabajo a',e_from:'Recibe trabajo de',
+ n_founder:'TÚ',n_ledger:'LIBRO',
+ ag:{polaris:['Revisando la semana. Mueve $20 del presupuesto de la prueba de anuncios a la plantilla que se está vendiendo.','todos los agentes y tu escritorio'],
+     atlas:['Ordenando 12 mercados locales por demanda sin atender. Hallazgo principal: salones que necesitan reservas en español.','VEGA y ORION'],
+     vega:['Terminando una plantilla de reservas bilingüe y su página de pago.','ORION, LYRA y el libro contable'],
+     orion:['Dando seguimiento a 6 prospectos interesados, en inglés y español, con pruebas adjuntas.','el libro contable'],
+     sirius:['Revisando listados públicos de negocios con una necesidad real. Respeta las bajas.','ORION'],
+     lyra:['Preparando 3 reels con el libro de esta semana. Cada afirmación se verifica con registros reales.','tu audiencia'],
+     nova:['Trading simulado con una estrategia que considera comisiones. Sin dinero real hasta que el historial lo demuestre.','el libro contable, solo simulado']},
+ d_eye:'El producto',d_h:'Entra al centro de mando.',d_p:'Esta es la interfaz real de ORONORTE, con datos de ejemplo. Explora La Junta, un mapa de circuitos vivo de tu empresa donde las pistas doradas se encienden solo cuando se mueve trabajo o dinero real. Luego abre el centro de mando, donde apruebas lo importante.',
+ d_t1:'La Junta',d_t2:'Centro de mando',d_full:'Pantalla completa ↗',d_note:'Datos de ejemplo, no resultados reales. Las cifras en vivo aparecen cuando tu motor está funcionando. Prueba el botón Tour en La Junta.',
+ dfeat:[['Un mapa vivo','Cada agente es un chip en la tarjeta. Las pistas doradas se encienden cuando el trabajo o el dinero se mueven de verdad.'],['Tu escritorio','Las aprobaciones llegan con la razón, el costo y una segunda opinión. Un toque para aprobar o rechazar.'],['Rangos y trofeos','Los agentes ganan rango y trofeos con el libro contable: ves de un vistazo quién está cumpliendo.']],
+ r_eye:'Confianza',r_h:'Hecho para ganarse tu confianza antes de pedirte nada.',r_p:'El mundo del dinero con IA está lleno de exageraciones. Nosotros fuimos al revés: una auditoría independiente antes del primer cliente, límites escritos en el código y nuestro propio libro contable en público.',
+ r_aud:'Auditoría independiente previa al lanzamiento · noviembre 2026',r_n1:'problemas encontrados',r_n2:'corregidos antes de lanzar',r_n3:'pruebas automáticas',
+ r_ap:'Un revisor de IA independiente, que no escribió el código, recorrió los cobros, la seguridad y los límites de los agentes buscando qué podía salir mal. Cada problema crítico y de alto riesgo se corrigió y hoy lo cubre una prueba que corre con cada cambio.',
+ tc:[['Tus llaves nunca salen de tus manos','Los agentes trabajan con tus propias cuentas. Nunca ven contraseñas, frases de recuperación ni llaves de wallet.'],['Límites en el código, no promesas','Los topes de gasto y las reglas de aprobación están fijos en el software. Ningún agente puede subir sus propios límites.'],['Segunda opinión en las decisiones grandes','Un revisor independiente revisa gastos, escalamientos y guías, y dice que no si no puede revisar.'],['Construido en público','Primero operamos nuestra propia empresa con ORONORTE y compartimos el libro real cada semana en @oronorteai.']],
+ r_lt:'Una carta del Fundador',r_sig:'Diego · Fundador, ORONORTE',
+ letter:['Crecí en Argentina y llegué a Estados Unidos a los doce años. Desde entonces he creado negocios en fitness, ventas, invención de productos, alimentos y bebidas, construcción, capital de riesgo y moda, de los dos lados de la frontera.','Cada uno me enseñó lo mismo: lo más difícil de un negocio no es la idea. Es cargar con todo a la vez.','Creé ORONORTE para darle a cada fundador el equipo que yo hubiera querido tener: uno que trabaja toda la noche, habla el idioma de tus clientes y te muestra cada dólar por la mañana. Sin promesas. Solo una estrella del norte y un libro contable que dice la verdad.']
+},
+pt:{n_built:'Demo ao vivo',
+ mf:[['Todo fundador conhece a sensação das 2 da manhã.',0],['Papéis demais. Horas de menos.',0],['Ninguém para assumir o turno da noite.',0],['O ORONORTE é a equipe que continua trabalhando enquanto você dorme,',1],['e mostra cada dólar pela manhã.',1]],
+ e_eye:'O motor, ao vivo',e_h:'Veja sua empresa pensar.',e_p:'Arraste para girar o sistema. Clique em qualquer agente para ver o que ele faz e para onde vai o trabalho dele. Cada pulso dourado é uma tarefa percorrendo a empresa: pesquisa vira produto, produto vira venda, venda vira lançamento no livro-caixa.',
+ e_hint:'Arraste para girar · Clique em um agente',e_lg1:'Tarefa',e_lg2:'Dinheiro verificado',e_sel:'Agente selecionado',e_now:'Trabalhando agora',e_to:'Envia trabalho para',e_from:'Recebe trabalho de',
+ n_founder:'VOCÊ',n_ledger:'LIVRO',
+ ag:{polaris:['Revisando a semana. Movendo $20 da verba do teste de anúncios para o modelo que está vendendo.','todos os agentes e a sua mesa'],
+     atlas:['Classificando 12 mercados locais por demanda não atendida. Destaque: salões que precisam de agendamento em espanhol.','VEGA e ORION'],
+     vega:['Finalizando um modelo de agendamento bilíngue e sua página de pagamento.','ORION, LYRA e o livro-caixa'],
+     orion:['Fazendo follow-up com 6 leads interessados, em inglês e espanhol, com provas anexadas.','o livro-caixa'],
+     sirius:['Analisando listas públicas de negócios com necessidade real. Opt-outs respeitados.','ORION'],
+     lyra:['Criando 3 reels a partir do livro-caixa da semana. Cada afirmação conferida com lançamentos reais.','o seu público'],
+     nova:['Trading simulado com uma estratégia que considera taxas. Nada de dinheiro real até o histórico provar.','o livro-caixa, só simulado']},
+ d_eye:'O produto',d_h:'Entre na central de comando.',d_p:'Esta é a interface real do ORONORTE, com dados de exemplo. Explore O Conselho, um mapa de circuitos vivo da sua empresa onde as trilhas douradas acendem só quando trabalho ou dinheiro real se move. Depois abra a central de comando, onde você aprova o que importa.',
+ d_t1:'O Conselho',d_t2:'Central de comando',d_full:'Tela cheia ↗',d_note:'Dados de exemplo, não resultados reais. Os números ao vivo aparecem quando seu motor estiver rodando. Experimente o botão Tour no Conselho.',
+ dfeat:[['Um mapa vivo','Cada agente é um chip na placa. As trilhas douradas acendem quando trabalho ou dinheiro se movem de verdade.'],['Sua mesa','As aprovações chegam com o motivo, o custo e uma segunda opinião. Um toque para aprovar ou recusar.'],['Níveis e troféus','Os agentes ganham nível e troféus pelo livro-caixa: você vê num relance quem está entregando.']],
+ r_eye:'Confiança',r_h:'Feito para merecer sua confiança antes de pedir qualquer coisa.',r_p:'O mundo do dinheiro com IA está cheio de exagero. Fomos pelo caminho oposto: uma auditoria independente antes do primeiro cliente, limites escritos no código e o nosso próprio livro-caixa em público.',
+ r_aud:'Auditoria independente pré-lançamento · novembro 2026',r_n1:'problemas encontrados',r_n2:'corrigidos antes do lançamento',r_n3:'testes automáticos',
+ r_ap:'Um revisor de IA independente, que não escreveu o código, analisou cobrança, segurança e os limites dos agentes procurando o que poderia dar errado. Todo problema crítico e de alto risco foi corrigido e hoje é coberto por um teste que roda a cada mudança.',
+ tc:[['Suas chaves nunca saem das suas mãos','Os agentes trabalham pelas suas próprias contas. Nunca veem senhas, frases de recuperação ou chaves de carteira.'],['Limites no código, não promessas','Tetos de gasto e regras de aprovação são fixos no software. Nenhum agente aumenta os próprios limites.'],['Segunda opinião nas grandes decisões','Um revisor independente confere gastos, expansões e manuais, e diz não se não puder conferir.'],['Construído em público','Rodamos a nossa própria empresa no ORONORTE primeiro e mostramos o livro-caixa real toda semana no @oronorteai.']],
+ r_lt:'Uma carta do Fundador',r_sig:'Diego · Fundador, ORONORTE',
+ letter:['Cresci na Argentina e cheguei aos Estados Unidos aos doze anos. Desde então criei negócios em fitness, vendas, invenção de produtos, alimentos e bebidas, construção, capital de risco e moda, dos dois lados da fronteira.','Cada um deles me ensinou a mesma lição: a parte mais difícil de um negócio não é a ideia. É carregar tudo ao mesmo tempo.','Criei o ORONORTE para dar a cada fundador a equipe que eu gostaria de ter tido: uma que trabalha a noite toda, fala o idioma dos seus clientes e mostra cada dólar pela manhã. Sem promessas. Só uma estrela do norte e um livro-caixa que diz a verdade.']
+}};
+for (const k in T2) Object.assign(T[k], T2[k]);
+
+const TICON = [
+ '<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><circle cx="12" cy="17" r="6"/><path d="M18 17h13M26 17v5M30 17v4"/></svg>',
+ '<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><path d="M10 9l-6 8 6 8M24 9l6 8-6 8M20 6l-6 22"/></svg>',
+ '<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><circle cx="11" cy="15" r="6"/><circle cx="23" cy="15" r="6"/><path d="M5 28c2-4 5-6 6-6s4 2 6 6M17 28c2-4 5-6 6-6s4 2 6 6"/></svg>',
+ '<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><path d="M4 22l7-7 6 5 12-12"/><path d="M22 8h7v7"/><path d="M4 30h26"/></svg>'];
+
+let selAgent = 'polaris';
+function renderV2() {
+  const L = T[lang];
+  $('#mlines').innerHTML = L.mf.map(([t, g]) => `<span class="line${g ? ' gold' : ''}">${esc(t)}</span>`).join('');
+  litManifesto();
+  $('#apPick').innerHTML = AG_KEYS.map(k => `<button data-a="${k}" aria-pressed="${k === selAgent}">${k.toUpperCase()}</button>`).join('');
+  $$('#apPick button').forEach(b => b.onclick = () => selectAgent(b.dataset.a));
+  selectAgent(selAgent, true);
+  $('#dfeat').innerHTML = L.dfeat.map(f => `<div><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('');
+  $('#tcards').innerHTML = L.tc.map((c, i) => `<div class="tcard reveal">${TICON[i]}<div><b>${esc(c[0])}</b><span>${esc(c[1])}</span></div></div>`).join('');
+  $('#letter').innerHTML = L.letter.map(p => `<p>${esc(p)}</p>`).join('');
+  observe();
+}
+function selectAgent(k, quiet) {
+  selAgent = k; const L = T[lang], c = L.cast[k], a = L.ag[k];
+  $('#apName').textContent = k.toUpperCase(); $('#apRole').textContent = c[0]; $('#apDesc').textContent = c[1];
+  $('#apNow').textContent = a[0]; $('#apFlow').innerHTML = `${esc(L.e_to)}: <b>${esc(a[1])}</b>`;
+  $$('#apPick button').forEach(b => b.setAttribute('aria-pressed', b.dataset.a === k));
+  if (window.orrery) orrery.focus(k);
+}
+function litManifesto() {
+  const lines = $$('#manifesto .line'); if (!('IntersectionObserver' in window)) { lines.forEach(l => l.classList.add('lit')); return; }
+  const mo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('lit'); mo.unobserve(e.target); } }), {rootMargin:'0px 0px -30% 0px'});
+  lines.forEach(l => mo.observe(l));
+}
+// product demo tabs
+$$('[data-demo]').forEach(b => b.onclick = () => {
+  $$('[data-demo]').forEach(x => x.setAttribute('aria-selected', x === b));
+  $('#dframe').src = b.dataset.demo; $('#dfull').href = b.dataset.demo;
+  $('#durl').textContent = b.dataset.demo.includes('board') ? 'oronorte.com/board' : 'oronorte.com/hq';
+});
+{ const d = $('#device'); if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => d.classList.toggle('flat', e.intersectionRatio > .55)), {threshold:[0, .55, 1]}).observe(d); }
+// count-up on the audit numbers
+{ const nums = $$('[data-count]'); if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const co = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; co.unobserve(e.target); const n = +e.target.dataset.count, t0 = performance.now();
+    const step = t => { const p = Math.min(1, (t - t0) / 1400); e.target.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }), {threshold:.6});
+  nums.forEach(n => { n.textContent = '0'; co.observe(n); }); } }
+
+// ===== 3D engine: a tiny projector on 2D canvas (no libraries) =====
+function Space(canvas, opts) {
+  const x = canvas.getContext('2d'); let w = 0, h = 0, dpr = 1, running = true;
+  const S = {yaw: opts.yaw || 0.6, pitch: opts.pitch || 0.32, vyaw: 0, vpitch: 0, dist: opts.dist || 3.4};
+  function size() { dpr = Math.min(devicePixelRatio || 1, 2); w = canvas.clientWidth; h = canvas.clientHeight; canvas.width = w * dpr; canvas.height = h * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function proj(p) {
+    const cy = Math.cos(S.yaw), sy = Math.sin(S.yaw), cp = Math.cos(S.pitch), sp = Math.sin(S.pitch);
+    let X = p[0] * cy - p[2] * sy, Z = p[0] * sy + p[2] * cy, Y = p[1];
+    const Y2 = Y * cp - Z * sp, Z2 = Y * sp + Z * cp;
+    const s = (opts.scale ? opts.scale() : Math.min(w, h) * .42) / (S.dist + Z2) * S.dist;
+    return {x: w * (opts.cx || .5) + X * s, y: h * (opts.cy || .5) - Y2 * s, z: Z2, s: s / (Math.min(w, h) * .42)};
   }
-  addEventListener('resize', size); addEventListener('pointermove', e => { mx = (e.clientX / innerWidth - .5); my = (e.clientY / innerHeight - .5); }, {passive:true});
-  size(); frame();
+  addEventListener('resize', size); size();
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => running = e.isIntersecting)).observe(canvas);
+  return {x, S, proj, get w() { return w }, get h() { return h }, get running() { return running }};
+}
+function glow(x, px, py, r, a, col) {
+  const g = x.createRadialGradient(px, py, 0, px, py, r); g.addColorStop(0, `rgba(${col},${a})`); g.addColorStop(1, `rgba(${col},0)`);
+  x.fillStyle = g; x.beginPath(); x.arc(px, py, r, 0, 6.283); x.fill();
+}
+const GOLD = '255,226,150', GREEN = '127,209,168';
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Hero: a slowly turning 3D star sphere around a glowing POLARIS with three orbital rings.
+(() => {
+  const c = $('#sky'); const sp = Space(c, {yaw: 0, pitch: .42, dist: 3.2, cy: .43, scale: () => Math.max(sp.w, sp.h) * .5});
+  const stars = Array.from({length: 900}, () => { const u = Math.random() * 2 - 1, t = Math.random() * 6.283, r = 1.6 + Math.random() * 2.6, q = Math.sqrt(1 - u * u);
+    return {p: [r * q * Math.cos(t), r * u, r * q * Math.sin(t)], m: Math.random() * .9 + .2, ph: Math.random() * 6.28}; });
+  let mx = 0, my = 0, t = 0;
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, {passive: true});
+  function frame() {
+    requestAnimationFrame(frame); if (!sp.running) return;
+    t += reduceMotion ? 0 : .004; const x = sp.x, w = sp.w, h = sp.h;
+    sp.S.yaw = t * .35 + mx * .5; sp.S.pitch = .42 + my * .25;
+    x.clearRect(0, 0, w, h); x.globalCompositeOperation = 'lighter';
+    for (const s of stars) { const q = sp.proj(s.p); if (q.z < -2.9) continue; const a = Math.max(0, Math.min(1, (1.2 - q.z * .25))) * s.m * (.6 + .4 * Math.sin(t * 6 + s.ph));
+      x.fillStyle = `rgba(244,233,204,${a * .8})`; x.fillRect(q.x, q.y, 1.2 * q.s + .3, 1.2 * q.s + .3); }
+    const o = sp.proj([0, 0, 0]);
+    glow(x, o.x, o.y, Math.min(w, h) * .32, .10, GOLD); glow(x, o.x, o.y, 70, .35, GOLD);
+    [[.62, 0], [.85, 1.1], [1.1, 2.1]].forEach(([r, k], i) => {
+      x.beginPath(); for (let a = 0; a <= 6.29; a += .06) { const tilt = .35 * Math.sin(k), p = [r * Math.cos(a), r * Math.sin(a) * tilt, r * Math.sin(a)], q = sp.proj(p); a ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
+      x.strokeStyle = `rgba(233,194,90,${.10 - i * .02})`; x.lineWidth = 1; x.stroke();
+      const a = t * (1.4 - i * .35) + i * 2, tilt = .35 * Math.sin(k), q = sp.proj([r * Math.cos(a), r * Math.sin(a) * tilt, r * Math.sin(a)]);
+      glow(x, q.x, q.y, 16 * q.s + 4, .5, GOLD); x.fillStyle = 'rgba(255,243,196,.95)'; x.beginPath(); x.arc(q.x, q.y, 1.8 * q.s + .6, 0, 6.283); x.fill();
+    });
+    x.globalCompositeOperation = 'source-over';
+  }
+  frame();
 })();
+
+// Engine: the syndicate in 3D, with task and money packets flowing between agents.
+window.orrery = (() => {
+  const box = $('#orrery'), c = $('#orc'); const sp = Space(c, {yaw: .5, pitch: .38, dist: 3.6, cy: .5});
+  const ring = ['atlas', 'vega', 'orion', 'sirius', 'lyra', 'nova'];
+  const N = {polaris: {p: [0, 0, 0], r: 1}, founder: {p: [0, 1.05, 0], r: .55}, ledger: {p: [0, -1.0, 0], r: .7}};
+  const edges = [['atlas', 'vega', 0], ['vega', 'orion', 0], ['sirius', 'orion', 0], ['vega', 'lyra', 0], ['orion', 'ledger', 1], ['vega', 'ledger', 1], ['nova', 'ledger', 0], ['polaris', 'founder', 0],
+                 ...ring.map(k => ['polaris', k, 0])];
+  let packets = [], t = 0, focus = 'polaris', hover = null, drag = null, moved = 0;
+  function layout() { ring.forEach((k, i) => { const a = i / ring.length * 6.283 + t * .05; N[k] = {p: [1.25 * Math.cos(a), .18 * Math.sin(a * 2 + t * .4), 1.25 * Math.sin(a)], r: .62}; }); }
+  function spawn() { const pool = edges.filter(e => focus === 'polaris' || e[0] === focus || e[1] === focus); const e = pool[Math.random() * pool.length | 0]; packets.push({e, u: 0, v: .006 + Math.random() * .006}); }
+  function lerpArc(a, b, u) { const m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + .35, (a[2] + b[2]) / 2], k = 1 - u;
+    return [k * k * a[0] + 2 * k * u * m[0] + u * u * b[0], k * k * a[1] + 2 * k * u * m[1] + u * u * b[1], k * k * a[2] + 2 * k * u * m[2] + u * u * b[2]]; }
+  function label(k) { const L = T[lang]; return k === 'founder' ? L.n_founder : k === 'ledger' ? L.n_ledger : k.toUpperCase(); }
+  function frame() {
+    requestAnimationFrame(frame); if (!sp.running) return;
+    const x = sp.x, w = sp.w, h = sp.h; t += reduceMotion ? 0 : .016;
+    if (!drag) { sp.S.yaw += sp.S.vyaw + (reduceMotion ? 0 : .0018); sp.S.pitch += sp.S.vpitch; sp.S.vyaw *= .94; sp.S.vpitch *= .9; }
+    sp.S.pitch = Math.max(-.2, Math.min(1.1, sp.S.pitch));
+    layout(); if (!reduceMotion && Math.random() < .22) spawn();
+    x.clearRect(0, 0, w, h);
+    // floor grid
+    x.lineWidth = 1;
+    for (let i = -4; i <= 4; i++) { const a = sp.proj([i * .4, -1.25, -1.6]), b = sp.proj([i * .4, -1.25, 1.6]); x.strokeStyle = 'rgba(233,194,90,.05)'; x.beginPath(); x.moveTo(a.x, a.y); x.lineTo(b.x, b.y); x.stroke();
+      const c2 = sp.proj([-1.6, -1.25, i * .4]), d = sp.proj([1.6, -1.25, i * .4]); x.beginPath(); x.moveTo(c2.x, c2.y); x.lineTo(d.x, d.y); x.stroke(); }
+    // orbit ring
+    x.beginPath(); for (let a = 0; a <= 6.29; a += .05) { const q = sp.proj([1.25 * Math.cos(a), 0, 1.25 * Math.sin(a)]); a ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
+    x.strokeStyle = 'rgba(233,194,90,.16)'; x.setLineDash([3, 6]); x.stroke(); x.setLineDash([]);
+    // ledger ring
+    const lq = sp.proj(N.ledger.p); x.beginPath(); for (let a = 0; a <= 6.29; a += .1) { const q = sp.proj([.32 * Math.cos(a), -1.0, .32 * Math.sin(a)]); a ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
+    x.strokeStyle = 'rgba(127,209,168,.45)'; x.stroke();
+    x.globalCompositeOperation = 'lighter';
+    // edges
+    for (const [a, b, money] of edges) { const on = focus === 'polaris' || a === focus || b === focus; x.beginPath();
+      for (let u = 0; u <= 1.001; u += .05) { const q = sp.proj(lerpArc(N[a].p, N[b].p, u)); u ? x.lineTo(q.x, q.y) : x.moveTo(q.x, q.y); }
+      x.strokeStyle = money ? `rgba(${GREEN},${on ? .28 : .06})` : `rgba(${GOLD},${on ? .22 : .05})`; x.lineWidth = on ? 1.3 : 1; x.stroke(); }
+    // packets
+    packets = packets.filter(pk => (pk.u += pk.v) < 1);
+    for (const pk of packets) { const [a, b, money] = pk.e, col = money ? GREEN : GOLD;
+      for (let k = 0; k < 6; k++) { const u = Math.max(0, pk.u - k * .018), q = sp.proj(lerpArc(N[a].p, N[b].p, u)); glow(x, q.x, q.y, (9 - k) * q.s + 2, .5 - k * .07, col); } }
+    // nodes, back to front
+    const order = Object.keys(N).map(k => ({k, q: sp.proj(N[k].p)})).sort((A, B) => B.q.z - A.q.z);
+    for (const {k, q} of order) {
+      const base = N[k].r, isF = k === focus, isH = k === hover, depth = Math.max(.35, Math.min(1, 1.1 - q.z * .35));
+      const R = (k === 'polaris' ? 34 : 15) * base * q.s * (isF || isH ? 1.25 : 1);
+      const col = k === 'ledger' ? GREEN : GOLD;
+      glow(x, q.x, q.y, R * (k === 'polaris' ? 4.5 : 3.4) * (1 + .08 * Math.sin(t * 3 + q.z)), (k === 'polaris' ? .55 : .42) * depth, col);
+      if (k === 'polaris' || k === 'founder') { x.save(); x.translate(q.x, q.y); x.rotate(t * .2 * (k === 'polaris' ? 1 : -1)); const s = R * 1.1; x.fillStyle = `rgba(255,243,196,${depth})`;
+        x.beginPath(); x.moveTo(0, -s); x.lineTo(s * .16, -s * .16); x.lineTo(s, 0); x.lineTo(s * .16, s * .16); x.lineTo(0, s); x.lineTo(-s * .16, s * .16); x.lineTo(-s, 0); x.lineTo(-s * .16, -s * .16); x.closePath(); x.fill(); x.restore(); }
+      else { x.fillStyle = `rgba(${k === 'ledger' ? '200,255,225' : '255,243,196'},${depth})`; x.beginPath(); x.arc(q.x, q.y, Math.max(2.5, R * .32), 0, 6.283); x.fill(); }
+      if (isF && k !== 'polaris') { x.strokeStyle = `rgba(${GOLD},.8)`; x.lineWidth = 1.2; x.beginPath(); x.arc(q.x, q.y, R * 1.3 + 4 + Math.sin(t * 4) * 2, 0, 6.283); x.stroke(); }
+      N[k].q = q; N[k].R = R;
+    }
+    x.globalCompositeOperation = 'source-over';
+    for (const {k, q} of order) { const depth = Math.max(.35, Math.min(1, 1.1 - q.z * .35)), big = k === 'polaris';
+      x.font = `700 ${big ? 13 : 11}px Syncopate, Inter, sans-serif`; x.textAlign = 'center'; x.letterSpacing = '3px';
+      x.fillStyle = k === focus || k === hover ? `rgba(255,240,184,${depth})` : `rgba(201,194,178,${depth * .85})`;
+      x.fillText(label(k), q.x, q.y + (big ? 52 : 30) * Math.max(.7, q.s)); }
+  }
+  function hit(ev) { const r = c.getBoundingClientRect(), px = ev.clientX - r.left, py = ev.clientY - r.top; let best = null, bd = 1e9;
+    for (const k of ['polaris', ...ring]) { const q = N[k].q; if (!q) continue; const d = Math.hypot(q.x - px, q.y - py); if (d < Math.max(26, N[k].R * 1.6) && d < bd) { bd = d; best = k; } } return best; }
+  box.addEventListener('pointerdown', e => { drag = {x: e.clientX, y: e.clientY}; moved = 0; box.classList.add('drag'); box.setPointerCapture(e.pointerId); });
+  box.addEventListener('pointermove', e => { if (drag) { const dx = e.clientX - drag.x, dy = e.clientY - drag.y; moved += Math.abs(dx) + Math.abs(dy);
+      sp.S.yaw += dx * .006; sp.S.pitch += dy * .004; sp.S.vyaw = dx * .0008; sp.S.vpitch = dy * .0004; drag = {x: e.clientX, y: e.clientY}; }
+    else { hover = hit(e); box.style.cursor = hover ? 'pointer' : 'grab'; } });
+  box.addEventListener('pointerup', e => { box.classList.remove('drag'); if (moved < 6) { const k = hit(e); if (k) selectAgent(k); } drag = null; });
+  box.addEventListener('pointerleave', () => { hover = null; });
+  frame();
+  return {focus: k => { focus = k; packets = []; }};
+})();
+
+// ===== outcomes + plan finder =====
+const T3 = {
+en:{o_eye:'What you really get',o_h:"You're not buying software. You're buying back your business.",o_p:'Nobody wants an AI agent. People want customers, time, clarity and peace of mind. That is what ORONORTE is built to deliver.',
+ oc:[['Your nights back','The work that keeps you up at 2 a.m. gets picked up by a team that never sleeps.'],['Customers who find you','Market research, offers and outreach run every day, in your customers’ own language.'],['Decisions in one tap','Only what truly matters reaches your desk, with the cost, the reason and a second opinion.'],['Proof, not hope','A ledger you can show a partner, a bank or an investor. Every dollar, every source.'],['A company that grows while you lead','You set the direction. The syndicate executes, learns and gets sharper every week.'],['Peace of mind','Your money stays in your accounts. Limits live in code. Nothing big happens without you.']],
+ fi_eye:'Find your plan',fi_h:'Two questions. Your first week, mapped.',fi_p:"Tell us where you are. We'll show you the plan that fits and exactly what your syndicate does first.",fi_q1:'Where is your business today?',fi_q2:'Who are your customers?',fi_rec:'Your recommended plan',fi_cta:'Reserve my founding price',fi_fd:'founding price',
+ q1:[['Just starting, or launching a new idea','launch'],['Already selling, and I want more customers','syndicate'],['An agency, or several businesses','empire'],['I’d rather pay mostly when it brings sales','performance']],
+ q2:[['Mostly English-speaking','en'],['Mostly Spanish-speaking','es'],['Both, or Latin America and Brazil','both']],
+ lng:{en:'in English',es:'in Spanish',both:'in English, Spanish and Portuguese'},
+ wk:{launch:['ATLAS maps your market and ranks your 5 best opportunities','ORION drafts your first offers and outreach {L}','LYRA prepares a week of content for your approval','POLARIS sends your first Founder briefing'],
+     syndicate:['ATLAS finds where demand is going unmet in your market','SIRIUS builds a list of businesses with a real need','VEGA packages an offer or product for them','ORION starts conversations {L}, with proof attached'],
+     empire:['POLARIS sets a direction for each business','Each team runs its own research, offers and outreach {L}','The Board shows which business and agent is delivering','White-label briefings ready for your clients'],
+     performance:['The full syndicate starts on research, offers and outreach {L}','Every new sale is tracked to its source in the ledger','You pay 8% only on new sales above $500 a month, capped at $1,500','Never on the sales you already had, trading or investments']}},
+es:{o_eye:'Lo que realmente obtienes',o_h:'No compras software. Recuperas tu negocio.',o_p:'Nadie quiere un agente de IA. La gente quiere clientes, tiempo, claridad y tranquilidad. Para eso está hecho ORONORTE.',
+ oc:[['Tus noches de vuelta','El trabajo que te quita el sueño lo toma un equipo que nunca duerme.'],['Clientes que te encuentran','Investigación de mercado, ofertas y prospección todos los días, en el idioma de tus clientes.'],['Decisiones en un toque','Solo lo que de verdad importa llega a tu escritorio, con el costo, la razón y una segunda opinión.'],['Pruebas, no esperanzas','Un libro contable que puedes mostrar a un socio, a un banco o a un inversionista. Cada dólar, cada origen.'],['Una empresa que crece mientras tú diriges','Tú marcas el rumbo. El sindicato ejecuta, aprende y mejora cada semana.'],['Tranquilidad','Tu dinero se queda en tus cuentas. Los límites viven en el código. Nada grande pasa sin ti.']],
+ fi_eye:'Encuentra tu plan',fi_h:'Dos preguntas. Tu primera semana, trazada.',fi_p:'Dinos dónde estás. Te mostramos el plan ideal y exactamente qué hace primero tu sindicato.',fi_q1:'¿Dónde está tu negocio hoy?',fi_q2:'¿Quiénes son tus clientes?',fi_rec:'Tu plan recomendado',fi_cta:'Apartar mi precio fundador',fi_fd:'precio fundador',
+ q1:[['Empezando, o lanzando una idea nueva','launch'],['Ya vendo y quiero más clientes','syndicate'],['Una agencia, o varios negocios','empire'],['Prefiero pagar sobre todo cuando traiga ventas','performance']],
+ q2:[['Principalmente de habla inglesa','en'],['Principalmente de habla hispana','es'],['Ambos, o Latinoamérica y Brasil','both']],
+ lng:{en:'en inglés',es:'en español',both:'en inglés, español y portugués'},
+ wk:{launch:['ATLAS mapea tu mercado y ordena tus 5 mejores oportunidades','ORION redacta tus primeras ofertas y mensajes {L}','LYRA prepara una semana de contenido para tu aprobación','POLARIS te envía tu primer informe de Fundador'],
+     syndicate:['ATLAS encuentra dónde hay demanda sin atender en tu mercado','SIRIUS arma una lista de negocios con una necesidad real','VEGA empaqueta una oferta o producto para ellos','ORION inicia conversaciones {L}, con pruebas adjuntas'],
+     empire:['POLARIS define un rumbo para cada negocio','Cada equipo hace su propia investigación, ofertas y prospección {L}','La Junta muestra qué negocio y qué agente están cumpliendo','Informes con tu marca listos para tus clientes'],
+     performance:['El sindicato completo arranca con investigación, ofertas y prospección {L}','Cada venta nueva se rastrea hasta su origen en el libro contable','Pagas 8% solo de ventas nuevas sobre $500 al mes, con tope de $1,500','Nunca sobre las ventas que ya tenías, trading ni inversiones']}},
+pt:{o_eye:'O que você realmente ganha',o_h:'Você não compra software. Você recupera o seu negócio.',o_p:'Ninguém quer um agente de IA. As pessoas querem clientes, tempo, clareza e tranquilidade. É isso que o ORONORTE foi feito para entregar.',
+ oc:[['Suas noites de volta','O trabalho que tira o seu sono passa para uma equipe que nunca dorme.'],['Clientes que encontram você','Pesquisa de mercado, ofertas e prospecção todos os dias, no idioma dos seus clientes.'],['Decisões em um toque','Só o que realmente importa chega à sua mesa, com o custo, o motivo e uma segunda opinião.'],['Provas, não esperança','Um livro-caixa que você mostra a um sócio, a um banco ou a um investidor. Cada dólar, cada origem.'],['Uma empresa que cresce enquanto você lidera','Você define o rumo. O sindicato executa, aprende e melhora a cada semana.'],['Tranquilidade','Seu dinheiro fica nas suas contas. Os limites vivem no código. Nada grande acontece sem você.']],
+ fi_eye:'Encontre seu plano',fi_h:'Duas perguntas. Sua primeira semana, mapeada.',fi_p:'Diga onde você está. Mostramos o plano certo e exatamente o que o seu sindicato faz primeiro.',fi_q1:'Onde está o seu negócio hoje?',fi_q2:'Quem são os seus clientes?',fi_rec:'Seu plano recomendado',fi_cta:'Reservar meu preço fundador',fi_fd:'preço fundador',
+ q1:[['Começando, ou lançando uma ideia nova','launch'],['Já vendo e quero mais clientes','syndicate'],['Uma agência, ou vários negócios','empire'],['Prefiro pagar principalmente quando trouxer vendas','performance']],
+ q2:[['Principalmente de língua inglesa','en'],['Principalmente de língua espanhola','es'],['Ambos, ou América Latina e Brasil','both']],
+ lng:{en:'em inglês',es:'em espanhol',both:'em inglês, espanhol e português'},
+ wk:{launch:['ATLAS mapeia seu mercado e classifica suas 5 melhores oportunidades','ORION escreve suas primeiras ofertas e mensagens {L}','LYRA prepara uma semana de conteúdo para sua aprovação','POLARIS envia seu primeiro relatório de Fundador'],
+     syndicate:['ATLAS encontra onde há demanda não atendida no seu mercado','SIRIUS monta uma lista de negócios com necessidade real','VEGA empacota uma oferta ou produto para eles','ORION inicia conversas {L}, com provas anexadas'],
+     empire:['POLARIS define um rumo para cada negócio','Cada equipe faz sua própria pesquisa, ofertas e prospecção {L}','O Conselho mostra qual negócio e qual agente está entregando','Relatórios com sua marca prontos para seus clientes'],
+     performance:['O sindicato completo começa com pesquisa, ofertas e prospecção {L}','Cada venda nova é rastreada até a origem no livro-caixa','Você paga 8% só sobre vendas novas acima de $500 por mês, com teto de $1.500','Nunca sobre as vendas que você já tinha, trading ou investimentos']}}};
+for (const k in T3) Object.assign(T[k], T3[k]);
+let fPlan = 'syndicate', fLang = 'both';
+function renderV3() {
+  const L = T[lang];
+  $('#ogrid').innerHTML = L.oc.map((o, i) => `<article class="oc reveal"><div class="num">0${i + 1}</div><h3>${esc(o[0])}</h3><p>${esc(o[1])}</p></article>`).join('');
+  $('#fq1').innerHTML = L.q1.map(([t, v]) => `<button data-p="${v}" aria-pressed="${v === fPlan}">${esc(t)}</button>`).join('');
+  $('#fq2').innerHTML = L.q2.map(([t, v]) => `<button data-g="${v}" aria-pressed="${v === fLang}">${esc(t)}</button>`).join('');
+  $$('#fq1 button').forEach(b => b.onclick = () => { fPlan = b.dataset.p; renderV3(); });
+  $$('#fq2 button').forEach(b => b.onclick = () => { fLang = b.dataset.g; renderV3(); });
+  const name = {launch:'Launch', syndicate:'Syndicate', empire:'Empire', performance:'Performance'}[fPlan];
+  const base = PRICES[name], price = fPlan === 'performance' ? base : Math.round(base * 60) / 100;
+  $('#frName').textContent = name.toUpperCase();
+  $('#frPrice').innerHTML = `<b>${money(price)}</b> ${esc(L.mo)}${fPlan === 'performance' ? ' · ' + esc(L.plus8) : ' · ' + esc(L.fi_fd)}`;
+  $('#frWeek').innerHTML = L.wk[fPlan].map((s, i) => `<li><span>0${i + 1}</span>${esc(s.replace('{L}', L.lng[fLang]))}</li>`).join('');
+  observe();
+}
 
 render();
 </script>

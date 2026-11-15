@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORONORTE · Command Center</title>
+<meta name="theme-color" content="#06070A">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06070A; --panel:rgba(255,255,255,.035); --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --gold:#E9C46A; --champ:#F6E2A8; --bronze:#B8862B; --text:#ECEAE4; --soft:#C9C4B8; --mute:#A39E92;
+  --cyan:#5EC8E5; --cyan-soft:#9FE3F5; --red:#F08A7E;
+  --metal:linear-gradient(135deg,#7E5A1A 0%,#C99A3A 14%,#FFF3C4 30%,#E9C25A 44%,#956C20 60%,#F7DC86 78%,#A97B26 100%);
+  --r:20px; --mono:'JetBrains Mono',ui-monospace,monospace; --disp:Syncopate,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--text);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;overflow-x:hidden}
+button{font:inherit;color:inherit}
+a{color:var(--gold)}
+#field{position:fixed;inset:0;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1}
+.glow-bg{position:fixed;inset:-20% -10% auto auto;width:900px;height:700px;background:radial-gradient(closest-side,rgba(233,196,106,.13),transparent);pointer-events:none;z-index:0}
+
+/* header */
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(16px,3vw,40px);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);background:rgba(6,7,10,.6);position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:14px}
+.word,.metal{background:var(--metal);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 9s ease-in-out infinite}
+.word{font-family:var(--disp);font-weight:700;font-size:20px;letter-spacing:.32em}
+@keyframes shine{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+.tag{font-size:10.5px;letter-spacing:.26em;color:var(--mute);text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav a{padding:10px 15px;border-radius:999px;color:var(--soft);font-size:14px;text-decoration:none}
+nav a:hover,nav a.on{background:rgba(233,196,106,.12);color:var(--champ)}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(94,200,229,.35);font-size:13px;color:var(--cyan-soft)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 1.8s ease-in-out infinite}
+.clock{font-family:var(--mono);font-size:13px;color:var(--mute)}
+.founder{width:44px;height:44px;border-radius:50%;border:1px solid rgba(233,196,106,.55);background:#101217;color:var(--gold);font-family:var(--disp);font-weight:700}
+
+.preview{display:none;justify-content:center;flex-wrap:wrap;gap:12px;align-items:center;padding:10px 16px;background:rgba(240,138,126,.12);border-bottom:1px solid rgba(240,138,126,.35);color:#F8C3BB;font-size:13px;position:relative;z-index:5}
+.preview.on{display:flex}
+.preview button{border:1px solid rgba(248,195,187,.5);background:transparent;border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
+.preview button.sel{background:rgba(248,195,187,.18)}
+
+.ticker{overflow:hidden;border-bottom:1px solid var(--line);background:rgba(233,196,106,.035)}
+.track{display:flex;gap:48px;width:max-content;padding:10px 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#C9B07A;white-space:nowrap;animation:ticker 45s linear infinite}
+
+main{max-width:1380px;margin:0 auto;padding:32px clamp(16px,3vw,40px) 80px;display:flex;flex-direction:column;gap:28px}
+h2{margin:0;font-family:var(--disp);font-size:14px;letter-spacing:.22em;font-weight:700}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.sub{font-size:13px;color:var(--mute)}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(8px)}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{padding:20px 22px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+.kpi .l{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.kpi .v{font-family:var(--mono);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;background:var(--metal);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 9s ease-in-out infinite}
+.kpi .n{font-size:13px;color:var(--mute)}
+.kpi.flash::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(246,226,168,.25),transparent);animation:sweep 1.2s ease-out}
+
+/* tier */
+.tier{padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.bar{position:relative;height:10px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:999px;background:var(--metal);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);font-size:13px;color:var(--mute)}
+.steps span:nth-child(2){text-align:center}.steps span:nth-child(3){text-align:right}
+.steps .on{color:var(--champ)}
+
+/* command */
+.command{display:grid;grid-template-columns:minmax(240px,1fr) minmax(0,2.2fr);gap:14px}
+.fcard{padding:20px 22px;display:flex;gap:16px;align-items:center}
+.fav{width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:20px;color:var(--gold);flex:none}
+.ceo{padding:20px 24px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;background:linear-gradient(120deg,rgba(233,196,106,.2),rgba(233,196,106,.03) 60%);border-color:rgba(247,220,134,.45);cursor:pointer;text-align:left}
+.kick{font-size:11px;letter-spacing:.2em;color:var(--gold)}
+.name{font-family:var(--disp);font-weight:700;letter-spacing:.18em;background:var(--metal);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* layout */
+.cols{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(320px,1fr);gap:24px;align-items:start}
+.stack{display:flex;flex-direction:column;gap:24px}
+
+/* floor */
+.floor{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.agent{all:unset;box-sizing:border-box;cursor:pointer;padding:20px;border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(160deg,rgba(233,196,106,.07),rgba(255,255,255,.015) 45%);display:flex;flex-direction:column;gap:14px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
+.agent:hover,.agent:focus-visible{transform:translateY(-3px);border-color:rgba(233,196,106,.45);box-shadow:0 18px 50px -20px rgba(233,196,106,.35)}
+.agent:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.agent.active{border-color:rgba(94,200,229,.45)}
+.agent.flare{animation:flare 2.2s ease-out}
+.ahead{display:flex;gap:14px;align-items:center}
+.rank{align-self:flex-start;padding:3px 10px;border-radius:999px;border:1px solid rgba(247,220,134,.55);font-size:10.5px;letter-spacing:.16em;color:#F7DC86;background:linear-gradient(135deg,rgba(201,154,58,.18),rgba(255,243,196,.06))}
+.task{font-size:14px;line-height:1.45;color:var(--soft);min-height:40px}
+.scan{position:relative;height:3px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden}
+.scan i{position:absolute;top:0;bottom:0;width:30%;background:linear-gradient(90deg,transparent,var(--cyan),transparent);animation:scan 2.6s ease-in-out infinite;display:none}
+.agent.active .scan i{display:block}
+.astats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding-top:12px;border-top:1px solid var(--line)}
+.astats span{display:block;font-size:11px;color:var(--mute)}
+.astats b{font-family:var(--mono);font-size:15px;font-weight:600}
+.sigil{flex:none}
+.sigil .spin{animation:spin 26s linear infinite;transform-origin:50% 50%}
+.sigil .rev{animation:spin 38s linear infinite reverse;transform-origin:50% 50%}
+
+/* pipeline */
+.pipe{padding:8px}
+.opp{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px;border-radius:14px}
+.opp+.opp{border-top:1px solid var(--line)}
+.opp .rk{font-family:var(--mono);color:var(--mute);font-size:13px;text-align:center}
+.opp .t{font-weight:600;font-size:15px}
+.opp .m{font-size:12.5px;color:var(--mute);margin-top:4px}
+.sbar{height:4px;border-radius:4px;background:rgba(255,255,255,.07);margin-top:8px;overflow:hidden}
+.sbar i{display:block;height:100%;background:var(--metal)}
+.chip{font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--soft);white-space:nowrap}
+.chip.testing{border-color:rgba(94,200,229,.5);color:var(--cyan-soft)}
+.chip.scaling{border-color:rgba(233,196,106,.6);color:var(--champ)}
+.chip.killed{color:var(--mute);text-decoration:line-through}
+.empty{padding:22px;color:var(--mute);font-size:14px;line-height:1.5}
+
+/* desk */
+.desk{padding:20px;border-color:rgba(233,196,106,.35);background:rgba(233,196,106,.045);display:flex;flex-direction:column;gap:12px}
+.ap{padding:14px;border-radius:14px;background:rgba(6,7,10,.6);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.ap .who{font-size:11px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+.ap .txt{font-size:14px;line-height:1.45}
+.acts{display:flex;gap:8px}
+.btn{min-height:44px;padding:0 18px;border-radius:999px;border:none;cursor:pointer;font-weight:700;font-size:14px}
+.btn.go{background:var(--metal);background-size:180% 100%;color:#1A1206}
+.btn.no{background:transparent;border:1px solid var(--line2);color:var(--soft);font-weight:500}
+.btn:focus-visible{outline:2px solid var(--champ);outline-offset:2px}
+
+/* feed */
+.feed{padding:20px;display:flex;flex-direction:column;gap:12px}
+.ev{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;font-size:14px;line-height:1.45;color:#DAD6CC}
+.ev time{font-family:var(--mono);font-size:11.5px;color:var(--mute);padding-top:2px}
+.ev.money{color:var(--champ)}
+.ev.trophy{color:var(--gold)}
+.ev.fresh{animation:fadein .8s ease-out}
+
+/* trophies */
+.trophies{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.tro{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.tro.won{border-color:rgba(233,196,106,.55);background:linear-gradient(160deg,rgba(233,196,106,.16),rgba(233,196,106,.02))}
+.tro .f{font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+.tro .nm{font-weight:600;font-size:14.5px}
+.tro .rl{font-size:12.5px;color:var(--mute);line-height:1.35}
+
+/* briefing */
+.brief{padding:24px;font-size:15px;line-height:1.65;color:var(--soft)}
+.brief h3{font-family:var(--disp);font-size:13px;letter-spacing:.18em;color:var(--gold);margin:18px 0 6px}
+
+/* drawer */
+dialog{border:1px solid rgba(233,196,106,.35);border-radius:24px;background:#0B0C10;color:var(--text);width:min(720px,94vw);padding:0}
+dialog::backdrop{background:rgba(0,0,0,.65);backdrop-filter:blur(6px)}
+.dl{padding:28px;display:flex;flex-direction:column;gap:18px}
+.close{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:transparent;cursor:pointer}
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.rung{padding:10px;border-radius:12px;border:1px solid var(--line);font-size:11px;letter-spacing:.12em;text-align:center;color:var(--mute)}
+.rung.on{border-color:var(--gold);color:var(--champ);background:rgba(233,196,106,.1)}
+
+/* toasts */
+.toasts{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:10px;z-index:50}
+.toast{min-width:260px;max-width:360px;padding:16px 18px;border-radius:16px;background:#0E1015;border:1px solid rgba(233,196,106,.5);box-shadow:0 20px 60px -20px rgba(233,196,106,.45);animation:rise .5s cubic-bezier(.2,.8,.2,1)}
+.toast b{display:block;font-family:var(--disp);font-size:12px;letter-spacing:.2em;color:var(--gold);margin-bottom:4px}
+.burst{position:fixed;pointer-events:none;z-index:40;width:6px;height:6px;border-radius:50%;background:var(--champ)}
+
+.foot{text-align:center;font-size:12px;color:var(--mute);padding:24px}
+
+@keyframes sheen{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(330%)}}
+@keyframes ticker{to{transform:translateX(-50%)}}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@keyframes flare{0%{box-shadow:0 0 0 0 rgba(246,226,168,.8)}100%{box-shadow:0 0 0 28px rgba(246,226,168,0)}}
+@keyframes fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.cols,.command{grid-template-columns:1fr}.ladder{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.oro{background:linear-gradient(135deg,#FFF8DC 0%,#FBE7A6 45%,#F2D27C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+</style>
+</head>
+<body>
+<canvas id="field" aria-hidden="true"></canvas>
+<div class="glow-bg" aria-hidden="true"></div>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M22.6 11.4 L18.3 17 L22.6 22.6 L17 18.3 L11.4 22.6 L15.7 17 L11.4 11.4 L17 15.7 Z" fill="none" stroke="#E9C46A" stroke-width="0.9" stroke-linejoin="round" opacity=".85"/><path d="M17 0.8 L19 15 L31.5 17 L19 19 L17 31 L15 19 L2.5 17 L15 15 Z" fill="#E9C46A"/></svg>
+    <div><div class="word"><span class="oro">ORO</span>NORTE</div><div class="tag">The Your business, pointed north</div></div>
+  </div>
+  <nav aria-label="Sections">
+    <a href="#hq" class="on">HQ</a><a href="board.html">The Board</a><a href="#floor">Floor</a><a href="#pipeline">Pipeline</a><a href="#trophies">Trophies</a><a href="#briefing">Briefing</a>
+  </nav>
+  <div class="hdr-right">
+    <span class="pill"><span class="dot"></span><span id="status">Connecting…</span></span>
+    <span class="clock" id="clock"></span>
+    <button class="founder" aria-label="Founder: You" title="Founder">★</button>
+  </div>
+</header>
+<div class="preview" id="preview" role="status">
+  <span><b>PREVIEW</b> · illustrative sample data, not real results. Live numbers appear once the engine runs.</span>
+  <button id="pv0" class="sel">Launch day</button><button id="pv1">Month 3 preview</button>
+</div>
+<div class="ticker" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<main id="hq">
+  <section class="kpis" id="kpis" aria-label="Syndicate totals"></section>
+  <section class="panel tier" aria-label="Growth tier">
+    <div class="sec-head" style="margin:0"><h2>GROWTH TIER</h2><span class="sub" id="tierNote"></span></div>
+    <div class="bar"><i id="tierBar" style="width:0"></i></div>
+    <div class="steps" id="tierSteps"></div>
+  </section>
+  <section class="command" aria-label="Chain of command">
+    <div class="panel fcard"><div class="fav">★</div><div><div class="kick" style="color:var(--mute)">FOUNDER</div><div style="font-size:18px;font-weight:600">You</div><div class="sub">Sets the vision. Approves tiers, teams and live trading.</div></div></div>
+    <button class="panel ceo" id="ceo"></button>
+  </section>
+  <div class="cols">
+    <div class="stack">
+      <section id="floor"><div class="sec-head"><h2>THE FLOOR</h2><span class="sub" id="floorNote"></span></div><div class="floor" id="agents"></div></section>
+      <section id="pipeline"><div class="sec-head"><h2>OPPORTUNITY PIPELINE</h2><span class="sub">Ranked by expected return per dollar and speed</span></div><div class="panel pipe" id="pipe"></div></section>
+    </div>
+    <aside class="stack">
+      <section class="panel desk" aria-label="Your desk"><div class="sec-head" style="margin:0"><h2>YOUR DESK</h2><span class="sub" id="deskCount"></span></div><div id="desk" style="display:flex;flex-direction:column;gap:10px"></div></section>
+      <section class="panel feed" aria-label="Live feed"><h2>LIVE FEED</h2><div id="feed" style="display:flex;flex-direction:column;gap:12px"></div><div class="sub" style="border-top:1px solid var(--line);padding-top:12px">Every entry is a ledger row. No event, no animation.</div></section>
+    </aside>
+  </div>
+  <section id="trophies"><div class="sec-head"><h2>TROPHY HALL</h2><span class="sub" id="trophyNote"></span></div><div class="trophies" id="tro"></div></section>
+  <section id="briefing"><div class="sec-head"><h2>FOUNDER'S BRIEFING</h2><span class="sub">From POLARIS, every Monday</span></div><div class="panel brief" id="brief"></div></section>
+</main>
+<div class="foot">ORONORTE · every figure is computed from the ledger</div>
+</div>
+<dialog id="drawer" aria-labelledby="dName"><div style="position:relative"><button class="close" id="dClose" aria-label="Close">✕</button><div class="dl" id="dBody"></div></div></dialog>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+const RANKS=['ROOKIE','ASSOCIATE','CLOSER','PARTNER','TITAN'];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const usd=v=>(v<0?'-':'')+'$'+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const ago=ts=>{const s=(Date.now()/1000-ts);if(s<60)return'now';if(s<3600)return Math.floor(s/60)+'m';if(s<86400)return Math.floor(s/3600)+'h';return Math.floor(s/86400)+'d'};
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function sigil(rank,size,core,id){
+  id=String(id).replace(/[^A-Za-z0-9_-]/g,'');rank=Number(rank)||0;
+  const o=n=>rank>=n?0.95:0.08;
+  return `<svg class="sigil" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="m${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7E5A1A"/><stop offset=".3" stop-color="#FFF3C4"/><stop offset=".5" stop-color="#C99A3A"/><stop offset=".78" stop-color="#F7DC86"/><stop offset="1" stop-color="#A97B26"/></linearGradient><radialGradient id="g${id}"><stop offset="0" stop-color="${core}" stop-opacity="${0.18+rank*0.08}"/><stop offset="1" stop-color="${core}" stop-opacity="0"/></radialGradient></defs>
+  <circle cx="32" cy="32" r="31" fill="url(#g${id})"/>
+  <g class="spin"><circle cx="32" cy="32" r="30" fill="none" stroke="#E9C46A" stroke-opacity="${o(4)}" stroke-dasharray="1.5 4" stroke-width=".8"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#E9C46A" stroke-opacity="${o(3)}" stroke-width=".8"/></g>
+  <g class="rev"><circle cx="32" cy="32" r="21" fill="none" stroke="#F6E2A8" stroke-opacity="${o(2)}" stroke-dasharray="6 3" stroke-width=".8"/>
+  <polygon points="32,4 34,30 60,32 34,34 32,60 30,34 4,32 30,30" fill="none" stroke="#E9C46A" stroke-opacity="${o(4)}" stroke-width=".6"/></g>
+  <polygon points="32,12 50,32 32,52 14,32" fill="none" stroke="url(#m${id})" stroke-opacity="${rank>=1?1:.45}" stroke-width="1.2"/>
+  <polygon points="32,22 42,32 32,42 22,32" fill="${core==='#5EC8E5'?core:'url(#m'+id+')'}"/></svg>`;
+}
+const CORE={ceo:'#E9C46A',research:'#E9C46A',build:'#F6E2A8',sales:'#D9A441',content:'#C9B07A',trading:'#5EC8E5',leads:'#E9C46A',worker:'#C9B07A'};
+
+/* ---------- preview data (only when no engine is reachable) ---------- */
+function previewState(m){
+  const now=Date.now()/1000, H=3600, D=86400;
+  const A=(id,name,role,kind,rank,earned,spent,tro,task,act)=>({id,name,role,kind,rank,rank_name:RANKS[rank],earned,spent,profit:earned-spent,trophies:tro,assignment:task,last_active:act?now-120:now-9*H,recent:[]});
+  if(!m){
+    return {live:false,treasury:20,revenue_30d:0,profit_30d:0,lifetime_profit:0,
+      tier:{name:'Starter',earned:'Starter',daily_transfer_cap:5,daily_model_cap:3,approval_above:1,next:'Growth',next_at:25},
+      agents:[A('polaris','POLARIS','Chief Executive Agent','ceo',0,0,0,0,'Find the first paying customer.',1),
+        A('atlas','ATLAS','Chief Strategist: market research','research',0,0,0,0,'First weekly market study: rank the top 5 opportunities.',1),
+        A('vega','VEGA','Builder: websites, tools, APIs','build',0,0,0,0,'Ship the first paid x402 endpoint: EN↔ES translation.',1),
+        A('orion','ORION','Closer: sales and partnerships','sales',0,0,0,0,'Prospect list: small businesses in LA and Mexico needing a site.',0),
+        A('lyra','LYRA','Brand: content, reels, newsletters','content',0,0,0,0,'Draft the bilingual launch content plan.',0),
+        A('nova','NOVA','Trader: paper portfolio and research','trading',0,0,0,0,'Open the 30-day paper record on U.S.-legal venues.',0),
+        A('sirius','SIRIUS','Scout: legal lead generation for ORION','leads',0,0,0,0,'Find 20 LA businesses with no bilingual website, from public listings.',0)],
+      approvals:[{id:1,agent:'polaris',kind:'account',text:'Open the Instagram and TikTok accounts LYRA proposes, in your name.',amount:0}],
+      feed:[{ts:now-300,agent:'polaris',kind:'note',text:'Syndicate initialized. POLARIS takes the chair; five founding agents seated.'},{ts:now-240,agent:'founder',kind:'deposit',text:'Founder deposit to treasury',amount:20}],
+      trophies:TROPHY_DEFS.map(t=>({...t,won_by:[]})),pipeline:[],briefing:null,paper:{trades:0}};
+  }
+  return {live:false,treasury:412.6,revenue_30d:486,profit_30d:318.4,lifetime_profit:392.6,
+    tier:{name:'Growth',earned:'Scale',daily_transfer_cap:30,daily_model_cap:15,approval_above:5,next:'Scale',next_at:150},
+    agents:[A('polaris','POLARIS','Chief Executive Agent','ceo',2,0,22.4,0,'Shift budget to website sales; kill the newsletter test.',1),
+      A('atlas','ATLAS','Chief Strategist: market research','research',1,40,9.1,1,'Map restaurant owners in Guadalajara for the website offer.',1),
+      A('vega','VEGA','Builder: websites, tools, APIs','build',2,146,18.3,2,'Template 3 of the restaurant site kit, bilingual.',1),
+      A('orion','ORION','Closer: sales and partnerships','sales',3,300,21.7,3,'Close the two warm leads from the LA chamber list.',0),
+      A('lyra','LYRA','Brand: content, reels, newsletters','content',1,0,6.2,0,'Case-study reel of the first three sites.',0),
+      A('nova','NOVA','Trader: paper portfolio and research','trading',0,0,4.9,1,'Paper record day 41: 63 trades, profit factor 1.3.',0),
+      A('sirius','SIRIUS','Scout: legal lead generation for ORION','leads',1,0,3.8,0,'Find 20 LA restaurants with no bilingual website, from public listings.',1)],
+    approvals:[{id:7,agent:'orion',kind:'new_agent',text:'Hire a Spanish-language closer for Mexico (ORION reached Partner).',amount:0},{id:8,agent:'polaris',kind:'tier_up',text:'Raise spending to the Scale tier (earned by 30-day profit).',amount:0}],
+    feed:[{ts:now-200,agent:'orion',kind:'revenue',text:'Website deal: Taquería in Echo Park',amount:300},{ts:now-3*H,agent:'orion',kind:'trophy',text:'ORION earned 3x Club'},{ts:now-5*H,agent:'vega',kind:'note',text:'Restaurant template v2 shipped'},{ts:now-D,agent:'polaris',kind:'note',text:'Opportunity #4 → killed: newsletter showed no paid demand in 14 days'}],
+    trophies:TROPHY_DEFS.map(t=>({...t,won_by:['first_dollar','bilingual_win','first_launch','tier_growth','club_3x','hot_hand','clean_record'].includes(t.key)?['orion']:[]})),
+    pipeline:[{id:2,title:'Bilingual restaurant websites (LA + Mexico)',owner:'orion',status:'scaling',score:8.4,cost_usd:12,revenue_30d_usd:900,payback_days:6,market:'US/MX'},
+      {id:1,title:'EN↔ES translation API for agents (x402)',owner:'vega',status:'testing',score:2.1,cost_usd:2,revenue_30d_usd:12,payback_days:9,market:'Agents'},
+      {id:5,title:'Polymarket US leader-tracking research feed',owner:'nova',status:'proposed',score:1.6,cost_usd:3,revenue_30d_usd:40,payback_days:30,market:'Traders'},
+      {id:4,title:'AI-for-business newsletter in Spanish',owner:'lyra',status:'killed',score:0.4,cost_usd:5,revenue_30d_usd:10,payback_days:45,market:'LatAm'}],
+    briefing:{markdown:'## The headline\nWebsites for restaurants are the first real business: 3 sold, $486 in 30 days, payback in 6 days.\n## Decisions for you\n1. Approve a Spanish-language closer under ORION.\n2. Raise spending to the Scale tier.'},paper:{trades:63}};
+}
+const TROPHY_DEFS=[['first_dollar','Earnings','First Dollar','First verified revenue'],['first_100_day','Earnings','First $100 Day','$100 net in one day'],['self_sustaining','Earnings','Self-Sustaining','Revenue covers all costs for 30 days'],['five_figures','Earnings','Five Figures','$10,000 lifetime net profit'],['hot_hand','Streaks','Hot Hand','7 profitable days in a row'],['streak_30','Streaks','30-Day Streak','Profitable every week for 30 days'],['tier_growth','Growth','Tier Up: Growth','Unlock the Growth tier'],['club_3x','Growth','3x Club','Balance at 3x funding for 30 days'],['first_launch','Builds','First Launch','A product ships and takes payment'],['bilingual_win','Markets','Bilingual Win','Paying customers in two languages'],['team_founder','Team','Team Founder','First child agent turns a profit'],['clean_record','Trading','Clean Record','50 paper trades, positive after fees']].map(([key,family,name,rule])=>({key,family,name,rule}));
+
+/* ---------- rendering ---------- */
+let S=null, seen=new Set(), first=true, pv=0, live=false;
+function kpi(l,v,n,id){return `<div class="panel kpi" id="${id}"><span class="l">${l}</span><span class="v" data-v="${v}">${usd(v)}</span><span class="n">${n}</span></div>`}
+function render(s){
+  const prev=S; S=s;
+  $('#status').textContent=s.live?'Syndicate online':'Preview mode';
+  $('#preview').classList.toggle('on',!s.live);
+  const t=s.tier;
+  const tick=[`TIER · ${t.name.toUpperCase()}`,`DAILY TRANSFER CAP · ${usd(t.daily_transfer_cap)}`,`AI MODEL CAP · ${usd(t.daily_model_cap)} / DAY`,`APPROVAL ABOVE · ${usd(t.approval_above)}`,`CHILDREN · EARNED AT PARTNER RANK`,`TRADING · ${s.live_trading?'LIVE, CAPPED':'PAPER ONLY'}`,`MARKETS · EN · ES · PT · IT`];
+  $('#track').innerHTML=[...tick,...tick].map(x=>`<span>${esc(x)}</span>`).join('');
+  const agentsN=s.agents.filter(a=>a.kind!=='ceo').length;
+  $('#kpis').innerHTML=kpi('Treasury',s.treasury,s.treasury?'Your own wallet':'Awaiting first funding','k1')+kpi('Revenue · 30d',s.revenue_30d,s.revenue_30d?'Verified customer payments':'First dollar unlocks a trophy','k2')+kpi('Net profit · 30d',s.profit_30d,'After AI and server costs','k3')+
+    `<div class="panel kpi"><span class="l">Agents</span><span class="v">1 + ${agentsN}</span><span class="n">CEO and ${agentsN} on the floor</span></div>`+
+    `<div class="panel kpi"><span class="l">Trophies</span><span class="v">${s.trophies.filter(x=>x.won_by.length).length} / ${s.trophies.length}</span><span class="n">Earned from the ledger</span></div>`;
+  if(prev){[['k1','treasury'],['k2','revenue_30d'],['k3','profit_30d']].forEach(([id,k])=>{if(prev[k]!==s[k])$('#'+id).classList.add('flash')})}
+  const pct=t.next?Math.max(2,Math.min(100,s.profit_30d/t.next_at*100)):100;
+  $('#tierBar').style.width=pct+'%';
+  $('#tierNote').innerHTML=t.next?`Next unlock: <span style="color:var(--champ)">${esc(t.next)}</span> at ${usd(t.next_at)} net profit in 30 days`:'Top tier reached';
+  const names=['Starter','Growth','Scale'];
+  $('#tierSteps').innerHTML=names.map(n=>`<span class="${n===t.name?'on':''}">${n===t.name?'●':'○'} ${n}${n===t.name?' · active':''}</span>`).join('');
+  const ceo=s.agents.find(a=>a.kind==='ceo');
+  if(ceo){$('#ceo').innerHTML=`${sigil(ceo.rank,76,CORE.ceo,'ceo')}<div style="flex:1 1 260px;display:flex;flex-direction:column;gap:6px"><span class="kick">CHIEF EXECUTIVE AGENT · ${RANKS[ceo.rank]}</span><span class="name" style="font-size:22px">${esc(ceo.name)}</span><span class="sub" style="color:var(--soft);font-size:14px;line-height:1.45">Runs the syndicate: assigns work, moves budget to what earns, writes your briefing. Can't change its own limits.</span></div><div style="min-width:170px"><span class="sub">THIS CYCLE'S DIRECTIVE</span><div style="color:var(--champ);margin-top:4px">${esc(ceo.assignment||'Awaiting first cycle')}</div></div>`;$('#ceo').onclick=()=>openAgent(ceo)}
+  const floor=s.agents.filter(a=>a.kind!=='ceo');
+  $('#floorNote').textContent=`${floor.length} agents reporting to POLARIS`;
+  $('#agents').innerHTML=floor.map(a=>{const act=a.last_active&&(Date.now()/1000-a.last_active)<900;return `<button class="agent ${act?'active':''}" data-id="${esc(a.id)}"><div class="ahead">${sigil(a.rank,64,CORE[a.kind]||CORE.worker,a.id)}<div style="display:flex;flex-direction:column;gap:4px;min-width:0"><span class="name" style="font-size:18px">${esc(a.name)}</span><span class="sub" style="color:var(--soft)">${esc(a.role)}</span><span class="rank">${RANKS[a.rank]}</span></div></div><div><div class="sub" style="font-size:10.5px;letter-spacing:.16em;margin-bottom:6px">${act?'WORKING NOW':'CURRENT FOCUS'}</div><div class="task">${esc(a.assignment||'Awaiting assignment from POLARIS')}</div></div><div class="scan"><i></i></div><div class="astats"><div><span>Earned</span><b style="color:var(--champ)">${usd(a.earned)}</b></div><div><span>Spent</span><b>${usd(a.spent)}</b></div><div><span>Trophies</span><b>${a.trophies}</b></div></div></button>`}).join('');
+  document.querySelectorAll('.agent').forEach(b=>b.onclick=()=>openAgent(S.agents.find(a=>a.id===b.dataset.id)));
+  const pipe=s.pipeline||[], maxS=Math.max(1,...pipe.map(p=>p.score||0));
+  $('#pipe').innerHTML=pipe.length?pipe.map((p,i)=>`<div class="opp"><div class="rk">#${i+1}</div><div style="min-width:0"><div class="t">${esc(p.title)}</div><div class="m">${esc((S.agents.find(a=>a.id===p.owner)||{name:p.owner}).name)} · ${esc(p.market||'')} · cost ${usd(p.cost_usd||0)} · est. ${usd(p.revenue_30d_usd||0)}/30d · payback ${Math.round(p.payback_days||0)}d</div><div class="sbar"><i style="width:${(p.score||0)/maxS*100}%"></i></div></div><span class="chip ${esc(p.status)}">${esc(p.status)}</span></div>`).join(''):'<div class="empty">No proposals yet. Every agent proposes ways to earn as it works; POLARIS ranks them here by expected return per dollar.</div>';
+  $('#deskCount').textContent=`${s.approvals.length} waiting`;
+  $('#desk').innerHTML=s.approvals.length?s.approvals.map(a=>`<div class="ap"><span class="who">${esc(a.agent)} · ${esc(a.kind.replace('_',' '))}${a.amount?' · '+usd(a.amount):''}</span><span class="txt">${esc(a.text)}</span><div class="acts"><button class="btn go" data-ap="${Number(a.id)}" data-do="approve">Approve</button><button class="btn no" data-ap="${Number(a.id)}" data-do="decline">Decline</button></div></div>`).join(''):'<div class="sub">Nothing needs you right now.</div>';
+  document.querySelectorAll('[data-ap]').forEach(b=>b.onclick=()=>decide(b.dataset.ap,b.dataset.do));
+  $('#feed').innerHTML=s.feed.slice(0,14).map(e=>{const k=e.ts+e.text;const fresh=!first&&!seen.has(k);return `<div class="ev ${['revenue','deposit'].includes(e.kind)?'money':''} ${['trophy','rank_up'].includes(e.kind)?'trophy':''} ${fresh?'fresh':''}"><time>${ago(e.ts)}</time><span>${esc(e.text)}${e.amount?' · '+usd(e.amount):''}</span></div>`}).join('')||'<div class="sub">Quiet so far.</div>';
+  const won=s.trophies.filter(x=>x.won_by.length).length;
+  $('#trophyNote').textContent=`${won} of ${s.trophies.length} claimed · earned, never self-reported`;
+  $('#tro').innerHTML=s.trophies.map(x=>{const w=x.won_by.length;const c=w?'#E9C46A':'#6E6A61';return `<div class="tro ${w?'won':''}"><svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 10H44V26C44 36 38 42 32 42C26 42 20 36 20 26Z" fill="${w?'rgba(233,196,106,.18)':'none'}" stroke="${c}" stroke-width="2"/><path d="M20 16H12C12 24 16 28 21 29M44 16H52C52 24 48 28 43 29M32 42V50M24 54H40" fill="none" stroke="${c}" stroke-width="2"/><polygon points="32,18 35,24 32,30 29,24" fill="${c}"/></svg><div><div class="f">${esc(x.family)}${w?' · '+esc(x.won_by.map(id=>(S.agents.find(a=>a.id===id)||{name:id==='syndicate'?'Syndicate':id}).name).join(', ')):''}</div><div class="nm">${esc(x.name)}</div><div class="rl">${esc(x.rule)}</div></div></div>`}).join('');
+  $('#brief').innerHTML=s.briefing?md(s.briefing.markdown):'<span class="sub">The first briefing arrives Monday. POLARIS covers revenue, costs, the top 5 opportunities, trophies, and the decisions it needs from you.</span>';
+  // event-driven effects
+  if(!first){s.feed.forEach(e=>{const k=e.ts+e.text;if(seen.has(k))return;if(e.kind==='revenue'){toast('REVENUE',`${e.text} · ${usd(e.amount)}`);burst()}else if(e.kind==='trophy'){toast('TROPHY',e.text);burst()}else if(e.kind==='rank_up'){toast('PROMOTION',e.text);const c=document.querySelector(`.agent[data-id="${CSS.escape(e.agent)}"]`);c&&c.classList.add('flare')}else if(e.kind==='approval_requested'){toast('YOUR DESK',e.text)}})}
+  s.feed.forEach(e=>seen.add(e.ts+e.text)); first=false;
+}
+function md(src){return esc(src).split('\n').map(l=>l.startsWith('## ')?`<h3>${l.slice(3)}</h3>`:l.trim()?`<div>${l}</div>`:'').join('')}
+function openAgent(a){
+  if(!a)return;
+  $('#dBody').innerHTML=`<div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">${sigil(a.rank,120,CORE[a.kind]||CORE.worker,'d'+a.id)}<div><div class="kick">${esc(a.role.toUpperCase())}</div><div class="name" id="dName" style="font-size:34px">${esc(a.name)}</div><span class="rank">${RANKS[a.rank]}</span></div></div>
+  <div class="ladder">${RANKS.map((r,i)=>`<div class="rung ${i<=a.rank?'on':''}">${r}</div>`).join('')}</div>
+  <div class="astats" style="border:none;padding:0"><div><span>Earned</span><b style="color:var(--champ)">${usd(a.earned)}</b></div><div><span>Spent</span><b>${usd(a.spent)}</b></div><div><span>Net</span><b>${usd(a.profit)}</b></div></div>
+  <div><div class="sub" style="letter-spacing:.16em;font-size:11px">CURRENT FOCUS</div><div style="margin-top:6px;line-height:1.5">${esc(a.assignment||'Awaiting assignment')}</div></div>
+  <div><div class="sub" style="letter-spacing:.16em;font-size:11px;margin-bottom:8px">RECENT LEDGER ENTRIES</div>${(a.recent||[]).map(e=>`<div class="ev"><time>${ago(e.ts)}</time><span>${esc(e.text)}</span></div>`).join('')||'<div class="sub">No entries yet.</div>'}</div>`;
+  $('#drawer').showModal();
+}
+$('#dClose').onclick=()=>$('#drawer').close();
+async function decide(id,what){
+  if(!live){toast('PREVIEW','Approvals work once the engine is running.');return}
+  const r=await fetch(`/api/approvals/${encodeURIComponent(id)}/${what}`,{method:'POST',headers:{'X-ORONORTE':'1'}});const d=await r.json().catch(()=>({}));if(what==='approve'&&d.ok&&d.done===false)toast('NOT CARRIED OUT',d.message||'blocked by the rules');load();
+}
+function toast(k,t){const d=document.createElement('div');d.className='toast';d.innerHTML=`<b>${esc(k)}</b>${esc(t)}`;$('#toasts').appendChild(d);setTimeout(()=>d.remove(),6500)}
+function burst(){if(reduced)return;for(let i=0;i<28;i++){const p=document.createElement('div');p.className='burst';const x=innerWidth/2,y=innerHeight*.28;p.style.left=x+'px';p.style.top=y+'px';document.body.appendChild(p);const a=Math.random()*Math.PI*2,r=80+Math.random()*180;p.animate([{transform:'translate(0,0)',opacity:1},{transform:`translate(${Math.cos(a)*r}px,${Math.sin(a)*r}px)`,opacity:0}],{duration:1100+Math.random()*500,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>p.remove()}}
+
+/* ---------- data loop ---------- */
+async function load(){
+  try{const r=await fetch('/api/state',{cache:'no-store'});if(!r.ok)throw 0;const s=await r.json();live=true;render(s)}
+  catch(e){if(!live)render(previewState(pv))}
+}
+$('#pv0').onclick=()=>{pv=0;$('#pv0').classList.add('sel');$('#pv1').classList.remove('sel');first=true;seen=new Set();render(previewState(0))};
+$('#pv1').onclick=()=>{pv=1;$('#pv1').classList.add('sel');$('#pv0').classList.remove('sel');first=true;seen=new Set();render(previewState(1));setTimeout(()=>{toast('REVENUE','Website deal: Taquería in Echo Park · $300.00');burst()},700)};
+setInterval(()=>{$('#clock').textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})},1000);
+load();setInterval(()=>{if(live)load()},4000);
+
+/* ---------- ambient gold field ---------- */
+(()=>{const c=$('#field'),x=c.getContext('2d');let w,h,pts=[];const fit=()=>{w=c.width=innerWidth*devicePixelRatio;h=c.height=innerHeight*devicePixelRatio;pts=Array.from({length:Math.min(90,Math.floor(innerWidth/16))},()=>({x:Math.random()*w,y:Math.random()*h,v:.08+Math.random()*.25,r:(.4+Math.random()*1.3)*devicePixelRatio,a:.08+Math.random()*.35}))};fit();addEventListener('resize',fit);
+const draw=()=>{x.clearRect(0,0,w,h);for(const p of pts){p.y-=p.v*devicePixelRatio;if(p.y<-4){p.y=h+4;p.x=Math.random()*w}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle=`rgba(233,196,106,${p.a})`;x.fill()}if(!reduced)requestAnimationFrame(draw)};draw()})();
+</script>
+</body>
+</html>
