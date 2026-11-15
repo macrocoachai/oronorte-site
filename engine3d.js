@@ -97,7 +97,7 @@
     let F = [[0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11], [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8], [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9], [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1]];
     for (let k = 0; k < det; k++) { const cache = {}, mid = (a, b) => { const key = a < b ? a + '_' + b : b + '_' + a; if (cache[key] == null) { V.push(norm(V[a].map((v, i) => (v + V[b][i]) / 2))); cache[key] = V.length - 1; } return cache[key]; };
       F = F.flatMap(([a, b, c]) => { const ab = mid(a, b), bc = mid(b, c), ca = mid(c, a); return [[a, ab, ca], [b, bc, ab], [c, ca, bc], [ab, bc, ca]]; }); }
-    const P = [], N = []; F.forEach(f => f.forEach(i => { P.push(...V[i]); N.push(...V[i]); })); return mesh(P, N); }
+    const P = [], N = []; F.forEach(f => f.forEach(i => { P.push(...V[i]); N.push(...V[i]); })); const m = mesh(P, N); m.P = P; return m; }
   const sphere = icosphere(3);
   // faceted north star
   const star = (() => { const L = .62, LZ = .3, W = .12, tips = [[0, L, 0], [0, -L, 0], [L, 0, 0], [-L, 0, 0], [0, 0, LZ], [0, 0, -LZ]], wa = [];
@@ -105,7 +105,12 @@
     const P = [], N = []; tips.forEach(tp => { const k = tp.findIndex(v => v !== 0), sg = Math.sign(tp[k]), ws = wa.filter(w => Math.sign(w[k]) === sg), o = [0, 1, 2].filter(i => i !== k);
       ws.sort((A, B) => Math.atan2(A[o[1]], A[o[0]]) - Math.atan2(B[o[1]], B[o[0]]));
       for (let i = 0; i < 4; i++) { const a = tp, b = ws[i], c = ws[(i + 1) % 4]; let n = norm(cross(sub(b, a), sub(c, a))); if (dot(n, a) < 0) n = n.map(v => -v); P.push(...a, ...b, ...c); N.push(...n, ...n, ...n); } });
-    return mesh(P, N); })();
+    const m = mesh(P, N); m.P = P; return m; })();
+  function wire(P) { const seen = new Set(), L = [], A = [], key = v => v.map(x => x.toFixed(4)).join(',');
+    for (let i = 0; i < P.length; i += 9) { const tri = [P.slice(i, i + 3), P.slice(i + 3, i + 6), P.slice(i + 6, i + 9)];
+      for (let e = 0; e < 3; e++) { const a = tri[e], b = tri[(e + 1) % 3], k = [key(a), key(b)].sort().join('|'); if (seen.has(k)) continue; seen.add(k); L.push(...a, ...b); A.push(1, 1); } }
+    return vao([[0, new Float32Array(L), 3], [1, new Float32Array(A), 1]]); }
+  const starWire = wire(star.P), geo = wire(icosphere(1).P), geoFine = wire(icosphere(2).P);
   const coin = (() => { const P = [], N = [], R = 1, H = .28, S = 28; for (let i = 0; i < S; i++) { const a = i / S * 6.283, b = (i + 1) / S * 6.283, ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
       P.push(0, H, 0, R * ca, H, R * sa, R * cb, H, R * sb); N.push(0, 1, 0, 0, 1, 0, 0, 1, 0);
       P.push(R * ca, 0, R * sa, R * cb, 0, R * sb, R * cb, H, R * sb, R * ca, 0, R * sa, R * cb, H, R * sb, R * ca, H, R * sa); N.push(ca, 0, sa, cb, 0, sb, cb, 0, sb, ca, 0, sa, cb, 0, sb, ca, 0, sa);
@@ -193,6 +198,15 @@
     line(dynLin, M.trs([0, 0, 0], 0, 1), [1, .86, .55, .5]);
     // founder brain
     line(brain, M.trs(N.founder, t * .2, 1), [.62, .74, 1, .55 + .1 * Math.sin(t * 2)]);
+    // POLARIS as a lattice of light: outer star, counter-rotating inner star, geodesic shell
+    const breathe = 1 + .03 * Math.sin(t * 1.6);
+    line(starWire, M.trs([0, 0, 0], t * .3, breathe, .32), [1, .86, .55, .95]);
+    line(starWire, M.trs([0, 0, 0], -t * .55, .48 * breathe, .32), [1, .95, .82, .75]);
+    line(geoFine, M.trs([0, 0, 0], t * .08, .78, .2), [1, .82, .45, .16]);
+    line(geo, M.trs([0, 0, 0], -t * .05, .92, .5), [.62, .74, 1, .10]);
+    // agents as geodesic lights
+    for (const k of RING) { const hot = focus === k || hover === k; line(geo, M.trs(N[k], t * .35, hot ? .19 : .15, .4), [1, .84, .5, hot ? .95 : .6]); }
+    if (born.done) line(geo, M.trs(N.vega2, t * .6, .1 * Math.min(1, (t - born.at) / 1.5), .4), [1, .9, .6, .8 + born.flash * .2]);
     // agent rings
     for (const k of RING) line(ringS, M.trs(N[k], t * .3, .34, .5), [1, .84, .5, focus === k ? .7 : .3]);
     if (born.done) line(ringS, M.trs(N.vega2, t * .5, .2 * Math.min(1, (t - born.at) / 1.5), .5), [1, .84, .5, .5]);
@@ -201,20 +215,18 @@
     gl.enable(gl.DEPTH_TEST); gl.disable(gl.BLEND); gl.clear(gl.DEPTH_BUFFER_BIT);
     gl.useProgram(MESH.p); gl.uniformMatrix4fv(MESH.u.vp, false, VP); gl.uniform3fv(MESH.u.eye, eye);
     const solid = (o, m, base, emis, metal, rough, rim) => { gl.uniformMatrix4fv(MESH.u.m, false, m); gl.uniform3fv(MESH.u.base, base); gl.uniform3fv(MESH.u.emis, emis); gl.uniform1f(MESH.u.metal, metal); gl.uniform1f(MESH.u.rough, rough); gl.uniform1f(MESH.u.rim, rim); gl.bindVertexArray(o.v); gl.drawArrays(gl.TRIANGLES, 0, o.n); };
-    solid(star, M.trs([0, 0, 0], t * .35, 1 + .02 * Math.sin(t * 2), .32), [1, .78, .36], [.18, .12, .03], .95, .25, 1.2);
-    for (const k of RING) { const hot = focus === k || hover === k; solid(sphere, M.trs(N[k], t * .2, hot ? .17 : .145), [.32, .25, .14], hot ? [.16, .11, .04] : [.05, .035, .015], .95, .18, 2.6); }
-    if (born.done) solid(sphere, M.trs(N.vega2, 0, .1 * Math.min(1, (t - born.at) / 1.5)), [.95, .8, .45], [.25 + born.flash * .6, .18 + born.flash * .4, .05], .8, .3, 1.4);
     // ledger: pad + stacks
     solid(coin, M.trs([0, -1.6, 0], 0, .62).map((v, i) => i === 5 ? v * .12 : v), [.12, .14, .16], [.02, .07, .05], .9, .2, .6);
     for (const s of stacks) for (let i = 0; i < s.n; i++) solid(coin, M.trs([s.o[0], -1.55 + i * .04, s.o[1]], i * .3, .095).map((v, j) => j === 5 ? v * 1.45 : v), [1, .8, .38], i === s.n - 1 ? [.12, .08, .02] : [0, 0, 0], .95, .3, .8);
 
     // glows, packets, sparks (additive, depth-tested)
     gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE); gl.depthMask(false);
+    gl.useProgram(MESH.p); solid(star, M.trs([0, 0, 0], t * .3, breathe, .32), [.10, .07, .025], [.035, .024, .008], .9, .2, .35);
     const G = [];
-    G.push({p: [0, 0, 0], c: [1, .82, .45, .9], s: 34}, {p: [0, 0, 0], c: [1, .95, .8, .9], s: 9});
+    G.push({p: [0, 0, 0], c: [1, .8, .42, .55], s: 40}, {p: [0, 0, 0], c: [1, .93, .75, .75], s: 9}, {p: [0, 0, 0], c: [1, 1, .95, .9], s: 3.2});
     G.push({p: N.founder, c: [.55, .66, 1, .45], s: 26});
     G.push({p: N.ledger, c: [.4, 1, .7, .35], s: 24});
-    for (const k of RING) G.push({p: N[k], c: [1, .8, .45, focus === k ? .7 : .4], s: focus === k ? 12 : 9});
+    for (const k of RING) G.push({p: N[k], c: [1, .8, .45, focus === k ? .55 : .3], s: focus === k ? 12 : 9}, {p: N[k], c: [1, .95, .8, 1], s: 2.6});
     if (born.done) G.push({p: N.vega2, c: [1, .85, .5, .5 + born.flash], s: 6 + born.flash * 40});
     packets = packets.filter(pk => { pk.u += pk.v; if (pk.u < 1) return true; const [, b, k] = pk.e;
       if (b === 'ledger' && k === 1) { const amt = MONEY[mi++ % MONEY.length]; total += amt; const st = stacks.slice().sort((A, B) => A.n - B.n)[0];
