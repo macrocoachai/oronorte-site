@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ORONORTE · Your business, pointed north</title>
+<meta name="description" content="ORONORTE gives your business a CEO agent and a team of AI specialists that research, build, sell and report every dollar in a live ledger. English, Spanish and Portuguese.">
+<meta name="theme-color" content="#04050A">
+<link rel="canonical" href="https://oronorte.com/">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icon-256.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ORONORTE">
+<meta property="og:title" content="ORONORTE · Your business, pointed north">
+<meta property="og:description" content="A CEO agent and a team of AI specialists for your business. Limits in code. Every dollar in a live ledger. No promises. Measured results.">
+<meta property="og:url" content="https://oronorte.com/">
+<meta property="og:image" content="https://oronorte.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ORONORTE","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://oronorte.com","offers":{"@type":"Offer","price":"49","priceCurrency":"USD"},"sameAs":["https://www.instagram.com/oronorteai/"]}</script>
+<style>
+:root{
+  --ink:#04050A;--ink2:#080A12;--panel:rgba(16,18,28,.62);--line:rgba(255,236,190,.10);--line2:rgba(255,236,190,.20);
+  --text:#F2EEE4;--soft:#C9C2B2;--mute:#8E8878;--gold:#E9C25A;--gold2:#F7DC86;--goldDeep:#B8872E;--good:#7FD1A8;--bad:#E08C7A;
+  --r:20px;--max:1200px;
+  --metal:linear-gradient(120deg,#B8872E 0%,#FFF3C4 28%,#E9C25A 46%,#A97B26 66%,#F7DC86 100%);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--ink);color:var(--text);font:400 17px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.metal{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.oro{background:linear-gradient(135deg,#FFF8DC 0%,#FBE7A6 45%,#F2D27C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.eyebrow{font:600 12px/1 Inter,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* nav */
+nav.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.top.solid{background:rgba(4,5,10,.82);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line)}
+.nav{display:flex;align-items:center;gap:22px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 15px/1 Syncopate,Inter,sans-serif;letter-spacing:.34em;white-space:nowrap}
+.links{display:flex;gap:26px;margin-left:auto}
+.links a{text-decoration:none;color:var(--soft);font-size:14px;letter-spacing:.02em;transition:color .2s}
+.links a:hover{color:var(--gold2)}
+.lang{display:flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--mute);font:600 11px Inter;letter-spacing:.08em;padding:0 11px;min-height:34px;cursor:pointer}
+.lang button[aria-pressed=true]{color:#1a1205;background:var(--gold2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;border-radius:999px;font:600 15px/1 Inter;letter-spacing:.01em;padding:0 26px;min-height:50px;cursor:pointer;border:0;transition:transform .2s,box-shadow .3s,background .3s}
+.btn.gold{background:linear-gradient(135deg,#FCE7A2 0%,#E9C25A 48%,#C2913A 100%);color:#140E04;box-shadow:0 10px 40px -12px rgba(233,194,90,.6),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.gold:hover{transform:translateY(-1px);box-shadow:0 16px 50px -12px rgba(233,194,90,.75),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.ghost{border:1px solid var(--line2);color:var(--text);background:rgba(255,255,255,.02)}
+.btn.ghost:hover{border-color:rgba(233,194,90,.5);background:rgba(233,194,90,.06)}
+.btn.sm{min-height:40px;padding:0 18px;font-size:13px}
+.menu{display:none;background:none;border:1px solid var(--line2);color:var(--text);border-radius:12px;width:44px;height:40px;cursor:pointer}
+@media (max-width:980px){.links{display:none}.menu{display:block;margin-left:auto}.nav .btn.sm{display:none}
+  .links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:rgba(4,5,10,.97);border-bottom:1px solid var(--line);padding:8px 28px 18px}
+  .links.open a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+#sky{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(233,194,90,.10),transparent 60%),linear-gradient(180deg,transparent 60%,var(--ink) 100%)}
+.hero .wrap{width:100%;padding-top:110px;padding-bottom:90px;text-align:center}
+.hero h1{font:700 clamp(40px,7.2vw,92px)/1.02 Syncopate,Inter,sans-serif;letter-spacing:.02em;margin:22px auto 0;max-width:15ch;text-transform:uppercase}
+.hero h1 .l2{display:block;font-size:.56em;letter-spacing:.06em;margin-top:.3em}
+.hero p.lead{max-width:640px;margin:26px auto 0;color:var(--soft);font-size:clamp(17px,1.6vw,20px);font-weight:300}
+.hero .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.promise{margin-top:38px;display:inline-flex;align-items:center;gap:12px;color:var(--mute);font:500 12px Inter;letter-spacing:.3em;text-transform:uppercase}
+.promise::before,.promise::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.promise::after{transform:scaleX(-1)}
+.scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:22px;height:36px;border:1px solid var(--line2);border-radius:12px}
+.scrollcue::after{content:"";position:absolute;left:50%;top:8px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--gold);animation:cue 2s infinite}
+@keyframes cue{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+
+/* strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(233,194,90,.03),transparent)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 10px;text-align:center;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font:700 34px/1 Syncopate,Inter;letter-spacing:.04em}
+.stat span{display:block;margin-top:10px;color:var(--mute);font-size:13px;letter-spacing:.06em}
+@media (max-width:700px){.strip .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0}.stat{border-top:1px solid var(--line)}.stat:nth-child(-n+2){border-top:0}}
+
+section{padding:130px 0;position:relative}
+.head{max-width:760px;margin-bottom:64px}
+.head.c{margin-left:auto;margin-right:auto;text-align:center}
+h2{font:700 clamp(30px,4.2vw,52px)/1.08 Inter,sans-serif;letter-spacing:-.02em;margin:18px 0 0}
+.head p{color:var(--soft);font-size:18px;font-weight:300;margin:20px 0 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* tour */
+#tour{background:radial-gradient(ellipse 60% 50% at 80% 30%,rgba(233,194,90,.06),transparent 70%)}
+.tour{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:44px;align-items:stretch}
+.chapters{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.chapters button{width:100%;text-align:left;background:none;border:1px solid transparent;border-radius:16px;padding:16px 18px;color:var(--mute);cursor:pointer;display:grid;grid-template-columns:38px 1fr;gap:4px 12px;position:relative;overflow:hidden;transition:background .3s,border-color .3s,color .3s}
+.chapters .n{grid-row:1/3;font:600 13px "JetBrains Mono";color:var(--mute);padding-top:3px}
+.chapters .t{font:600 16px Inter;color:var(--soft)}
+.chapters .s{font-size:14px;line-height:1.5;display:none}
+.chapters button[aria-selected=true]{background:var(--panel);border-color:var(--line2);color:var(--soft)}
+.chapters button[aria-selected=true] .t{color:var(--text)}
+.chapters button[aria-selected=true] .n{color:var(--gold)}
+.chapters button[aria-selected=true] .s{display:block}
+.chapters .bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--metal)}
+.chapters button[aria-selected=true] .bar{animation:fill var(--dur,8s) linear forwards}
+.tour.paused .chapters .bar{animation-play-state:paused}
+@keyframes fill{to{width:100%}}
+.stage{position:relative;border:1px solid var(--line2);border-radius:26px;background:linear-gradient(180deg,rgba(18,20,30,.85),rgba(8,9,15,.92));box-shadow:0 40px 120px -40px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden;min-height:520px}
+.stage .chrome{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--line);font:500 12px "JetBrains Mono";color:var(--mute)}
+.stage .chrome i{width:9px;height:9px;border-radius:50%;background:#2a2c36}
+.stage .chrome span{margin-left:10px}
+.scene{position:absolute;inset:48px 0 0 0;padding:30px;opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s;pointer-events:none}
+.scene.on{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:900px){.tour{grid-template-columns:1fr}.stage{min-height:500px}}
+
+/* scene widgets */
+.const{width:100%;height:100%}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:7px 14px;font-size:13px;color:var(--soft);background:rgba(255,255,255,.02)}
+.chip.on{border-color:rgba(233,194,90,.6);color:#FFF0B8;background:rgba(233,194,90,.08)}
+.form-mock{display:grid;gap:18px;max-width:520px}
+.form-mock label{font:600 11px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.slider{height:6px;border-radius:6px;background:#1c1e28;margin-top:12px;position:relative}
+.slider i{position:absolute;left:0;top:0;bottom:0;width:38%;border-radius:6px;background:var(--metal)}
+.slider b{position:absolute;left:38%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#FFF3C4;box-shadow:0 0 0 5px rgba(233,194,90,.2)}
+.kv{display:flex;justify-content:space-between;font:500 13px "JetBrains Mono";color:var(--soft);margin-top:10px}
+.feed{display:grid;gap:10px}
+.feed .row{display:grid;grid-template-columns:86px 1fr auto;gap:14px;align-items:center;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.015);font-size:14px;color:var(--soft);opacity:0;transform:translateX(-8px);transition:opacity .5s,transform .5s}
+.scene.on .feed .row{opacity:1;transform:none}
+.feed .who{font:700 11px Syncopate,Inter;letter-spacing:.18em;color:var(--gold2)}
+.feed .tag{font:500 11px "JetBrains Mono";color:var(--mute)}
+.approve{max-width:520px;margin:6px auto 0;border:1px solid rgba(233,194,90,.45);border-radius:22px;padding:26px;background:linear-gradient(180deg,rgba(233,194,90,.08),rgba(233,194,90,.02))}
+.approve .k{font:600 11px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.approve h4{font:600 22px/1.3 Inter;margin:10px 0 6px}
+.approve p{margin:0;color:var(--soft);font-size:15px}
+.approve .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.approve .meta div{border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.approve .meta small{display:block;color:var(--mute);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.approve .meta b{font:600 15px "JetBrains Mono"}
+.approve .acts{display:flex;gap:10px}
+.approve .acts span{flex:1;text-align:center;border-radius:12px;padding:12px;font-weight:600;font-size:14px}
+.approve .yes{background:var(--metal);color:#140E04}
+.approve .no{border:1px solid var(--line2);color:var(--soft)}
+table.ledger{width:100%;border-collapse:collapse;font-size:14px}
+table.ledger th{text-align:left;font:600 11px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);padding:0 10px 12px;border-bottom:1px solid var(--line2)}
+table.ledger td{padding:13px 10px;border-bottom:1px solid var(--line);color:var(--soft)}
+table.ledger td.a{text-align:right;font-family:"JetBrains Mono";color:var(--gold2)}
+table.ledger td.neg{color:var(--bad)}
+table.ledger td.ref{font:400 12px "JetBrains Mono";color:var(--mute)}
+.ledger-foot{display:flex;justify-content:space-between;margin-top:18px;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;font:600 15px "JetBrains Mono"}
+.note{margin-top:14px;font-size:12px;color:var(--mute)}
+.learn{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card-m{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.015)}
+.card-m h5{margin:0 0 8px;font:600 11px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.card-m p{margin:0;font-size:14px;color:var(--soft)}
+.ranks{display:flex;align-items:flex-end;gap:10px;height:120px;margin-top:6px}
+.ranks i{flex:1;border-radius:8px 8px 2px 2px;background:linear-gradient(180deg,rgba(233,194,90,.7),rgba(233,194,90,.08));transform-origin:bottom;transform:scaleY(.1);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.scene.on .ranks i{transform:scaleY(1)}
+@media (max-width:600px){.learn{grid-template-columns:1fr}.feed .row{grid-template-columns:70px 1fr}.feed .tag{display:none}.approve .meta{grid-template-columns:1fr 1fr}}
+
+/* built */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1050px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid4{grid-template-columns:1fr}}
+.mod{position:relative;border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));overflow:hidden;transition:border-color .3s,transform .3s}
+.mod:hover{border-color:rgba(233,194,90,.4);transform:translateY(-3px)}
+.mod::before{content:"";position:absolute;inset:-1px;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(233,194,90,.10),transparent 40%);opacity:0;transition:opacity .3s}
+.mod:hover::before{opacity:1}
+.mod svg{width:34px;height:34px;margin-bottom:22px}
+.mod h3{font:600 18px Inter;margin:0 0 8px}
+.mod p{margin:0;color:var(--soft);font-size:15px;line-height:1.6}
+
+/* compare */
+#why{background:linear-gradient(180deg,transparent,rgba(233,194,90,.03) 50%,transparent)}
+.compare{border:1px solid var(--line2);border-radius:26px;overflow:hidden;background:var(--panel)}
+.crow{display:grid;grid-template-columns:1.05fr 1fr 1.25fr;border-top:1px solid var(--line)}
+.crow:first-child{border-top:0}
+.crow>div{padding:22px 26px;font-size:15px}
+.crow .topic{font-weight:600;color:var(--text)}
+.crow .them{color:var(--mute);border-left:1px solid var(--line)}
+.crow .us{color:var(--text);border-left:1px solid var(--line);background:linear-gradient(90deg,rgba(233,194,90,.07),transparent)}
+.crow .them::before{content:"×";color:var(--bad);font-weight:700;margin-right:10px}
+.crow .us::before{content:"✦";color:var(--gold);margin-right:10px}
+.crow.h>div{font:600 11px Inter;letter-spacing:.22em;text-transform:uppercase;padding:18px 26px}
+.crow.h .them::before,.crow.h .us::before{content:none}
+.crow.h .us{color:var(--gold)}
+@media (max-width:820px){.crow{grid-template-columns:1fr}.crow .them,.crow .us{border-left:0;border-top:1px dashed var(--line)}.crow.h{display:none}.crow .topic{padding-bottom:8px}}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.team .ag:first-child{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;border-color:rgba(233,194,90,.45);background:linear-gradient(120deg,rgba(233,194,90,.10),rgba(233,194,90,.01) 60%)}
+@media (max-width:1000px){.team{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.team{grid-template-columns:1fr}.team .ag:first-child{grid-template-columns:1fr}}
+.ag{border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;background:rgba(255,255,255,.015)}
+.ag .nm{font:700 17px Syncopate,Inter;letter-spacing:.2em}
+.ag .rl{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.ag p{color:var(--soft);font-size:15px;margin:14px 0 0}
+.ag q{display:block;margin-top:14px;color:var(--mute);font-style:italic;font-size:14px}
+.ag q::before,.ag q::after{content:none}
+.ag .big{width:120px;height:120px}
+
+/* pricing */
+.toggle{display:inline-flex;border:1px solid var(--line2);border-radius:999px;padding:4px;margin-top:28px}
+.toggle button{background:none;border:0;color:var(--soft);font:600 13px Inter;padding:10px 18px;border-radius:999px;cursor:pointer;min-height:40px}
+.toggle button[aria-pressed=true]{background:var(--gold2);color:#1a1205}
+.founding{margin:22px auto 0;display:inline-block;border:1px solid rgba(233,194,90,.5);border-radius:999px;padding:9px 18px;font-size:13px;color:#FFF0B8;background:rgba(233,194,90,.06)}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+@media (max-width:1100px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--line);border-radius:22px;padding:30px 26px;display:flex;flex-direction:column;background:rgba(255,255,255,.015);position:relative}
+.plan.rec{border-color:rgba(233,194,90,.6);background:linear-gradient(180deg,rgba(233,194,90,.09),rgba(233,194,90,.01));box-shadow:0 30px 80px -40px rgba(233,194,90,.5)}
+.plan .badge{position:absolute;top:-12px;left:26px;background:var(--metal);color:#140E04;font:700 11px Inter;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.plan h3{font:700 15px Syncopate,Inter;letter-spacing:.2em;margin:0}
+.plan .tag{color:var(--soft);font-size:14px;margin:10px 0 22px;min-height:44px}
+.plan .price{font:700 44px/1 Inter;letter-spacing:-.02em}
+.plan .price small{font:500 15px Inter;color:var(--mute);letter-spacing:0}
+.plan .was{color:var(--mute);font-size:13px;margin-top:8px;min-height:20px}
+.plan .was s{color:var(--mute)}
+.plan ul{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:12px;flex:1}
+.plan li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:14px;color:var(--soft);line-height:1.5}
+.plan li::before{content:"";width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.fine{max-width:820px;margin:30px auto 0;text-align:center;color:var(--mute);font-size:13px}
+
+/* faq */
+.faq{max-width:860px;margin:0 auto}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;font:500 18px/1.4 Inter;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;margin-top:-8px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:-2px}
+.faq details p{margin:0 0 26px;color:var(--soft);max-width:72ch}
+
+/* join */
+.join{position:relative;border:1px solid rgba(233,194,90,.4);border-radius:32px;padding:80px 40px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 90% at 50% 0%,rgba(233,194,90,.14),transparent 60%),var(--ink2)}
+.join h2{max-width:18ch;margin-left:auto;margin-right:auto}
+.join p{color:var(--soft);max-width:600px;margin:20px auto 0;font-weight:300}
+.join .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.join form{display:none;max-width:620px;margin:34px auto 0;gap:12px;grid-template-columns:1fr 1fr auto}
+.join.api form{display:grid}
+.join.api .ctas{display:none}
+.join input{min-height:52px;border-radius:14px;border:1px solid var(--line2);background:rgba(0,0,0,.35);color:var(--text);padding:0 16px;font:400 15px Inter}
+.join .msg{min-height:22px;margin-top:14px;font-size:14px;color:var(--gold2)}
+@media (max-width:700px){.join{padding:60px 22px}.join form{grid-template-columns:1fr}}
+
+@media (max-width:520px){.wrap{padding:0 18px}.nav{gap:10px}.brand{letter-spacing:.2em;font-size:12px;gap:8px}.brand svg{width:24px;height:24px}.lang button{padding:0 8px;min-height:32px}.menu{width:40px}.promise{letter-spacing:.18em}}
+footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);font-size:13px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.flinks{display:flex;flex-wrap:wrap;gap:12px 22px;justify-content:flex-end}
+.flinks a{text-decoration:none;color:var(--soft)}
+.flinks a:hover{color:var(--gold2)}
+.disc{margin-top:26px;max-width:900px;line-height:1.7}
+@media (max-width:760px){.fgrid{grid-template-columns:1fr}.flinks{justify-content:flex-start}}
+</style>
+</head>
+<body>
+
+<nav class="top" id="nav" aria-label="Main">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="ORONORTE home">
+      <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B8872E"/><stop offset=".4" stop-color="#FFF3C4"/><stop offset=".7" stop-color="#E9C25A"/><stop offset="1" stop-color="#F7DC86"/></linearGradient></defs><path d="M22.6 11.4 L18.3 17 L22.6 22.6 L17 18.3 L11.4 22.6 L15.7 17 L11.4 11.4 L17 15.7 Z" fill="none" stroke="#E9C46A" stroke-width="1.1" stroke-linejoin="round" opacity=".8"/><path d="M17 0.8 L19 15 L31.5 17 L19 19 L17 31 L15 19 L2.5 17 L15 15 Z" fill="url(#bg1)"/></svg>
+      <span><span class="oro">ORO</span>NORTE</span>
+    </a>
+    <div class="links" id="links">
+      <a href="#tour" data-t="n_tour">The tour</a>
+      <a href="#built" data-t="n_built">What's built</a>
+      <a href="#why" data-t="n_why">Why ORONORTE</a>
+      <a href="#pricing" data-t="n_price">Pricing</a>
+      <a href="#faq" data-t="n_faq">FAQ</a>
+    </div>
+    <div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="es">ES</button><button data-l="pt">PT</button></div>
+    <a class="btn gold sm" href="#join" data-t="n_cta">Join the founding 100</a>
+    <button class="menu" id="menu" aria-label="Menu" aria-expanded="false" aria-controls="links">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="eyebrow" data-t="h_eye">Your business, pointed north</div>
+    <h1><span class="metal" data-t="h_1">An AI company</span><span class="l2" data-t="h_2">that works for yours.</span></h1>
+    <p class="lead" data-t="h_lead">A CEO agent and a team of AI specialists that research your market, build products, find clients and create content around the clock. Limits written in code. Every dollar recorded in a live ledger. You stay Founder.</p>
+    <div class="ctas">
+      <a class="btn gold" href="#tour" data-t="h_c1">Take the 2-minute tour</a>
+      <a class="btn ghost" href="#join" data-t="h_c2">Join the founding 100</a>
+    </div>
+    <div class="promise" data-t="h_prom">No promises. Measured results.</div>
+  </div>
+  <div class="scrollcue" aria-hidden="true"></div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat reveal"><b class="metal">7</b><span data-t="s1">AI agents, one CEO</span></div>
+    <div class="stat reveal"><b class="metal">24/7</b><span data-t="s2">working cycles</span></div>
+    <div class="stat reveal"><b class="metal">3</b><span data-t="s3">languages: EN · ES · PT</span></div>
+    <div class="stat reveal"><b class="metal">0</b><span data-t="s4">promises. Only the ledger.</span></div>
+  </div>
+</div>
+
+<section id="tour">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow" data-t="t_eye">The tour</div>
+      <h2 data-t="t_h">How ORONORTE works, in six chapters.</h2>
+      <p data-t="t_p">Click any chapter, or let it play. This is what running a company with an AI syndicate actually looks like.</p>
+    </div>
+    <div class="tour reveal" id="tourEl">
+      <div role="tablist" aria-label="Tour chapters"><ol class="chapters" id="chapters"></ol></div>
+      <div class="stage" aria-live="polite">
+        <div class="chrome"><i></i><i></i><i></i><span id="stageTitle">oronorte · command center</span></div>
+
+        <div class="scene" data-s="0">
+          <svg class="const" viewBox="0 0 600 420" role="img" aria-label="POLARIS at the center, connected to six specialist agents">
+            <defs><radialGradient id="glow"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".9"/><stop offset="1" stop-color="#E9C25A" stop-opacity="0"/></radialGradient></defs>
+            <g stroke="rgba(233,194,90,.35)" stroke-width="1" stroke-dasharray="3 5">
+              <line x1="300" y1="200" x2="120" y2="90"/><line x1="300" y1="200" x2="480" y2="90"/><line x1="300" y1="200" x2="80" y2="270"/>
+              <line x1="300" y1="200" x2="520" y2="270"/><line x1="300" y1="200" x2="210" y2="370"/><line x1="300" y1="200" x2="390" y2="370"/>
+            </g>
+            <circle cx="300" cy="200" r="70" fill="url(#glow)"/>
+            <path transform="translate(300 200) scale(1.3) translate(-17 -17)" d="M17 0.8 L19 15 L31.5 17 L19 19 L17 31 L15 19 L2.5 17 L15 15 Z" fill="#FBE7A6"/>
+            <text x="300" y="256" text-anchor="middle" fill="#F7DC86" font-family="Syncopate,Inter" font-weight="700" font-size="14" letter-spacing="4">POLARIS</text>
+            <g font-family="Syncopate,Inter" font-weight="700" font-size="11" letter-spacing="3" fill="#C9C2B2" text-anchor="middle">
+              <circle cx="120" cy="90" r="5" fill="#F7DC86"/><text x="120" y="70">ATLAS</text>
+              <circle cx="480" cy="90" r="5" fill="#F7DC86"/><text x="480" y="70">VEGA</text>
+              <circle cx="80" cy="270" r="5" fill="#F7DC86"/><text x="80" y="296">ORION</text>
+              <circle cx="520" cy="270" r="5" fill="#F7DC86"/><text x="520" y="296">LYRA</text>
+              <circle cx="210" cy="370" r="5" fill="#F7DC86"/><text x="210" y="396">SIRIUS</text>
+              <circle cx="390" cy="370" r="5" fill="#F7DC86"/><text x="390" y="396">NOVA</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="scene" data-s="1">
+          <div class="form-mock">
+            <div><label data-t="m_mk">Markets</label><div class="chips"><span class="chip on" data-t="m_mk1">Local services</span><span class="chip on" data-t="m_mk2">Digital products</span><span class="chip" data-t="m_mk3">Agencies</span><span class="chip" data-t="m_mk4">E-commerce</span></div></div>
+            <div><label data-t="m_lg">Languages</label><div class="chips"><span class="chip on">English</span><span class="chip on">Español</span><span class="chip">Português</span></div></div>
+            <div><label data-t="m_lim">Daily spending limit</label><div class="slider"><i></i><b></b></div><div class="kv"><span>$0</span><span class="metal">$25 / day</span><span>$100</span></div></div>
+            <div><label data-t="m_ap">Ask me before</label><div class="chips"><span class="chip on" data-t="m_ap1">Any spend over $10</span><span class="chip on" data-t="m_ap2">New accounts</span><span class="chip on" data-t="m_ap3">Contracts</span><span class="chip on" data-t="m_ap4">Live trading</span></div></div>
+          </div>
+        </div>
+
+        <div class="scene" data-s="2"><div class="feed" id="feed"></div></div>
+
+        <div class="scene" data-s="3">
+          <div class="approve">
+            <div class="k" data-t="m_ak">Founder approval needed</div>
+            <h4 data-t="m_ah">VEGA wants to launch a $29 bilingual booking template</h4>
+            <p data-t="m_ap">ATLAS found 140 local salons searching for Spanish booking pages. ORION has 6 warm leads. Budget needed for the first ad test.</p>
+            <div class="meta"><div><small data-t="m_m1">Spend</small><b>$40.00</b></div><div><small data-t="m_m2">Review</small><b style="color:var(--good)">✓ pass</b></div><div><small data-t="m_m3">Risk</small><b>low</b></div></div>
+            <div class="acts"><span class="yes" data-t="m_y">Approve</span><span class="no" data-t="m_n">Decline</span></div>
+          </div>
+        </div>
+
+        <div class="scene" data-s="4">
+          <table class="ledger" aria-label="Example ledger">
+            <thead><tr><th data-t="m_l1">Entry</th><th data-t="m_l2">Proof</th><th style="text-align:right" data-t="m_l3">Amount</th></tr></thead>
+            <tbody id="ledgerRows"></tbody>
+          </table>
+          <div class="ledger-foot"><span data-t="m_net">Net this week</span><span class="metal">+$424.00</span></div>
+          <div class="note" data-t="m_ex">Example numbers for illustration. Real ledgers show real results, including losses.</div>
+        </div>
+
+        <div class="scene" data-s="5">
+          <div class="learn">
+            <div class="card-m"><h5 data-t="m_pb">Playbooks</h5><p data-t="m_pbp">When something earns twice with proof, it becomes a playbook every agent follows next time.</p></div>
+            <div class="card-m"><h5 data-t="m_gf">Second-opinion review</h5><p data-t="m_gfp">An independent reviewer checks every spend, scale-up and playbook. If it can't review, the answer is no.</p></div>
+            <div class="card-m" style="grid-column:1/-1"><h5 data-t="m_rk">Ranks earned from the ledger</h5><div class="ranks" aria-hidden="true"><i style="height:30%"></i><i style="height:45%;transition-delay:.1s"></i><i style="height:55%;transition-delay:.2s"></i><i style="height:72%;transition-delay:.3s"></i><i style="height:86%;transition-delay:.4s"></i><i style="height:100%;transition-delay:.5s"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="built">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow" data-t="b_eye">What's built</div>
+      <h2 data-t="b_h">Not a chatbot. A complete operating system for your company.</h2>
+      <p data-t="b_p">Eight systems work together underneath ORONORTE. Each one exists to make the agents more useful, more accountable, or safer.</p>
+    </div>
+    <div class="grid4" id="mods"></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="head c reveal">
+      <div class="eyebrow" data-t="w_eye">Why ORONORTE</div>
+      <h2 data-t="w_h">Built for what today's AI tools get wrong.</h2>
+      <p data-t="w_p">We studied why people give up on "AI employee" apps, then designed every part of ORONORTE to answer it.</p>
+    </div>
+    <div class="compare reveal" id="compare"></div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow" data-t="a_eye">The syndicate</div>
+      <h2 data-t="a_h">Seven agents. One direction.</h2>
+      <p data-t="a_p">Each agent has a role, a character and a rank. Authority is earned from verified results, never from hype.</p>
+    </div>
+    <div class="team" id="agents"></div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="head c reveal">
+      <div class="eyebrow" data-t="p_eye">Pricing</div>
+      <h2 data-t="p_h">Simple pricing. Proof included.</h2>
+      <p data-t="p_p">A flat monthly plan, or Performance: a lower fee plus a small share of new sales ORONORTE brings in. Never on trading, deposits or the sales you already had.</p>
+      <div class="toggle" role="group" aria-label="Billing period"><button data-b="m" aria-pressed="true" data-t="p_m">Monthly</button><button data-b="a" aria-pressed="false" data-t="p_a">Annual · 2 months free</button></div>
+      <div><span class="founding" data-t="p_f">✦ Founding 100: 40% off for life</span></div>
+    </div>
+    <div class="plans" id="plans"></div>
+    <p class="fine" data-t="p_fine">Plus your own AI usage, paid directly to your provider at their price, with a daily cap you set. No credits, no markup. 30-day money-back guarantee on your first month. Cancel anytime and export everything. Prices in USD.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head c reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2 data-t="f_h">Straight answers.</h2>
+    </div>
+    <div class="faq reveal" id="faqs"></div>
+  </div>
+</section>
+
+<section id="join" style="padding-top:40px">
+  <div class="wrap">
+    <div class="join reveal" id="joinBox">
+      <div class="eyebrow" data-t="j_eye">Founding members</div>
+      <h2 data-t="j_h">The first 100 get 40% off for life.</h2>
+      <p data-t="j_p">We're proving ORONORTE on our own company first, with every result in a live ledger. Founding members get early access, the founding price for life, and a front-row seat to the build.</p>
+      <div class="ctas">
+        <a class="btn gold" href="https://ig.me/m/oronorteai" target="_blank" rel="noopener" data-t="j_c1">Message “NORTE” on Instagram</a>
+        <a class="btn ghost" href="https://www.instagram.com/oronorteai/" target="_blank" rel="noopener" data-t="j_c2">Follow @oronorteai</a>
+      </div>
+      <form id="wl" novalidate>
+        <label class="sr" for="wn">Name</label><input id="wn" name="name" autocomplete="name" placeholder="Name" data-tp="f_name">
+        <label class="sr" for="we">Email</label><input id="we" name="email" type="email" autocomplete="email" placeholder="Email" data-tp="f_email">
+        <button class="btn gold" type="submit" data-t="f_go">Reserve my spot</button>
+      </form>
+      <div class="msg" id="msg" role="status"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top" aria-label="ORONORTE home"><svg width="24" height="24" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 0.8 L19 15 L31.5 17 L19 19 L17 31 L15 19 L2.5 17 L15 15 Z" fill="#F2D27C"/></svg><span><span class="oro">ORO</span>NORTE</span></a>
+        <p style="margin-top:16px" data-t="ft_t">Your business, pointed north.</p>
+      </div>
+      <div class="flinks">
+        <a href="/terms" data-t="ft_terms">Terms of Service</a>
+        <a href="/privacy" data-t="ft_priv">Privacy Policy</a>
+        <a href="https://www.instagram.com/oronorteai/" target="_blank" rel="noopener">Instagram @oronorteai</a>
+        <a href="mailto:hello@oronorte.com">hello@oronorte.com</a>
+      </div>
+    </div>
+    <p class="disc" data-t="ft_d">ORONORTE is software. It does not manage, hold or invest your money, and it does not guarantee any income, profit or return. Results depend on your business, your markets and your decisions, and you can lose money. Trading features are optional, start in paper mode, and run only in your own accounts. Nothing on this site is financial, investment or legal advice.</p>
+    <p class="disc" style="margin-top:12px">© 2026 ORONORTE</p>
+  </div>
+</footer>
+
+<script>
+// When the ORONORTE server is live, set this to "/api/waitlist" (or its full URL) to switch the founding CTA to a sign-up form.
+const WAITLIST_API = '';
+
+const ICON = {
+  cc:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><rect x="3" y="6" width="28" height="20" rx="3"/><path d="M3 11h28M8 30h18M11 18l3 3 6-6"/></svg>',
+  board:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><path d="M17 3l3 7 7 .6-5.4 4.6 1.7 7-6.3-3.8-6.3 3.8 1.7-7L7 10.6 14 10z"/><path d="M9 31h16"/></svg>',
+  ledger:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><rect x="6" y="3" width="22" height="28" rx="3"/><path d="M11 10h12M11 16h12M11 22h7"/></svg>',
+  lab:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><path d="M3 28c5-2 6-14 11-14s5 8 9 8 5-12 8-16"/><path d="M3 31h28"/></svg>',
+  review:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><circle cx="15" cy="15" r="9"/><path d="M22 22l8 8M11 15l3 3 5-6"/></svg>',
+  learn:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><path d="M4 9l13-5 13 5-13 5z"/><path d="M9 11v8c0 2 4 4 8 4s8-2 8-4v-8M30 9v9"/></svg>',
+  risk:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><path d="M17 3l12 5v8c0 8-5 13-12 15C10 29 5 24 5 16V8z"/><path d="M17 11v7M17 22v1"/></svg>',
+  social:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><rect x="4" y="4" width="26" height="26" rx="8"/><circle cx="17" cy="17" r="6"/><circle cx="25" cy="9" r="1"/></svg>'
+};
+const AG_KEYS = ['polaris','atlas','vega','orion','sirius','lyra','nova'];
+
+const T = {
+en:{
+ n_tour:'The tour',n_built:"What's built",n_why:'Why ORONORTE',n_price:'Pricing',n_faq:'FAQ',n_cta:'Join the founding 100',
+ h_eye:'Your business, pointed north',h_1:'An AI company',h_2:'that works for yours.',
+ h_lead:'A CEO agent and a team of AI specialists that research your market, build products, find clients and create content around the clock. Limits written in code. Every dollar recorded in a live ledger. You stay Founder.',
+ h_c1:'Take the 2-minute tour',h_c2:'Join the founding 100',h_prom:'No promises. Measured results.',
+ s1:'AI agents, one CEO',s2:'working cycles',s3:'languages: EN · ES · PT',s4:'promises. Only the ledger.',
+ t_eye:'The tour',t_h:'How ORONORTE works, in six chapters.',t_p:'Click any chapter, or let it play. This is what running a company with an AI syndicate actually looks like.',
+ ch:[['Meet your syndicate','POLARIS is your CEO agent. It leads six specialists, assigns their work and reports to you, the Founder.','the syndicate'],
+     ['Set the course','Choose your markets and languages, set a daily spending limit, and decide what always needs your approval.','course settings'],
+     ['They work around the clock','Every few hours the team runs a work cycle: research demand, build offers, find clients, publish content.','live activity'],
+     ['You approve what matters','Spending above your limit, new accounts, contracts and any live trade come to your desk first, with a second-opinion review attached.','approvals'],
+     ['The ledger proves it','Revenue counts only when money actually arrives, with a reference you can check. Costs and losses are recorded too.','the ledger'],
+     ['They get better','What works twice becomes a playbook. Agents rise in rank only from verified results, and an independent reviewer keeps them honest.','learning']],
+ feed:[['ATLAS','Mapped 3 under-served local markets in Houston and Miami','research'],['VEGA','Built a bilingual booking template, ready to sell','product'],['ORION','Drafted 6 personalized proposals in Spanish','sales'],['LYRA','Scheduled 3 reels and a carousel for review','content'],['SIRIUS','Found 41 businesses with a public need, opt-outs respected','leads'],['POLARIS','Moved budget toward the template; weekly briefing sent','ceo']],
+ ledger:[['VEGA · template sale','Stripe pi_…8F2','+$29.00'],['ORION · client retainer','Invoice #0042','+$400.00'],['LYRA · ad test (approved)','Meta ads','−$40.00'],['VEGA · template sale','Stripe pi_…A91','+$29.00'],['AI usage this week','Provider bill','−$18.00'],['VEGA · template sale','Stripe pi_…C07','+$24.00']],
+ m_mk:'Markets',m_mk1:'Local services',m_mk2:'Digital products',m_mk3:'Agencies',m_mk4:'E-commerce',m_lg:'Languages',m_lim:'Daily spending limit',m_ap:'Ask me before',m_ap1:'Any spend over $10',m_ap2:'New accounts',m_ap3:'Contracts',m_ap4:'Live trading',
+ m_ak:'Founder approval needed',m_ah:'VEGA wants to launch a $29 bilingual booking template',m_ap:'ATLAS found 140 local salons searching for Spanish booking pages. ORION has 6 warm leads. Budget needed for the first ad test.',m_m1:'Spend',m_m2:'Review',m_m3:'Risk',m_y:'Approve',m_n:'Decline',
+ m_l1:'Entry',m_l2:'Proof',m_l3:'Amount',m_net:'Net this week',m_ex:'Example numbers for illustration. Real ledgers show real results, including losses.',
+ m_pb:'Playbooks',m_pbp:'When something earns twice with proof, it becomes a playbook every agent follows next time.',m_gf:'Second-opinion review',m_gfp:"An independent reviewer checks every spend, scale-up and playbook. If it can't review, the answer is no.",m_rk:'Ranks earned from the ledger',
+ b_eye:"What's built",b_h:'Not a chatbot. A complete operating system for your company.',b_p:'Eight systems work together underneath ORONORTE. Each one exists to make the agents more useful, more accountable, or safer.',
+ mods:[['cc','Command Center','Your desk: live activity, approvals, the ledger and a weekly briefing from POLARIS. Works on desktop and phone.'],
+       ['board','The Board','Ranks, trophies and leaderboards for your agents, computed only from real ledger entries.'],
+       ['ledger','The Ledger','Every dollar in and out, in exact cents, with proof references. Export it any time.'],
+       ['lab','Scenario Lab','Test an idea before money moves: Monte Carlo simulations, historical replays and fee-aware stress tests.'],
+       ['review','Second-opinion review','An independent reviewer checks spends, scale-ups and playbooks. It fails closed: no review, no go.'],
+       ['learn','Playbooks','Self-learning with evidence: tactics that earn twice become standard practice for the whole team.'],
+       ['risk','Risk Engine','Daily caps, approval thresholds, a loss stop and a paper-first trading wall, enforced in code.'],
+       ['social','LYRA Autopilot','Content calendar and Instagram publishing with caption rules and review, never over three posts a day.']],
+ w_eye:'Why ORONORTE',w_h:"Built for what today's AI tools get wrong.",w_p:'We studied why people give up on "AI employee" apps, then designed every part of ORONORTE to answer it.',
+ cmp_h:['','Typical AI tools today','ORONORTE'],
+ cmp:[['Coordination','Separate assistants that don\'t talk to each other. You end up managing them.','A CEO agent runs the team: research feeds products, products feed sales, and you get one briefing.'],
+      ['Proof','Screenshots and testimonials you can\'t verify.','A live ledger in exact cents with proof references. Ranks and reports are computed from it.'],
+      ['Pricing','Credit meters that run out mid-day, or a cut of everything you earn.','Flat plans, your own AI account at cost, and a Performance option that never touches existing sales or trading.'],
+      ['Control','The AI acts first and explains later.','Limits written in code. Spending, contracts, new accounts and live trades wait for your approval.'],
+      ['Safety','No independent check on what the AI decides.','A second-opinion reviewer on every important decision, designed to fail closed.'],
+      ['Learning','Starts from zero every session.','Evidence-gated playbooks: what works twice becomes how the whole team operates.'],
+      ['Language','English first, everything else later.','English and Spanish from day one, Portuguese built in. Agents sell in your customers\' language.'],
+      ['Your data','Locked inside their app.','Your accounts, your keys, your data. Export the ledger, leads, products and content any time.'],
+      ['Honesty','"Guaranteed returns" and passive-income promises.','No promises. Measured results. Trading is optional, paper-first and never billed.']],
+ a_eye:'The syndicate',a_h:'Seven agents. One direction.',a_p:'Each agent has a role, a character and a rank. Authority is earned from verified results, never from hype.',
+ cast:{polaris:['The Navigator','Your CEO agent. Assigns the work, moves budget to what earns, and writes your weekly briefing.','Every dollar has a direction.'],atlas:['The Cartographer','Canvasses markets for unmet needs and ranks opportunities from low to high ticket.','Map the market before you move.'],vega:['The Architect','Builds the products: websites, tools, paid APIs, templates.','Ship small. Ship real.'],orion:['The Closer','Turns opportunities into customers, honestly and in two languages.','Proof closes deals.'],sirius:['The Scout','Finds businesses with a real need from public sources, and respects every opt-out.','Find the need. Respect the no.'],lyra:['The Voice','Content, reels and newsletters in your brand, with no claim the ledger can’t back.','Say only what the ledger shows.'],nova:['The Quant','Runs the optional trading desk: paper first, fees first, no leverage.','Fees first, then edge.']},
+ p_eye:'Pricing',p_h:'Simple pricing. Proof included.',p_p:'A flat monthly plan, or Performance: a lower fee plus a small share of new sales ORONORTE brings in. Never on trading, deposits or the sales you already had.',
+ p_m:'Monthly',p_a:'Annual · 2 months free',p_f:'✦ Founding 100: 40% off for life',mo:'/mo',yr:'/yr',fd:'Founding price',rec:'Recommended',perf:'Pay for results',plus8:'+ 8% of new sales over $500',
+ p_fine:'Plus your own AI usage, paid directly to your provider at their price, with a daily cap you set. No credits, no markup. 30-day money-back guarantee on your first month. Cancel anytime and export everything. Prices in USD.',
+ plans:[['Launch','For one business getting its first AI team.',['POLARIS (CEO) + ATLAS, ORION and LYRA','1 business','Command center and weekly briefing','English and Spanish','Live ledger and data export']],
+  ['Syndicate','The full syndicate for a growing business.',['All 7 agents, including SIRIUS (leads) and NOVA (trading desk, paper first)','Up to 3 businesses','The Board and Scenario Lab','Compliant lead finder','2 seats']],
+  ['Empire','For operators running several businesses.',['Everything in Syndicate','Unlimited businesses','Agent teams: agents that prove 3× earn their own team','5 seats and priority onboarding','White-label briefings for your clients']],
+  ['Performance','Lower fee. We earn more only when you do.',['Everything in Syndicate','8% of new sales ORONORTE brings in, above $500 a month','Capped at $1,500 a month','Never on existing sales, trading or investments','Switch to a flat plan any time']]],
+ cta_p:'Reserve founding price',
+ f_h:'Straight answers.',
+ faqs:[['Is ORONORTE a trading bot or an investment product?','No. ORONORTE is business software: a team of AI agents that research, build, sell and create content for your company. Trading is an optional desk that starts in paper mode, runs only in your own accounts and is never billed.'],
+  ['Does ORONORTE hold my money?','Never. Agents work through your own accounts. They never see your passwords, recovery phrases or wallet keys, and money only moves when you approve it.'],
+  ['Will it make me money?','We make no promises. ORONORTE works best for people with something to sell or a clear market. Everything it earns or spends is recorded in a ledger you can check, so you always know whether it is working.'],
+  ['What do the agents actually do each day?','In each work cycle POLARIS assigns tasks: ATLAS researches demand, VEGA builds offers and products, ORION writes proposals, SIRIUS finds leads, LYRA creates content and NOVA runs paper-trading research. You see every step in the command center.'],
+  ['What does "limits in code" mean?','Your spending caps, approval thresholds and trading limits are fixed rules in the software, not instructions an AI could talk its way around. No agent can raise its own limits.'],
+  ['What languages does it work in?','English and Spanish from day one, with Portuguese built in. Your agents write, sell and report in the languages you choose.'],
+  ['Who is it for?','Small business owners, creators, agencies and consultants, entrepreneurs launching a product, and bilingual businesses in the U.S. and Latin America.'],
+  ['When can I start?','Founding members get early access first. Message “NORTE” to @oronorteai on Instagram to reserve one of the first 100 spots.']],
+ j_eye:'Founding members',j_h:'The first 100 get 40% off for life.',j_p:"We're proving ORONORTE on our own company first, with every result in a live ledger. Founding members get early access, the founding price for life, and a front-row seat to the build.",
+ j_c1:'Message “NORTE” on Instagram',j_c2:'Follow @oronorteai',f_name:'Name',f_email:'Email',f_go:'Reserve my spot',ok:"You're on the list. Watch your inbox for founding updates.",err:'Please enter your name and a valid email.',fail:'Something went wrong. Please try again in a minute.',
+ ft_t:'Your business, pointed north.',ft_terms:'Terms of Service',ft_priv:'Privacy Policy',
+ ft_d:'ORONORTE is software. It does not manage, hold or invest your money, and it does not guarantee any income, profit or return. Results depend on your business, your markets and your decisions, and you can lose money. Trading features are optional, start in paper mode, and run only in your own accounts. Nothing on this site is financial, investment or legal advice.',
+ stage:'oronorte · command center'
+},
+es:{
+ n_tour:'El recorrido',n_built:'Qué construimos',n_why:'Por qué ORONORTE',n_price:'Precios',n_faq:'Preguntas',n_cta:'Únete a los 100 fundadores',
+ h_eye:'Tu negocio, rumbo al norte',h_1:'Una empresa de IA',h_2:'que trabaja para la tuya.',
+ h_lead:'Un agente CEO y un equipo de especialistas de IA que investigan tu mercado, crean productos, encuentran clientes y generan contenido las 24 horas. Límites escritos en el código. Cada dólar registrado en un libro contable en vivo. Tú sigues siendo el Fundador.',
+ h_c1:'Haz el recorrido de 2 minutos',h_c2:'Únete a los 100 fundadores',h_prom:'Sin promesas. Resultados medibles.',
+ s1:'agentes de IA, un CEO',s2:'ciclos de trabajo',s3:'idiomas: EN · ES · PT',s4:'promesas. Solo el libro contable.',
+ t_eye:'El recorrido',t_h:'Cómo funciona ORONORTE, en seis capítulos.',t_p:'Haz clic en cualquier capítulo o deja que avance solo. Así se ve dirigir una empresa con un sindicato de IA.',
+ ch:[['Conoce a tu sindicato','POLARIS es tu agente CEO. Dirige a seis especialistas, asigna su trabajo y te reporta a ti, el Fundador.','el sindicato'],
+     ['Define el rumbo','Elige tus mercados e idiomas, fija un límite de gasto diario y decide qué necesita siempre tu aprobación.','configuración'],
+     ['Trabajan las 24 horas','Cada pocas horas el equipo corre un ciclo: investiga la demanda, crea ofertas, encuentra clientes y publica contenido.','actividad en vivo'],
+     ['Tú apruebas lo importante','El gasto por encima de tu límite, las cuentas nuevas, los contratos y cualquier operación real llegan primero a tu escritorio, con una segunda opinión adjunta.','aprobaciones'],
+     ['El libro contable lo demuestra','Un ingreso cuenta solo cuando el dinero llega de verdad, con una referencia que puedes comprobar. Los costos y pérdidas también se registran.','el libro contable'],
+     ['Mejoran con el tiempo','Lo que funciona dos veces se vuelve una guía. Los agentes suben de rango solo con resultados verificados, y un revisor independiente los mantiene honestos.','aprendizaje']],
+ feed:[['ATLAS','Mapeó 3 mercados locales desatendidos en Houston y Miami','investigación'],['VEGA','Creó una plantilla de reservas bilingüe, lista para vender','producto'],['ORION','Redactó 6 propuestas personalizadas en español','ventas'],['LYRA','Programó 3 reels y un carrusel para revisión','contenido'],['SIRIUS','Encontró 41 negocios con una necesidad pública, respetando las bajas','prospectos'],['POLARIS','Movió presupuesto hacia la plantilla; informe semanal enviado','ceo']],
+ ledger:[['VEGA · venta de plantilla','Stripe pi_…8F2','+$29.00'],['ORION · cliente con iguala','Factura #0042','+$400.00'],['LYRA · prueba de anuncios (aprobada)','Meta ads','−$40.00'],['VEGA · venta de plantilla','Stripe pi_…A91','+$29.00'],['Uso de IA esta semana','Factura del proveedor','−$18.00'],['VEGA · venta de plantilla','Stripe pi_…C07','+$24.00']],
+ m_mk:'Mercados',m_mk1:'Servicios locales',m_mk2:'Productos digitales',m_mk3:'Agencias',m_mk4:'E-commerce',m_lg:'Idiomas',m_lim:'Límite de gasto diario',m_ap:'Pregúntame antes de',m_ap1:'Gastos de más de $10',m_ap2:'Cuentas nuevas',m_ap3:'Contratos',m_ap4:'Trading real',
+ m_ak:'Se necesita tu aprobación',m_ah:'VEGA quiere lanzar una plantilla de reservas bilingüe de $29',m_ap:'ATLAS encontró 140 salones locales que buscan páginas de reservas en español. ORION tiene 6 prospectos interesados. Se necesita presupuesto para la primera prueba de anuncios.',m_m1:'Gasto',m_m2:'Revisión',m_m3:'Riesgo',m_y:'Aprobar',m_n:'Rechazar',
+ m_l1:'Registro',m_l2:'Comprobante',m_l3:'Monto',m_net:'Neto de la semana',m_ex:'Cifras de ejemplo. Los libros reales muestran resultados reales, incluidas las pérdidas.',
+ m_pb:'Guías',m_pbp:'Cuando algo genera ingresos dos veces con pruebas, se vuelve una guía que todos los agentes siguen.',m_gf:'Segunda opinión',m_gfp:'Un revisor independiente revisa cada gasto, cada escalamiento y cada guía. Si no puede revisar, la respuesta es no.',m_rk:'Rangos ganados con el libro contable',
+ b_eye:'Qué construimos',b_h:'No es un chatbot. Es un sistema operativo completo para tu empresa.',b_p:'Ocho sistemas trabajan juntos debajo de ORONORTE. Cada uno existe para que los agentes sean más útiles, más responsables o más seguros.',
+ mods:[['cc','Centro de mando','Tu escritorio: actividad en vivo, aprobaciones, el libro contable y un informe semanal de POLARIS. En computadora y celular.'],
+       ['board','La Junta','Rangos, trofeos y tablas de posiciones para tus agentes, calculados solo con registros reales.'],
+       ['ledger','El libro contable','Cada dólar que entra y sale, al centavo, con comprobantes. Expórtalo cuando quieras.'],
+       ['lab','Laboratorio de escenarios','Prueba una idea antes de mover dinero: simulaciones Monte Carlo, repeticiones históricas y pruebas con comisiones.'],
+       ['review','Segunda opinión','Un revisor independiente revisa gastos, escalamientos y guías. Falla cerrado: sin revisión, no se avanza.'],
+       ['learn','Guías','Aprendizaje con evidencia: las tácticas que generan dos veces se vuelven práctica de todo el equipo.'],
+       ['risk','Motor de riesgo','Topes diarios, umbrales de aprobación, un freno de pérdidas y un muro de trading simulado primero, en el código.'],
+       ['social','Autopiloto de LYRA','Calendario de contenido y publicación en Instagram con reglas y revisión, nunca más de tres posts al día.']],
+ w_eye:'Por qué ORONORTE',w_h:'Hecho para lo que las herramientas de IA de hoy hacen mal.',w_p:'Estudiamos por qué la gente abandona las apps de "empleados de IA" y diseñamos cada parte de ORONORTE para resolverlo.',
+ cmp_h:['','Herramientas de IA típicas','ORONORTE'],
+ cmp:[['Coordinación','Asistentes separados que no se hablan. Terminas coordinándolos tú.','Un agente CEO dirige al equipo: la investigación alimenta productos, los productos alimentan ventas, y tú recibes un solo informe.'],
+      ['Pruebas','Capturas y testimonios que no puedes comprobar.','Un libro contable en vivo, al centavo, con comprobantes. Rangos e informes se calculan con él.'],
+      ['Precio','Créditos que se acaban a media jornada, o una comisión sobre todo lo que ganas.','Planes fijos, tu propia cuenta de IA a costo, y una opción Performance que nunca toca tus ventas actuales ni el trading.'],
+      ['Control','La IA actúa primero y explica después.','Límites escritos en el código. Gastos, contratos, cuentas nuevas y operaciones reales esperan tu aprobación.'],
+      ['Seguridad','Nadie revisa lo que decide la IA.','Un revisor de segunda opinión en cada decisión importante, diseñado para fallar cerrado.'],
+      ['Aprendizaje','Empieza de cero en cada sesión.','Guías con evidencia: lo que funciona dos veces se vuelve la forma de operar del equipo.'],
+      ['Idioma','Inglés primero, lo demás después.','Inglés y español desde el primer día, con portugués incluido. Tus agentes venden en el idioma de tus clientes.'],
+      ['Tus datos','Atrapados dentro de su app.','Tus cuentas, tus llaves, tus datos. Exporta el libro, prospectos, productos y contenido cuando quieras.'],
+      ['Honestidad','"Ganancias garantizadas" e ingresos pasivos prometidos.','Sin promesas. Resultados medibles. El trading es opcional, simulado primero y nunca se cobra.']],
+ a_eye:'El sindicato',a_h:'Siete agentes. Un rumbo.',a_p:'Cada agente tiene un rol, un carácter y un rango. La autoridad se gana con resultados verificados, nunca con promesas.',
+ cast:{polaris:['El Navegante','Tu agente CEO. Asigna el trabajo, mueve el presupuesto a lo que genera y escribe tu informe semanal.','Cada dólar tiene un rumbo.'],atlas:['El Cartógrafo','Recorre los mercados en busca de necesidades sin atender y ordena las oportunidades de menor a mayor ticket.','Mapea el mercado antes de moverte.'],vega:['La Arquitecta','Crea los productos: sitios web, herramientas, APIs de pago, plantillas.','Lanza pequeño. Lanza real.'],orion:['El Cerrador','Convierte oportunidades en clientes, con honestidad y en dos idiomas.','Las pruebas cierran tratos.'],sirius:['El Explorador','Encuentra negocios con una necesidad real en fuentes públicas y respeta cada baja.','Encuentra la necesidad. Respeta el no.'],lyra:['La Voz','Contenido, reels y boletines con tu marca, sin afirmaciones que el libro no respalde.','Di solo lo que muestra el libro.'],nova:['La Cuant','Opera el escritorio de trading opcional: simulado primero, comisiones primero, sin apalancamiento.','Primero las comisiones, luego la ventaja.']},
+ p_eye:'Precios',p_h:'Precios simples. Pruebas incluidas.',p_p:'Un plan mensual fijo, o Performance: una cuota menor más una pequeña parte de las ventas nuevas que trae ORONORTE. Nunca sobre trading, depósitos ni las ventas que ya tenías.',
+ p_m:'Mensual',p_a:'Anual · 2 meses gratis',p_f:'✦ 100 fundadores: 40% de descuento de por vida',mo:'/mes',yr:'/año',fd:'Precio fundador',rec:'Recomendado',perf:'Paga por resultados',plus8:'+ 8% de ventas nuevas sobre $500',
+ p_fine:'Más tu propio uso de IA, pagado directo a tu proveedor a su precio, con el tope diario que tú defines. Sin créditos, sin sobreprecio. Garantía de devolución de 30 días en tu primer mes. Cancela cuando quieras y exporta todo. Precios en USD.',
+ plans:[['Launch','Para un negocio que estrena su primer equipo de IA.',['POLARIS (CEO) + ATLAS, ORION y LYRA','1 negocio','Centro de mando e informe semanal','Inglés y español','Libro contable en vivo y exportación de datos']],
+  ['Syndicate','El sindicato completo para un negocio en crecimiento.',['Los 7 agentes, incluidos SIRIUS (prospectos) y NOVA (trading, simulado primero)','Hasta 3 negocios','La Junta y el Laboratorio de escenarios','Buscador de prospectos responsable','2 usuarios']],
+  ['Empire','Para quien opera varios negocios.',['Todo lo de Syndicate','Negocios ilimitados','Equipos de agentes: los que demuestran 3× ganan su propio equipo','5 usuarios e incorporación prioritaria','Informes con tu marca para tus clientes']],
+  ['Performance','Cuota menor. Ganamos más solo cuando tú ganas.',['Todo lo de Syndicate','8% de las ventas nuevas que trae ORONORTE, sobre $500 al mes','Tope de $1,500 al mes','Nunca sobre ventas actuales, trading ni inversiones','Cambia a un plan fijo cuando quieras']]],
+ cta_p:'Reservar precio fundador',
+ f_h:'Respuestas directas.',
+ faqs:[['¿ORONORTE es un bot de trading o un producto de inversión?','No. ORONORTE es software de negocios: un equipo de agentes de IA que investiga, crea, vende y genera contenido para tu empresa. El trading es un escritorio opcional que empieza simulado, opera solo en tus cuentas y nunca se cobra.'],
+  ['¿ORONORTE guarda mi dinero?','Nunca. Los agentes trabajan a través de tus propias cuentas. Nunca ven tus contraseñas, frases de recuperación ni llaves, y el dinero solo se mueve cuando tú lo apruebas.'],
+  ['¿Me va a hacer ganar dinero?','No prometemos nada. ORONORTE funciona mejor para quien tiene algo que vender o un mercado claro. Todo lo que gana o gasta queda en un libro contable que puedes revisar, así siempre sabes si está funcionando.'],
+  ['¿Qué hacen los agentes cada día?','En cada ciclo POLARIS asigna tareas: ATLAS investiga la demanda, VEGA crea ofertas y productos, ORION redacta propuestas, SIRIUS encuentra prospectos, LYRA crea contenido y NOVA investiga en trading simulado. Ves cada paso en el centro de mando.'],
+  ['¿Qué significa "límites en el código"?','Tus topes de gasto, umbrales de aprobación y límites de trading son reglas fijas del software, no instrucciones que una IA pueda evadir. Ningún agente puede subir sus propios límites.'],
+  ['¿En qué idiomas funciona?','Inglés y español desde el primer día, con portugués incluido. Tus agentes escriben, venden y reportan en los idiomas que elijas.'],
+  ['¿Para quién es?','Dueños de pequeños negocios, creadores, agencias y consultores, emprendedores que lanzan un producto y negocios bilingües en EE. UU. y Latinoamérica.'],
+  ['¿Cuándo puedo empezar?','Los miembros fundadores tienen acceso anticipado primero. Envía “NORTE” a @oronorteai en Instagram para apartar uno de los primeros 100 lugares.']],
+ j_eye:'Miembros fundadores',j_h:'Los primeros 100 tienen 40% de descuento de por vida.',j_p:'Primero estamos probando ORONORTE en nuestra propia empresa, con cada resultado en un libro contable en vivo. Los fundadores tienen acceso anticipado, el precio fundador de por vida y un lugar en primera fila.',
+ j_c1:'Envía “NORTE” por Instagram',j_c2:'Sigue a @oronorteai',f_name:'Nombre',f_email:'Correo',f_go:'Apartar mi lugar',ok:'Ya estás en la lista. Revisa tu correo para las novedades fundadoras.',err:'Escribe tu nombre y un correo válido.',fail:'Algo salió mal. Inténtalo de nuevo en un minuto.',
+ ft_t:'Tu negocio, rumbo al norte.',ft_terms:'Términos de Servicio',ft_priv:'Aviso de Privacidad',
+ ft_d:'ORONORTE es software. No administra, resguarda ni invierte tu dinero, y no garantiza ingresos, ganancias ni rendimientos. Los resultados dependen de tu negocio, tus mercados y tus decisiones, y puedes perder dinero. Las funciones de trading son opcionales, empiezan en modo simulado y operan solo en tus propias cuentas. Nada en este sitio es asesoría financiera, de inversión ni legal.',
+ stage:'oronorte · centro de mando'
+},
+pt:{
+ n_tour:'O tour',n_built:'O que construímos',n_why:'Por que ORONORTE',n_price:'Preços',n_faq:'Perguntas',n_cta:'Entre para os 100 fundadores',
+ h_eye:'Seu negócio, rumo ao norte',h_1:'Uma empresa de IA',h_2:'que trabalha para a sua.',
+ h_lead:'Um agente CEO e uma equipe de especialistas em IA que pesquisam seu mercado, criam produtos, encontram clientes e produzem conteúdo 24 horas por dia. Limites escritos no código. Cada dólar registrado em um livro-caixa ao vivo. Você continua sendo o Fundador.',
+ h_c1:'Faça o tour de 2 minutos',h_c2:'Entre para os 100 fundadores',h_prom:'Sem promessas. Resultados medidos.',
+ s1:'agentes de IA, um CEO',s2:'ciclos de trabalho',s3:'idiomas: EN · ES · PT',s4:'promessas. Só o livro-caixa.',
+ t_eye:'O tour',t_h:'Como o ORONORTE funciona, em seis capítulos.',t_p:'Clique em qualquer capítulo ou deixe rodar. É assim que se dirige uma empresa com um sindicato de IA.',
+ ch:[['Conheça seu sindicato','POLARIS é seu agente CEO. Lidera seis especialistas, distribui o trabalho e reporta a você, o Fundador.','o sindicato'],
+     ['Defina o rumo','Escolha seus mercados e idiomas, defina um limite diário de gastos e decida o que sempre precisa da sua aprovação.','configurações'],
+     ['Trabalham sem parar','A cada poucas horas a equipe roda um ciclo: pesquisa a demanda, cria ofertas, encontra clientes e publica conteúdo.','atividade ao vivo'],
+     ['Você aprova o que importa','Gastos acima do limite, contas novas, contratos e qualquer operação real chegam primeiro à sua mesa, com uma segunda opinião anexada.','aprovações'],
+     ['O livro-caixa comprova','Receita só conta quando o dinheiro chega de verdade, com uma referência que você pode conferir. Custos e perdas também são registrados.','o livro-caixa'],
+     ['Eles melhoram','O que funciona duas vezes vira um manual. Os agentes sobem de nível só com resultados verificados, e um revisor independente os mantém honestos.','aprendizado']],
+ feed:[['ATLAS','Mapeou 3 mercados locais mal atendidos em Houston e Miami','pesquisa'],['VEGA','Criou um modelo de agendamento bilíngue, pronto para vender','produto'],['ORION','Redigiu 6 propostas personalizadas em espanhol','vendas'],['LYRA','Agendou 3 reels e um carrossel para revisão','conteúdo'],['SIRIUS','Encontrou 41 negócios com uma necessidade pública, respeitando opt-outs','leads'],['POLARIS','Moveu verba para o modelo; relatório semanal enviado','ceo']],
+ ledger:[['VEGA · venda de modelo','Stripe pi_…8F2','+$29.00'],['ORION · cliente mensal','Fatura #0042','+$400.00'],['LYRA · teste de anúncios (aprovado)','Meta ads','−$40.00'],['VEGA · venda de modelo','Stripe pi_…A91','+$29.00'],['Uso de IA na semana','Conta do provedor','−$18.00'],['VEGA · venda de modelo','Stripe pi_…C07','+$24.00']],
+ m_mk:'Mercados',m_mk1:'Serviços locais',m_mk2:'Produtos digitais',m_mk3:'Agências',m_mk4:'E-commerce',m_lg:'Idiomas',m_lim:'Limite diário de gastos',m_ap:'Pergunte antes de',m_ap1:'Gastos acima de $10',m_ap2:'Contas novas',m_ap3:'Contratos',m_ap4:'Trading real',
+ m_ak:'Aprovação do Fundador',m_ah:'VEGA quer lançar um modelo de agendamento bilíngue de $29',m_ap:'ATLAS encontrou 140 salões locais buscando páginas de agendamento em espanhol. ORION tem 6 leads interessados. É preciso verba para o primeiro teste de anúncios.',m_m1:'Gasto',m_m2:'Revisão',m_m3:'Risco',m_y:'Aprovar',m_n:'Recusar',
+ m_l1:'Lançamento',m_l2:'Comprovante',m_l3:'Valor',m_net:'Líquido da semana',m_ex:'Números de exemplo. Livros reais mostram resultados reais, inclusive perdas.',
+ m_pb:'Manuais',m_pbp:'Quando algo gera receita duas vezes com prova, vira um manual que todos os agentes seguem.',m_gf:'Segunda opinião',m_gfp:'Um revisor independente confere cada gasto, expansão e manual. Se não puder revisar, a resposta é não.',m_rk:'Níveis conquistados pelo livro-caixa',
+ b_eye:'O que construímos',b_h:'Não é um chatbot. É um sistema operacional completo para sua empresa.',b_p:'Oito sistemas trabalham juntos por baixo do ORONORTE. Cada um existe para tornar os agentes mais úteis, mais responsáveis ou mais seguros.',
+ mods:[['cc','Central de comando','Sua mesa: atividade ao vivo, aprovações, o livro-caixa e um relatório semanal do POLARIS. No computador e no celular.'],
+       ['board','O Conselho','Níveis, troféus e rankings dos seus agentes, calculados só com lançamentos reais.'],
+       ['ledger','O livro-caixa','Cada dólar que entra e sai, ao centavo, com comprovantes. Exporte quando quiser.'],
+       ['lab','Laboratório de cenários','Teste uma ideia antes de mover dinheiro: simulações Monte Carlo, replays históricos e testes com taxas.'],
+       ['review','Segunda opinião','Um revisor independente confere gastos, expansões e manuais. Falha fechado: sem revisão, não avança.'],
+       ['learn','Manuais','Aprendizado com evidência: táticas que geram receita duas vezes viram prática de toda a equipe.'],
+       ['risk','Motor de risco','Tetos diários, limites de aprovação, trava de perdas e trading simulado primeiro, no código.'],
+       ['social','Piloto automático da LYRA','Calendário de conteúdo e publicação no Instagram com regras e revisão, nunca mais de três posts por dia.']],
+ w_eye:'Por que ORONORTE',w_h:'Feito para o que as ferramentas de IA de hoje erram.',w_p:'Estudamos por que as pessoas desistem dos apps de "funcionários de IA" e desenhamos cada parte do ORONORTE para resolver isso.',
+ cmp_h:['','Ferramentas de IA típicas','ORONORTE'],
+ cmp:[['Coordenação','Assistentes separados que não conversam. Você acaba coordenando tudo.','Um agente CEO dirige a equipe: pesquisa alimenta produtos, produtos alimentam vendas, e você recebe um só relatório.'],
+      ['Provas','Prints e depoimentos que você não pode conferir.','Um livro-caixa ao vivo, ao centavo, com comprovantes. Níveis e relatórios saem dele.'],
+      ['Preço','Créditos que acabam no meio do dia, ou uma comissão sobre tudo o que você ganha.','Planos fixos, sua própria conta de IA a preço de custo, e uma opção Performance que nunca toca suas vendas atuais nem o trading.'],
+      ['Controle','A IA age primeiro e explica depois.','Limites escritos no código. Gastos, contratos, contas novas e operações reais esperam sua aprovação.'],
+      ['Segurança','Ninguém confere o que a IA decide.','Um revisor de segunda opinião em cada decisão importante, feito para falhar fechado.'],
+      ['Aprendizado','Começa do zero a cada sessão.','Manuais com evidência: o que funciona duas vezes vira o jeito de operar da equipe.'],
+      ['Idioma','Inglês primeiro, o resto depois.','Inglês e espanhol desde o primeiro dia, com português incluído. Seus agentes vendem no idioma dos seus clientes.'],
+      ['Seus dados','Presos dentro do app deles.','Suas contas, suas chaves, seus dados. Exporte livro-caixa, leads, produtos e conteúdo quando quiser.'],
+      ['Honestidade','"Retorno garantido" e promessas de renda passiva.','Sem promessas. Resultados medidos. Trading é opcional, simulado primeiro e nunca cobrado.']],
+ a_eye:'O sindicato',a_h:'Sete agentes. Um rumo.',a_p:'Cada agente tem um papel, uma personalidade e um nível. Autoridade se conquista com resultados verificados, nunca com promessas.',
+ cast:{polaris:['O Navegador','Seu agente CEO. Distribui o trabalho, move a verba para o que gera receita e escreve seu relatório semanal.','Todo dólar tem um rumo.'],atlas:['O Cartógrafo','Percorre mercados atrás de necessidades não atendidas e classifica oportunidades do menor ao maior ticket.','Mapeie o mercado antes de agir.'],vega:['A Arquiteta','Constrói os produtos: sites, ferramentas, APIs pagas, modelos.','Lance pequeno. Lance de verdade.'],orion:['O Fechador','Transforma oportunidades em clientes, com honestidade e em dois idiomas.','Prova fecha negócio.'],sirius:['O Batedor','Encontra negócios com necessidade real em fontes públicas e respeita cada opt-out.','Ache a necessidade. Respeite o não.'],lyra:['A Voz','Conteúdo, reels e newsletters com sua marca, sem afirmações que o livro-caixa não sustente.','Diga só o que o livro mostra.'],nova:['A Quant','Opera a mesa de trading opcional: simulado primeiro, taxas primeiro, sem alavancagem.','Primeiro as taxas, depois a vantagem.']},
+ p_eye:'Preços',p_h:'Preços simples. Provas incluídas.',p_p:'Um plano mensal fixo, ou Performance: uma taxa menor mais uma pequena parte das vendas novas que o ORONORTE traz. Nunca sobre trading, depósitos ou as vendas que você já tinha.',
+ p_m:'Mensal',p_a:'Anual · 2 meses grátis',p_f:'✦ 100 fundadores: 40% de desconto vitalício',mo:'/mês',yr:'/ano',fd:'Preço fundador',rec:'Recomendado',perf:'Pague por resultados',plus8:'+ 8% das vendas novas acima de $500',
+ p_fine:'Mais o seu próprio uso de IA, pago direto ao provedor pelo preço dele, com o teto diário que você define. Sem créditos, sem sobrepreço. Garantia de 30 dias no primeiro mês. Cancele quando quiser e exporte tudo. Preços em USD.',
+ plans:[['Launch','Para um negócio montando sua primeira equipe de IA.',['POLARIS (CEO) + ATLAS, ORION e LYRA','1 negócio','Central de comando e relatório semanal','Inglês e espanhol','Livro-caixa ao vivo e exportação de dados']],
+  ['Syndicate','O sindicato completo para um negócio em crescimento.',['Os 7 agentes, incluindo SIRIUS (leads) e NOVA (trading, simulado primeiro)','Até 3 negócios','O Conselho e o Laboratório de cenários','Buscador de leads responsável','2 usuários']],
+  ['Empire','Para quem opera vários negócios.',['Tudo do Syndicate','Negócios ilimitados','Equipes de agentes: quem prova 3× ganha a própria equipe','5 usuários e onboarding prioritário','Relatórios com sua marca para seus clientes']],
+  ['Performance','Taxa menor. Ganhamos mais só quando você ganha.',['Tudo do Syndicate','8% das vendas novas que o ORONORTE traz, acima de $500 por mês','Teto de $1.500 por mês','Nunca sobre vendas atuais, trading ou investimentos','Mude para um plano fixo quando quiser']]],
+ cta_p:'Reservar preço fundador',
+ f_h:'Respostas diretas.',
+ faqs:[['O ORONORTE é um robô de trading ou um produto de investimento?','Não. O ORONORTE é software de negócios: uma equipe de agentes de IA que pesquisa, cria, vende e produz conteúdo para sua empresa. Trading é uma mesa opcional que começa simulada, opera só nas suas contas e nunca é cobrada.'],
+  ['O ORONORTE guarda meu dinheiro?','Nunca. Os agentes trabalham pelas suas próprias contas. Nunca veem suas senhas, frases de recuperação ou chaves, e o dinheiro só se move com a sua aprovação.'],
+  ['Vou ganhar dinheiro?','Não prometemos nada. O ORONORTE funciona melhor para quem tem algo para vender ou um mercado claro. Tudo o que ele ganha ou gasta fica num livro-caixa que você confere, então você sempre sabe se está funcionando.'],
+  ['O que os agentes fazem todo dia?','Em cada ciclo o POLARIS distribui tarefas: ATLAS pesquisa a demanda, VEGA cria ofertas e produtos, ORION escreve propostas, SIRIUS encontra leads, LYRA cria conteúdo e NOVA pesquisa em trading simulado. Você vê cada passo na central de comando.'],
+  ['O que significa "limites no código"?','Seus tetos de gasto, limites de aprovação e de trading são regras fixas do software, não instruções que uma IA possa contornar. Nenhum agente aumenta os próprios limites.'],
+  ['Em quais idiomas funciona?','Inglês e espanhol desde o primeiro dia, com português incluído. Seus agentes escrevem, vendem e reportam nos idiomas que você escolher.'],
+  ['Para quem é?','Donos de pequenos negócios, criadores, agências e consultores, empreendedores lançando um produto e negócios bilíngues nos EUA e na América Latina.'],
+  ['Quando posso começar?','Os membros fundadores têm acesso antecipado primeiro. Mande “NORTE” para @oronorteai no Instagram para reservar uma das 100 primeiras vagas.']],
+ j_eye:'Membros fundadores',j_h:'Os 100 primeiros têm 40% de desconto vitalício.',j_p:'Estamos provando o ORONORTE na nossa própria empresa primeiro, com cada resultado em um livro-caixa ao vivo. Fundadores têm acesso antecipado, o preço fundador para sempre e um lugar na primeira fila.',
+ j_c1:'Mande “NORTE” no Instagram',j_c2:'Siga @oronorteai',f_name:'Nome',f_email:'E-mail',f_go:'Reservar minha vaga',ok:'Você está na lista. Fique de olho no seu e-mail.',err:'Digite seu nome e um e-mail válido.',fail:'Algo deu errado. Tente de novo em um minuto.',
+ ft_t:'Seu negócio, rumo ao norte.',ft_terms:'Termos de Serviço',ft_priv:'Política de Privacidade',
+ ft_d:'O ORONORTE é um software. Não administra, guarda nem investe o seu dinheiro, e não garante renda, lucro ou retorno. Os resultados dependem do seu negócio, dos seus mercados e das suas decisões, e você pode perder dinheiro. Os recursos de trading são opcionais, começam em modo simulado e operam apenas nas suas próprias contas. Nada neste site é aconselhamento financeiro, de investimento ou jurídico.',
+ stage:'oronorte · central de comando'
+}};
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let lang = (() => { try { return localStorage.getItem('ov-lang') } catch (e) { return null } })() || (navigator.language || 'en').slice(0, 2);
+if (!T[lang]) lang = 'en';
+let annual = false, chapter = 0, timer = null, paused = false;
+const PRICES = {Launch:49, Syndicate:149, Empire:399, Performance:79};
+const money = n => '$' + (Number.isInteger(n) ? n : n.toFixed(2)).toLocaleString('en-US');
+
+function render() {
+  const L = T[lang];
+  document.documentElement.lang = lang;
+  $$('[data-t]').forEach(el => { const v = L[el.dataset.t]; if (typeof v === 'string') el.textContent = v; });
+  $$('[data-tp]').forEach(el => el.placeholder = L[el.dataset.tp]);
+  $$('[data-l]').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === lang));
+  $('#stageTitle').textContent = L.stage;
+
+  $('#chapters').innerHTML = L.ch.map((c, i) => `<li><button role="tab" id="ch${i}" aria-selected="${i === chapter}" aria-controls="stage" data-i="${i}"><span class="n">0${i + 1}</span><span class="t">${esc(c[0])}</span><span class="s">${esc(c[1])}</span><span class="bar"></span></button></li>`).join('');
+  $$('#chapters button').forEach(b => b.onclick = () => { paused = true; $('#tourEl').classList.add('paused'); go(+b.dataset.i); });
+  $('#feed').innerHTML = L.feed.map((r, i) => `<div class="row" style="transition-delay:${i * .25}s"><span class="who">${r[0]}</span><span>${esc(r[1])}</span><span class="tag">${esc(r[2])}</span></div>`).join('');
+  $('#ledgerRows').innerHTML = L.ledger.map(r => `<tr><td>${esc(r[0])}</td><td class="ref">${esc(r[1])}</td><td class="a${r[2].startsWith('−') ? ' neg' : ''}">${r[2]}</td></tr>`).join('');
+
+  $('#mods').innerHTML = L.mods.map(m => `<article class="mod reveal">${ICON[m[0]]}<h3>${esc(m[1])}</h3><p>${esc(m[2])}</p></article>`).join('');
+  $$('.mod').forEach(el => el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px'); }));
+
+  $('#compare').innerHTML = `<div class="crow h"><div>${esc(L.cmp_h[0])}</div><div class="them">${esc(L.cmp_h[1])}</div><div class="us">${esc(L.cmp_h[2])}</div></div>` +
+    L.cmp.map(r => `<div class="crow"><div class="topic">${esc(r[0])}</div><div class="them">${esc(r[1])}</div><div class="us">${esc(r[2])}</div></div>`).join('');
+
+  $('#agents').innerHTML = AG_KEYS.map((k, i) => { const c = L.cast[k];
+    const star = i === 0 ? `<svg class="big" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="none" stroke="#E9C46A" stroke-opacity=".45" stroke-dasharray="2 4"/><path d="M32 4 L35.6 28.4 L58 32 L35.6 35.6 L32 58 L28.4 35.6 L6 32 L28.4 28.4 Z" fill="#F2D27C"/></svg>` : '';
+    return `<article class="ag reveal">${star}<div><div class="nm ${i === 0 ? 'metal' : ''}">${k.toUpperCase()}</div><div class="rl">${esc(c[0])}</div><p>${esc(c[1])}</p><q>“${esc(c[2])}”</q></div></article>`; }).join('');
+
+  $('#plans').innerHTML = L.plans.map((p, i) => {
+    const base = PRICES[p[0]], perf = p[0] === 'Performance';
+    const list = annual && !perf ? base * 10 : base, founding = perf ? list : Math.round(list * 0.6 * 100) / 100;
+    const unit = annual && !perf ? L.yr : L.mo;
+    return `<article class="plan ${i === 1 ? 'rec' : ''}">${i === 1 ? `<span class="badge">${esc(L.rec)}</span>` : perf ? `<span class="badge" style="background:none;border:1px solid rgba(233,194,90,.6);color:#FFF0B8">${esc(L.perf)}</span>` : ''}
+      <h3>${p[0].toUpperCase()}</h3><p class="tag">${esc(p[1])}</p>
+      <div class="price">${money(founding)}<small> ${unit}</small></div>
+      <div class="was">${perf ? esc(L.plus8) : esc(L.fd) + ' · <s>' + money(list) + '</s>'}</div>
+      <ul>${p[2].map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      <a class="btn ${i === 1 ? 'gold' : 'ghost'}" href="#join">${esc(L.cta_p)}</a></article>`; }).join('');
+
+  $('#faqs').innerHTML = L.faqs.map((f, i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join('');
+  observe();
+  go(chapter, true);
+}
+
+function go(i, keep) {
+  chapter = i;
+  $$('#chapters button').forEach((b, j) => b.setAttribute('aria-selected', j === i));
+  $$('.scene').forEach(s => s.classList.toggle('on', +s.dataset.s === i));
+  clearTimeout(timer);
+  if (!paused && !matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setTimeout(() => go((chapter + 1) % 6), 8000);
+}
+
+let io;
+function observe() {
+  if (!('IntersectionObserver' in window)) { $$('.reveal').forEach(e => e.classList.add('in')); return; }
+  io = io || new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  $$('.reveal:not(.in)').forEach(e => io.observe(e));
+}
+
+$$('[data-l]').forEach(b => b.onclick = () => { lang = b.dataset.l; try { localStorage.setItem('ov-lang', lang) } catch (e) {} render(); });
+$$('[data-b]').forEach(b => b.onclick = () => { annual = b.dataset.b === 'a'; $$('[data-b]').forEach(x => x.setAttribute('aria-pressed', x === b)); render(); });
+const nav = $('#nav'); addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 30), {passive:true});
+$('#menu').onclick = () => { const o = $('#links').classList.toggle('open'); $('#menu').setAttribute('aria-expanded', o); };
+$$('#links a').forEach(a => a.addEventListener('click', () => { $('#links').classList.remove('open'); $('#menu').setAttribute('aria-expanded', false); }));
+
+// Founding sign-up: Instagram until the ORONORTE server is live, then a real form.
+if (WAITLIST_API) {
+  $('#joinBox').classList.add('api');
+  $('#wl').addEventListener('submit', async e => {
+    e.preventDefault(); const L = T[lang], name = $('#wn').value.trim(), email = $('#we').value.trim();
+    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('#msg').textContent = L.err; return; }
+    try { const r = await fetch(WAITLIST_API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({name, email, lang, consent:true})});
+      $('#msg').textContent = r.ok ? L.ok : L.fail; if (r.ok) $('#wl').reset(); } catch (err) { $('#msg').textContent = L.fail; }
+  });
+}
+
+// The sky: a slow starfield with the syndicate's constellation around POLARIS.
+(() => {
+  const c = $('#sky'), x = c.getContext('2d'); let w, h, dpr, stars = [], t = 0, mx = 0, my = 0;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cons = [[0,0],[-.46,-.30],[.46,-.30],[-.56,.22],[.56,.22],[-.40,.62],[.40,.62]];
+  function size() { dpr = Math.min(devicePixelRatio || 1, 2); w = c.clientWidth; h = c.clientHeight; c.width = w * dpr; c.height = h * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(w * h / 5200); stars = Array.from({length:n}, () => ({x:Math.random() * w, y:Math.random() * h, r:Math.random() * 1.1 + .2, a:Math.random() * .6 + .2, p:Math.random() * 6.28, z:Math.random() * .8 + .2})); }
+  function frame() {
+    t += .006; x.clearRect(0, 0, w, h);
+    for (const s of stars) { const tw = .55 + .45 * Math.sin(t * 2 * s.z + s.p); x.globalAlpha = s.a * tw; x.fillStyle = '#F4E9CC';
+      x.beginPath(); x.arc(s.x + mx * s.z * 12, s.y + my * s.z * 12, s.r, 0, 6.28); x.fill(); }
+    const cx = w / 2 + mx * 18, cy = h * .2 + my * 18, sc = Math.min(w, 1300) * .9;
+    const pts = cons.map(([a, b], i) => [cx + a * sc + Math.sin(t + i) * 3, cy + b * sc * .55 + Math.cos(t * .8 + i) * 3]);
+    x.globalAlpha = .16; x.strokeStyle = '#E9C25A'; x.lineWidth = 1; x.setLineDash([2, 6]);
+    for (let i = 1; i < pts.length; i++) { x.beginPath(); x.moveTo(pts[0][0], pts[0][1]); x.lineTo(pts[i][0], pts[i][1]); x.stroke(); }
+    x.setLineDash([]);
+    pts.forEach(([px, py], i) => { const g = x.createRadialGradient(px, py, 0, px, py, i ? 14 : 60); g.addColorStop(0, 'rgba(255,240,190,' + (i ? .45 : .32) + ')'); g.addColorStop(1, 'rgba(233,194,90,0)');
+      x.globalAlpha = 1; x.fillStyle = g; x.beginPath(); x.arc(px, py, i ? 14 : 60, 0, 6.28); x.fill();
+      x.fillStyle = '#FFF3C4'; x.beginPath(); x.arc(px, py, i ? 1.8 : 2.6, 0, 6.28); x.fill(); });
+    x.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  addEventListener('resize', size); addEventListener('pointermove', e => { mx = (e.clientX / innerWidth - .5); my = (e.clientY / innerHeight - .5); }, {passive:true});
+  size(); frame();
+})();
+
+render();
+</script>
+</body>
+</html>

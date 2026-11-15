@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORONORTE · Terms and Privacy</title>
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#050506">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+:root{--ink:#050506;--line:rgba(255,236,190,.12);--line2:rgba(255,236,190,.22);--text:#F1EDE3;--soft:#CFC8B8;--mute:#A39C8C;--gold:#E9C25A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--text);font:16px/1.7 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#F7DC86}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(5,5,6,.92);backdrop-filter:blur(8px);z-index:2}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font:700 15px/1 Syncopate,Inter,sans-serif;letter-spacing:.32em}
+.oro{background:linear-gradient(135deg,#FFF8DC 0%,#FBE7A6 45%,#F2D27C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ctl{display:flex;gap:10px;flex-wrap:wrap}
+.seg{display:flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.seg button{min-height:38px;padding:0 14px;border:none;background:none;color:var(--soft);font:600 12px Inter,sans-serif;letter-spacing:.06em;cursor:pointer}
+.seg button[aria-pressed="true"]{background:rgba(233,194,90,.16);color:#FFF0B8}
+.seg button:focus-visible{outline:2px solid #F7DC86;outline-offset:-2px}
+h1{font:700 26px/1.25 Syncopate,Inter,sans-serif;letter-spacing:.06em;margin:44px 0 6px}
+.meta{color:var(--mute);font-size:14px;margin-bottom:28px}
+h2{font-size:18px;margin:34px 0 8px;color:#FBE7A6}
+p,li{color:var(--soft)}
+ul{padding-left:22px}
+.note{border:1px solid var(--line2);border-radius:12px;padding:14px 18px;background:rgba(233,194,90,.05);color:var(--text)}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:28px 0 50px;color:var(--mute);font-size:13px}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="brand" href="/" aria-label="ORONORTE home">
+    <svg width="26" height="26" viewBox="0 0 34 34" aria-hidden="true"><path d="M22.6 11.4 L18.3 17 L22.6 22.6 L17 18.3 L11.4 22.6 L15.7 17 L11.4 11.4 L17 15.7 Z" fill="none" stroke="#E9C46A" stroke-width="1.1" stroke-linejoin="round" opacity=".8"/><path d="M17 0.8 L19 15 L31.5 17 L19 19 L17 31 L15 19 L2.5 17 L15 15 Z" fill="#F2D27C"/></svg>
+    <span><span class="oro">ORO</span>NORTE</span>
+  </a>
+  <div class="ctl">
+    <div class="seg" role="group" aria-label="Document"><button data-d="terms">Terms</button><button data-d="privacy">Privacy</button></div>
+    <div class="seg" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="es">ES</button><button data-l="pt">PT</button></div>
+  </div>
+</div></header>
+
+<main class="wrap" id="doc" aria-live="polite"></main>
+<footer><div class="wrap">© 2026 ORONORTE · <a href="/">oronorte.com</a> · <a href="https://www.instagram.com/oronorteai/">@oronorteai</a> · <a href="mailto:hello@oronorte.com">hello@oronorte.com</a></div></footer>
+
+<script>
+// Legal operator name: update to the registered entity (for example "ORONORTE LLC") once it is formed.
+const ENTITY = 'ORONORTE';
+const AKA = ENTITY === 'ORONORTE' ? '' : '"ORONORTE", ';
+const EFFECTIVE = {en:'November 14, 2026', es:'14 de noviembre de 2026', pt:'14 de novembro de 2026'};
+const MAIL = '<a href="mailto:hello@oronorte.com">hello@oronorte.com</a>';
+const UI = {
+  en:{terms:'Terms', privacy:'Privacy', eff:'Effective', tt:'Terms of Service', pt:'Privacy Policy',
+      pre:'The English version governs. Translations are provided for convenience.'},
+  es:{terms:'Términos', privacy:'Privacidad', eff:'Vigente desde el', tt:'Términos de Servicio', pt:'Aviso de Privacidad',
+      pre:'La versión en inglés prevalece. Las traducciones se ofrecen para tu comodidad.'},
+  pt:{terms:'Termos', privacy:'Privacidade', eff:'Em vigor desde', tt:'Termos de Serviço', pt:'Política de Privacidade',
+      pre:'A versão em inglês prevalece. As traduções são oferecidas por conveniência.'}
+};
+
+const DOCS = {
+en:{
+terms:`
+<p class="note">ORONORTE is software. It does not manage, hold or invest your money, and it does not guarantee any income, profit or return. You can lose money. Nothing ORONORTE or its agents produce is financial, investment, tax or legal advice.</p>
+<h2>1. Who we are</h2><p>These Terms are an agreement between you and ${ENTITY} (${AKA}"we", "us"). They cover the website oronorte.com, the ORONORTE software, and any related services (together, the "Service"). Contact: ${MAIL}.</p>
+<h2>2. Who can use it</h2><p>You must be at least 18 and able to form a binding contract. If you use the Service for a company, you confirm you may bind that company, and "you" includes it.</p>
+<h2>3. What the Service is</h2><p>ORONORTE gives you a team of AI agents that research, draft, plan, create content, find leads and propose actions for your business, and records results in a ledger. We are not a bank, broker, exchange, investment adviser, commodity trading adviser or money transmitter. We never take custody of your money, funds or digital assets.</p>
+<h2>4. Your accounts and keys</h2><ul>
+<li>You connect your own accounts (for example your AI provider, payment, social media, wallet or trading accounts). You stay responsible for them, for their credentials, and for following their terms.</li>
+<li>Usage fees charged by those providers (for example AI model usage) are billed by them to you and are not part of our price.</li>
+<li>We will never ask for your passwords, seed or recovery phrases, or private keys. Never share them with anyone claiming to be us.</li></ul>
+<h2>5. Agents, limits and approvals</h2><p>Agents act only inside the limits you set. Spending above your limits, new accounts, contracts, publishing where you require it, and any live trading need your approval. AI output can be wrong, incomplete or out of date. Review what you approve: you are responsible for the decisions you make and the actions you authorize.</p>
+<h2>6. Trading features</h2><p>Trading and market tools are optional, start in paper (simulated) mode, and run only in your own accounts. Use them only where you are legally allowed to. Simulations, backtests and scenario results describe the past or a model, not the future. We charge nothing on trading, deposits, balances or profits.</p>
+<h2>7. Plans, billing and revenue share</h2><ul>
+<li>Paid plans are billed in advance, monthly or yearly, through our payment processor (Stripe), and renew automatically until you cancel. Cancel anytime: you keep access until the end of the paid period.</li>
+<li>The Performance plan charges a monthly base fee plus a stated percentage of revenue that your ledger attributes to ORONORTE agent activity above the stated threshold, up to the stated monthly cap. Revenue you already earned before connecting ORONORTE, trading results and deposits are never included. You can review every attributed entry before it is billed and dispute it within 30 days.</li>
+<li>Founding-member pricing lasts as long as your subscription stays active.</li>
+<li>New paid subscribers get a 30-day money-back guarantee on their first month. Prices exclude taxes. Except for that guarantee or where the law requires otherwise, fees already paid are non-refundable for partial periods. We will give at least 30 days' notice of any price change, and it applies from your next renewal.</li></ul>
+<h2>8. Acceptable use</h2><p>Do not use the Service to break the law; to spam, defraud, harass or mislead anyone; to promise guaranteed returns or run investment schemes; to offer regulated financial services without the licenses they need; to infringe anyone's rights; or to attack, overload, copy or reverse-engineer the Service. We may suspend accounts that do.</p>
+<h2>9. Your content and data</h2><p>You own your content and data. You give us a limited license to host and process it only to provide and secure the Service for you. We do not sell your data. Our Privacy Policy explains how we handle personal data.</p>
+<h2>10. Our property</h2><p>The Service, the ORONORTE name and marks, and our software and designs belong to us. Your subscription gives you a personal, non-transferable right to use the Service while it is active.</p>
+<h2>11. Early access and changes</h2><p>Some features are early-access and may change or stop. We may update the Service, and we will tell you before removing a feature you pay for.</p>
+<h2>12. Disclaimers</h2><p>The Service is provided "as is" and "as available". To the fullest extent the law allows, we disclaim all implied warranties, including merchantability, fitness for a particular purpose and non-infringement, and we do not warrant any business, financial or trading result.</p>
+<h2>13. Limitation of liability</h2><p>To the fullest extent the law allows, we are not liable for indirect, incidental, special, consequential or punitive damages, or for lost profits, revenue, data or trading losses. Our total liability for any claim is limited to the fees you paid us in the 12 months before the claim. Some places do not allow these limits, so they may not fully apply to you.</p>
+<h2>14. Indemnity</h2><p>You will defend and compensate us for claims arising from your use of the Service in breach of these Terms or the law, or from content and actions you authorize.</p>
+<h2>15. Ending the agreement</h2><p>You can stop using the Service and cancel at any time. We may suspend or end access for serious or repeated breaches of these Terms. You can export your ledger and data for 30 days after your account ends.</p>
+<h2>16. Law and disputes</h2><p>These Terms are governed by the laws of the State of California, without regard to its conflict-of-law rules. Disputes go to the state or federal courts in Los Angeles County, California, except that either side may use small-claims court. If you are a consumer, you keep any rights your local law gives you that cannot be waived.</p>
+<h2>17. Changes to these Terms</h2><p>We may update these Terms. For material changes we will notify you by email or in the Service at least 30 days in advance. Continuing to use the Service after that means you accept the new Terms.</p>
+<h2>18. Contact</h2><p>${MAIL}</p>`,
+privacy:`
+<p class="note">Short version: we collect only what we need to run ORONORTE, we never sell your data, and you can ask us to see, fix or delete it at any time.</p>
+<h2>1. Who is responsible</h2><p>${ENTITY} (${AKA}"we") is responsible for the personal data described here. Contact: ${MAIL}.</p>
+<h2>2. What we collect</h2><ul>
+<li><b>Waitlist:</b> name, email, role, country, language and your consent to receive updates.</li>
+<li><b>Account:</b> contact details, settings, limits and approvals you make.</li>
+<li><b>Billing:</b> handled by Stripe. We receive the plan, payment status and the last four digits of your card. We never see or store full card numbers.</li>
+<li><b>Data you connect or create:</b> the content, leads, records and ledger entries your agents work with.</li>
+<li><b>Technical:</b> IP address, browser type and server logs, used for security and to keep the Service working.</li></ul>
+<h2>3. How we use it</h2><p>To provide and secure the Service, send the updates you asked for, bill you, answer you, prevent fraud and abuse, and meet legal duties. We do not use your data for advertising and we do not sell or share it for cross-context behavioral advertising.</p>
+<h2>4. Who processes it for us</h2><p>Trusted providers that act on our instructions: hosting, Stripe (payments), Anthropic (AI model processing of the tasks you give your agents), our email provider, Google Fonts (which receives your IP address when our pages load fonts), and platforms you choose to connect, such as Meta for Instagram. Each receives only what it needs.</p>
+<h2>5. Cookies and tracking</h2><p>We use no advertising or tracking cookies. Our site stores your language choice in your browser. The command center uses a login session.</p>
+<h2>6. How long we keep it</h2><p>Waitlist data until you unsubscribe or ask us to delete it. Account data while your account is active and for 30 days after it ends, so you can export it. Billing records as long as tax law requires.</p>
+<h2>7. Your rights</h2><p>You can ask to access, correct, delete or receive a copy of your data, withdraw consent, and opt out of emails at any time (every email has an unsubscribe link). These rights include those under the California Consumer Privacy Act, Mexico's data protection law (your ARCO rights) and Brazil's LGPD. We will not treat you differently for using them. Write to ${MAIL} and we will answer within 30 days.</p>
+<h2>8. Security</h2><p>We use encryption in transit, access controls and spending limits enforced in code. No system is perfectly secure; if a breach affects you, we will tell you as the law requires.</p>
+<h2>9. International transfers</h2><p>We operate from the United States, so your data may be processed there, with safeguards the law requires.</p>
+<h2>10. Children</h2><p>ORONORTE is not for anyone under 18, and we do not knowingly collect their data.</p>
+<h2>11. Changes</h2><p>If we change this policy in a meaningful way, we will tell you by email or in the Service before it takes effect.</p>`
+},
+es:{
+terms:`
+<p class="note">ORONORTE es software. No administra, resguarda ni invierte tu dinero, y no garantiza ingresos, ganancias ni rendimientos. Puedes perder dinero. Nada de lo que produzcan ORONORTE o sus agentes es asesoría financiera, de inversión, fiscal ni legal.</p>
+<h2>1. Quiénes somos</h2><p>Estos Términos son un acuerdo entre tú y ${ENTITY} (${AKA}"nosotros"). Cubren el sitio oronorte.com, el software ORONORTE y los servicios relacionados (en conjunto, el "Servicio"). Contacto: ${MAIL}.</p>
+<h2>2. Quién puede usarlo</h2><p>Debes tener al menos 18 años y capacidad para celebrar un contrato. Si usas el Servicio para una empresa, confirmas que puedes obligarla, y "tú" la incluye.</p>
+<h2>3. Qué es el Servicio</h2><p>ORONORTE te da un equipo de agentes de IA que investigan, redactan, planean, crean contenido, encuentran prospectos y proponen acciones para tu negocio, y registra los resultados en un libro contable. No somos banco, casa de bolsa, exchange, asesor de inversiones ni transmisor de dinero. Nunca tenemos la custodia de tu dinero, fondos ni activos digitales.</p>
+<h2>4. Tus cuentas y llaves</h2><ul>
+<li>Tú conectas tus propias cuentas (por ejemplo, de IA, pagos, redes sociales, wallet o trading). Sigues siendo responsable de ellas, de sus credenciales y de cumplir sus términos.</li>
+<li>Los cargos de esos proveedores (por ejemplo, el uso del modelo de IA) te los cobran ellos directamente y no forman parte de nuestro precio.</li>
+<li>Nunca te pediremos contraseñas, frases de recuperación ni llaves privadas. No se las compartas a nadie que diga ser nosotros.</li></ul>
+<h2>5. Agentes, límites y aprobaciones</h2><p>Los agentes actúan solo dentro de los límites que defines. El gasto por encima de tus límites, las cuentas nuevas, los contratos, las publicaciones que requieran tu visto bueno y cualquier operación real necesitan tu aprobación. La IA puede equivocarse o estar desactualizada. Revisa lo que apruebas: eres responsable de tus decisiones y de las acciones que autorizas.</p>
+<h2>6. Funciones de trading</h2><p>Las herramientas de trading y mercados son opcionales, empiezan en modo simulado y operan solo en tus propias cuentas. Úsalas solo donde la ley te lo permita. Las simulaciones y escenarios describen el pasado o un modelo, no el futuro. No cobramos nada sobre trading, depósitos, saldos ni ganancias.</p>
+<h2>7. Planes, cobros y reparto de ingresos</h2><ul>
+<li>Los planes de pago se cobran por adelantado, mensual o anualmente, a través de nuestro procesador de pagos (Stripe), y se renuevan automáticamente hasta que canceles. Puedes cancelar en cualquier momento y conservas el acceso hasta el final del periodo pagado.</li>
+<li>El plan Performance cobra una cuota base mensual más un porcentaje indicado de los ingresos que tu libro contable atribuye a la actividad de los agentes de ORONORTE por encima del umbral indicado, hasta el tope mensual indicado. Nunca se incluyen los ingresos que ya tenías antes de conectar ORONORTE, los resultados de trading ni los depósitos. Puedes revisar cada registro atribuido antes del cobro y disputarlo dentro de 30 días.</li>
+<li>El precio de miembro fundador se mantiene mientras tu suscripción siga activa.</li>
+<li>Los nuevos suscriptores de pago tienen garantía de devolución de 30 días en su primer mes. Los precios no incluyen impuestos. Salvo esa garantía o lo que indique la ley, lo pagado no es reembolsable por periodos parciales. Avisaremos de cualquier cambio de precio con al menos 30 días, y aplicará desde tu siguiente renovación.</li></ul>
+<h2>8. Uso aceptable</h2><p>No uses el Servicio para violar la ley; enviar spam, defraudar, acosar o engañar; prometer rendimientos garantizados u operar esquemas de inversión; ofrecer servicios financieros regulados sin las licencias necesarias; infringir derechos de terceros; ni para atacar, saturar, copiar o hacer ingeniería inversa del Servicio. Podemos suspender las cuentas que lo hagan.</p>
+<h2>9. Tu contenido y tus datos</h2><p>Tu contenido y tus datos son tuyos. Nos das una licencia limitada para alojarlos y procesarlos solo para prestarte y proteger el Servicio. No vendemos tus datos. El Aviso de Privacidad explica cómo tratamos los datos personales.</p>
+<h2>10. Nuestra propiedad</h2><p>El Servicio, el nombre y las marcas ORONORTE, y nuestro software y diseños son nuestros. Tu suscripción te da un derecho personal e intransferible de uso mientras esté activa.</p>
+<h2>11. Acceso anticipado y cambios</h2><p>Algunas funciones están en acceso anticipado y pueden cambiar o terminar. Podemos actualizar el Servicio y te avisaremos antes de retirar una función por la que pagas.</p>
+<h2>12. Exclusión de garantías</h2><p>El Servicio se ofrece "tal cual" y "según disponibilidad". En la máxima medida que permita la ley, no otorgamos garantías implícitas ni garantizamos ningún resultado comercial, financiero o de trading.</p>
+<h2>13. Limitación de responsabilidad</h2><p>En la máxima medida que permita la ley, no respondemos por daños indirectos, incidentales, especiales, consecuentes o punitivos, ni por pérdida de utilidades, ingresos, datos o pérdidas de trading. Nuestra responsabilidad total por cualquier reclamo se limita a lo que nos pagaste en los 12 meses anteriores. Algunas leyes no permiten estos límites, por lo que podrían no aplicarte por completo.</p>
+<h2>14. Indemnización</h2><p>Nos defenderás y compensarás por reclamos derivados de que uses el Servicio violando estos Términos o la ley, o del contenido y las acciones que autorices.</p>
+<h2>15. Terminación</h2><p>Puedes dejar de usar el Servicio y cancelar en cualquier momento. Podemos suspender o terminar el acceso por incumplimientos graves o repetidos. Puedes exportar tu libro contable y tus datos durante 30 días después de que termine tu cuenta.</p>
+<h2>16. Ley aplicable y disputas</h2><p>Estos Términos se rigen por las leyes del Estado de California. Las disputas se resolverán ante los tribunales estatales o federales del Condado de Los Ángeles, California, salvo que cualquiera de las partes acuda a un tribunal de reclamos menores. Si eres consumidor, conservas los derechos irrenunciables que te otorgue tu ley local.</p>
+<h2>17. Cambios a estos Términos</h2><p>Podemos actualizar estos Términos. Para cambios importantes te avisaremos por correo o dentro del Servicio con al menos 30 días de anticipación. Seguir usando el Servicio después implica que aceptas los nuevos Términos.</p>
+<h2>18. Contacto</h2><p>${MAIL}</p>`,
+privacy:`
+<p class="note">En corto: solo recopilamos lo necesario para operar ORONORTE, nunca vendemos tus datos y puedes pedirnos verlos, corregirlos o borrarlos en cualquier momento.</p>
+<h2>1. Responsable</h2><p>${ENTITY} (${AKA}"nosotros") es responsable de los datos personales descritos aquí. Contacto: ${MAIL}.</p>
+<h2>2. Qué datos recopilamos</h2><ul>
+<li><b>Lista de espera:</b> nombre, correo, rol, país, idioma y tu consentimiento para recibir actualizaciones.</li>
+<li><b>Cuenta:</b> datos de contacto, configuración, límites y aprobaciones que realizas.</li>
+<li><b>Cobros:</b> los gestiona Stripe. Recibimos el plan, el estado del pago y los últimos cuatro dígitos de tu tarjeta. Nunca vemos ni guardamos el número completo.</li>
+<li><b>Datos que conectas o creas:</b> el contenido, prospectos, registros y asientos del libro contable con los que trabajan tus agentes.</li>
+<li><b>Técnicos:</b> dirección IP, tipo de navegador y registros del servidor, para seguridad y funcionamiento.</li></ul>
+<h2>3. Para qué los usamos</h2><p>Para prestar y proteger el Servicio, enviarte las actualizaciones que pediste, cobrarte, responderte, prevenir fraude y abuso, y cumplir obligaciones legales. No usamos tus datos para publicidad ni los vendemos o compartimos para publicidad conductual.</p>
+<h2>4. Quién los procesa por nosotros</h2><p>Proveedores de confianza que actúan bajo nuestras instrucciones: hospedaje, Stripe (pagos), Anthropic (procesamiento con IA de las tareas que das a tus agentes), nuestro proveedor de correo, Google Fonts (que recibe tu dirección IP al cargar las fuentes) y las plataformas que decidas conectar, como Meta para Instagram. Cada uno recibe solo lo que necesita.</p>
+<h2>5. Cookies y rastreo</h2><p>No usamos cookies de publicidad ni de rastreo. El sitio guarda tu idioma en tu navegador. El centro de mando usa una sesión de inicio.</p>
+<h2>6. Cuánto tiempo los conservamos</h2><p>Los datos de la lista hasta que te des de baja o pidas borrarlos. Los de la cuenta mientras esté activa y 30 días después, para que puedas exportarlos. Los registros de cobro el tiempo que exija la ley fiscal.</p>
+<h2>7. Tus derechos</h2><p>Puedes pedir acceso, rectificación, cancelación u oposición (tus derechos ARCO conforme a la ley mexicana de protección de datos), una copia de tus datos, retirar tu consentimiento y darte de baja de los correos en cualquier momento. También aplican tus derechos bajo la ley de privacidad de California (CCPA) y la LGPD de Brasil. No te trataremos distinto por ejercerlos. Escribe a ${MAIL} y responderemos en un máximo de 30 días.</p>
+<h2>8. Seguridad</h2><p>Usamos cifrado en tránsito, controles de acceso y límites de gasto aplicados en el código. Ningún sistema es perfecto; si una brecha te afecta, te avisaremos como exige la ley.</p>
+<h2>9. Transferencias internacionales</h2><p>Operamos desde Estados Unidos, por lo que tus datos pueden procesarse allí, con las salvaguardas que exige la ley.</p>
+<h2>10. Menores</h2><p>ORONORTE no es para menores de 18 años y no recopilamos sus datos de forma intencional.</p>
+<h2>11. Cambios</h2><p>Si cambiamos este aviso de forma relevante, te avisaremos por correo o dentro del Servicio antes de que entre en vigor.</p>`
+},
+pt:{
+terms:`
+<p class="note">ORONORTE é um software. Não administra, guarda nem investe o seu dinheiro, e não garante renda, lucro ou retorno. Você pode perder dinheiro. Nada do que a ORONORTE ou seus agentes produzem é aconselhamento financeiro, de investimento, fiscal ou jurídico.</p>
+<h2>1. Quem somos</h2><p>Estes Termos são um acordo entre você e ${ENTITY} (${AKA}"nós"). Eles cobrem o site oronorte.com, o software ORONORTE e os serviços relacionados (em conjunto, o "Serviço"). Contato: ${MAIL}.</p>
+<h2>2. Quem pode usar</h2><p>Você deve ter pelo menos 18 anos e capacidade para firmar um contrato. Se usar o Serviço por uma empresa, confirma que pode representá-la, e "você" a inclui.</p>
+<h2>3. O que é o Serviço</h2><p>A ORONORTE oferece uma equipe de agentes de IA que pesquisam, redigem, planejam, criam conteúdo, encontram clientes potenciais e propõem ações para o seu negócio, e registra os resultados em um livro-razão. Não somos banco, corretora, exchange, consultor de investimentos nem transmissor de dinheiro. Nunca temos a custódia do seu dinheiro, fundos ou ativos digitais.</p>
+<h2>4. Suas contas e chaves</h2><ul>
+<li>Você conecta suas próprias contas (por exemplo, de IA, pagamentos, redes sociais, carteira ou trading). Continua responsável por elas, por suas credenciais e por cumprir seus termos.</li>
+<li>As taxas desses provedores (por exemplo, o uso do modelo de IA) são cobradas por eles diretamente de você e não fazem parte do nosso preço.</li>
+<li>Nunca pediremos senhas, frases de recuperação ou chaves privadas. Não as compartilhe com ninguém que diga ser nós.</li></ul>
+<h2>5. Agentes, limites e aprovações</h2><p>Os agentes agem apenas dentro dos limites que você define. Gastos acima dos limites, contas novas, contratos, publicações que exijam sua aprovação e qualquer operação real precisam do seu aval. A IA pode errar ou estar desatualizada. Revise o que aprova: você é responsável pelas decisões que toma e pelas ações que autoriza.</p>
+<h2>6. Recursos de trading</h2><p>As ferramentas de trading e mercados são opcionais, começam em modo simulado e operam apenas nas suas próprias contas. Use-as somente onde a lei permitir. Simulações e cenários descrevem o passado ou um modelo, não o futuro. Não cobramos nada sobre trading, depósitos, saldos ou lucros.</p>
+<h2>7. Planos, cobrança e participação na receita</h2><ul>
+<li>Os planos pagos são cobrados antecipadamente, por mês ou por ano, pelo nosso processador de pagamentos (Stripe), e renovam automaticamente até você cancelar. Cancele quando quiser: o acesso continua até o fim do período pago.</li>
+<li>O plano Performance cobra uma taxa mensal base mais um percentual informado da receita que o seu livro-razão atribui à atividade dos agentes da ORONORTE acima do limite informado, até o teto mensal informado. Receita que você já tinha antes de conectar a ORONORTE, resultados de trading e depósitos nunca entram. Você pode revisar cada lançamento atribuído antes da cobrança e contestá-lo em até 30 dias.</li>
+<li>O preço de membro fundador vale enquanto sua assinatura estiver ativa.</li>
+<li>Novos assinantes pagantes têm garantia de reembolso de 30 dias no primeiro mês. Os preços não incluem impostos. Salvo essa garantia ou exigência legal, valores pagos não são reembolsáveis por períodos parciais. Avisaremos qualquer mudança de preço com pelo menos 30 dias, válida a partir da sua próxima renovação.</li></ul>
+<h2>8. Uso aceitável</h2><p>Não use o Serviço para violar a lei; enviar spam, fraudar, assediar ou enganar; prometer retornos garantidos ou operar esquemas de investimento; oferecer serviços financeiros regulados sem as licenças necessárias; violar direitos de terceiros; ou atacar, sobrecarregar, copiar ou fazer engenharia reversa do Serviço. Podemos suspender as contas que o fizerem.</p>
+<h2>9. Seu conteúdo e seus dados</h2><p>Seu conteúdo e seus dados são seus. Você nos concede uma licença limitada para hospedá-los e processá-los apenas para prestar e proteger o Serviço. Não vendemos seus dados. A Política de Privacidade explica como tratamos dados pessoais.</p>
+<h2>10. Nossa propriedade</h2><p>O Serviço, o nome e as marcas ORONORTE, e nosso software e design são nossos. Sua assinatura dá um direito pessoal e intransferível de uso enquanto estiver ativa.</p>
+<h2>11. Acesso antecipado e mudanças</h2><p>Alguns recursos estão em acesso antecipado e podem mudar ou ser encerrados. Podemos atualizar o Serviço e avisaremos antes de remover um recurso pelo qual você paga.</p>
+<h2>12. Isenção de garantias</h2><p>O Serviço é oferecido "no estado em que se encontra" e "conforme disponível". Na máxima medida permitida pela lei, não damos garantias implícitas nem garantimos qualquer resultado comercial, financeiro ou de trading.</p>
+<h2>13. Limitação de responsabilidade</h2><p>Na máxima medida permitida pela lei, não respondemos por danos indiretos, incidentais, especiais, consequenciais ou punitivos, nem por lucros cessantes, perda de receita, de dados ou perdas de trading. Nossa responsabilidade total por qualquer reclamação limita-se ao que você nos pagou nos 12 meses anteriores. Algumas leis não permitem esses limites, então podem não se aplicar integralmente a você.</p>
+<h2>14. Indenização</h2><p>Você nos defenderá e indenizará por reclamações decorrentes do uso do Serviço em violação destes Termos ou da lei, ou do conteúdo e das ações que autorizar.</p>
+<h2>15. Encerramento</h2><p>Você pode parar de usar o Serviço e cancelar a qualquer momento. Podemos suspender ou encerrar o acesso por violações graves ou repetidas. Você pode exportar seu livro-razão e seus dados por 30 dias após o fim da conta.</p>
+<h2>16. Lei aplicável e disputas</h2><p>Estes Termos são regidos pelas leis do Estado da Califórnia. As disputas serão resolvidas nos tribunais estaduais ou federais do Condado de Los Angeles, Califórnia, salvo uso de tribunal de pequenas causas por qualquer das partes. Se você for consumidor, mantém os direitos irrenunciáveis da sua lei local.</p>
+<h2>17. Mudanças nestes Termos</h2><p>Podemos atualizar estes Termos. Para mudanças relevantes, avisaremos por e-mail ou no Serviço com pelo menos 30 dias de antecedência. Continuar usando o Serviço depois disso significa aceitar os novos Termos.</p>
+<h2>18. Contato</h2><p>${MAIL}</p>`,
+privacy:`
+<p class="note">Resumo: coletamos apenas o necessário para operar a ORONORTE, nunca vendemos seus dados e você pode pedir para vê-los, corrigi-los ou apagá-los a qualquer momento.</p>
+<h2>1. Controlador</h2><p>${ENTITY} (${AKA}"nós") é o controlador dos dados pessoais descritos aqui. Contato: ${MAIL}.</p>
+<h2>2. O que coletamos</h2><ul>
+<li><b>Lista de espera:</b> nome, e-mail, perfil, país, idioma e seu consentimento para receber novidades.</li>
+<li><b>Conta:</b> dados de contato, configurações, limites e aprovações que você faz.</li>
+<li><b>Cobrança:</b> feita pela Stripe. Recebemos o plano, o status do pagamento e os quatro últimos dígitos do cartão. Nunca vemos nem guardamos o número completo.</li>
+<li><b>Dados que você conecta ou cria:</b> conteúdo, clientes potenciais, registros e lançamentos do livro-razão com os quais seus agentes trabalham.</li>
+<li><b>Técnicos:</b> endereço IP, tipo de navegador e logs do servidor, para segurança e funcionamento.</li></ul>
+<h2>3. Como usamos</h2><p>Para prestar e proteger o Serviço, enviar as novidades que você pediu, cobrar, responder, prevenir fraude e abuso e cumprir obrigações legais. Não usamos seus dados para publicidade nem os vendemos ou compartilhamos para publicidade comportamental.</p>
+<h2>4. Quem trata os dados para nós</h2><p>Operadores de confiança que agem sob nossas instruções: hospedagem, Stripe (pagamentos), Anthropic (processamento por IA das tarefas que você dá aos agentes), nosso provedor de e-mail, Google Fonts (que recebe seu IP ao carregar as fontes) e as plataformas que você escolher conectar, como a Meta para o Instagram. Cada um recebe só o necessário.</p>
+<h2>5. Cookies e rastreamento</h2><p>Não usamos cookies de publicidade ou rastreamento. O site guarda seu idioma no navegador. A central de comando usa uma sessão de login.</p>
+<h2>6. Por quanto tempo guardamos</h2><p>Dados da lista até você cancelar a inscrição ou pedir a exclusão. Dados da conta enquanto estiver ativa e por 30 dias depois, para exportação. Registros de cobrança pelo prazo exigido pela lei fiscal.</p>
+<h2>7. Seus direitos</h2><p>Você pode pedir acesso, correção, exclusão ou portabilidade dos seus dados, revogar o consentimento e cancelar os e-mails a qualquer momento, conforme a LGPD, a lei de privacidade da Califórnia (CCPA) e a lei mexicana de proteção de dados. Não trataremos você de forma diferente por exercê-los. Escreva para ${MAIL} e responderemos em até 30 dias.</p>
+<h2>8. Segurança</h2><p>Usamos criptografia em trânsito, controles de acesso e limites de gasto aplicados no código. Nenhum sistema é perfeito; se um incidente afetar você, avisaremos conforme a lei.</p>
+<h2>9. Transferências internacionais</h2><p>Operamos a partir dos Estados Unidos, então seus dados podem ser tratados lá, com as salvaguardas exigidas por lei.</p>
+<h2>10. Menores</h2><p>A ORONORTE não é para menores de 18 anos e não coletamos seus dados intencionalmente.</p>
+<h2>11. Mudanças</h2><p>Se mudarmos esta política de forma relevante, avisaremos por e-mail ou no Serviço antes de entrar em vigor.</p>`
+}};
+
+let lang = (()=>{try{return localStorage.getItem('ov-lang')}catch(e){return null}})() || (navigator.language||'en').slice(0,2);
+if(!DOCS[lang]) lang='en';
+let doc = (location.hash==='#privacy' || location.pathname.startsWith('/privacy')) ? 'privacy' : 'terms';
+function render(){
+  const u=UI[lang];
+  document.documentElement.lang=lang;
+  document.title='ORONORTE · '+(doc==='terms'?u.tt:u.pt);
+  document.querySelector('[data-d="terms"]').textContent=u.terms;
+  document.querySelector('[data-d="privacy"]').textContent=u.privacy;
+  document.querySelectorAll('[data-d]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.d===doc));
+  document.querySelectorAll('[data-l]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===lang));
+  document.getElementById('doc').innerHTML='<h1>'+(doc==='terms'?u.tt:u.pt)+'</h1><div class="meta">'+u.eff+' '+EFFECTIVE[lang]+(lang==='en'?'':' · '+u.pre)+'</div>'+DOCS[lang][doc];
+}
+document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{doc=b.dataset.d;history.replaceState(null,'','#'+doc);render();scrollTo(0,0)});
+document.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem('ov-lang',lang)}catch(e){};render()});
+addEventListener('hashchange',()=>{doc=location.hash==='#privacy'?'privacy':'terms';render()});
+render();
+</script>
+</body>
+</html>
