@@ -587,7 +587,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
       <div>
         <div class="eyebrow" style="margin-bottom:18px" data-t="r_lt">A letter from the Founder</div>
         <blockquote id="letter"></blockquote>
-        <cite data-t="r_sig">Diego · Founder, ORONORTE</cite>
+        <cite data-t="r_sig">Diego K. Currier · Founder, ORONORTE</cite>
       </div>
     </div>
   </div>
@@ -1005,7 +1005,7 @@ en:{n_built:'Live demo',
  r_aud:'Independent pre-launch audit · November 2026',r_n1:'issues found',r_n2:'fixed before launch',r_n3:'automated tests',
  r_ap:'A separate AI reviewer that did not write the code went through billing, security and the agents’ limits looking for ways things could go wrong. Every critical and high-risk issue was fixed and is now covered by a test that runs on every change.',
  tc:[['Your keys never leave you','Agents work through your own accounts. They never see passwords, recovery phrases or wallet keys.'],['Limits in code, not promises','Spending caps and approval rules are fixed in the software. No agent can raise its own limits.'],['A second opinion on big decisions','An independent reviewer checks spends, scale-ups and playbooks, and says no if it cannot check.'],['Built in public','We run our own company on ORONORTE first and share the real ledger every week on @oronorteai.']],
- r_lt:'A letter from the Founder',r_sig:'Diego · Founder, ORONORTE',
+ r_lt:'A letter from the Founder',r_sig:'Diego K. Currier · Founder, ORONORTE',
  letter:['I was born in Burlington, Vermont, grew up in Argentina, and came back to the United States when I was twelve. Since then I have built businesses in fitness, sales, product invention, food and beverage, construction, venture capital and fashion, on both sides of the border.','Every one of them taught me the same lesson: the hardest part of a business is not the idea. It is carrying everything at once.','I built ORONORTE to give every founder the team I wished I had: one that works through the night, speaks your customers’ language, and shows you every dollar in the morning. No promises. Just a north star, and a ledger that tells the truth.']
 },
 es:{n_built:'Demo en vivo',
@@ -1027,7 +1027,7 @@ es:{n_built:'Demo en vivo',
  r_aud:'Auditoría independiente previa al lanzamiento · noviembre 2026',r_n1:'problemas encontrados',r_n2:'corregidos antes de lanzar',r_n3:'pruebas automáticas',
  r_ap:'Un revisor de IA independiente, que no escribió el código, recorrió los cobros, la seguridad y los límites de los agentes buscando qué podía salir mal. Cada problema crítico y de alto riesgo se corrigió y hoy lo cubre una prueba que corre con cada cambio.',
  tc:[['Tus llaves nunca salen de tus manos','Los agentes trabajan con tus propias cuentas. Nunca ven contraseñas, frases de recuperación ni llaves de wallet.'],['Límites en el código, no promesas','Los topes de gasto y las reglas de aprobación están fijos en el software. Ningún agente puede subir sus propios límites.'],['Segunda opinión en las decisiones grandes','Un revisor independiente revisa gastos, escalamientos y guías, y dice que no si no puede revisar.'],['Construido en público','Primero operamos nuestra propia empresa con ORONORTE y compartimos el libro real cada semana en @oronorteai.']],
- r_lt:'Una carta del Fundador',r_sig:'Diego · Fundador, ORONORTE',
+ r_lt:'Una carta del Fundador',r_sig:'Diego K. Currier · Fundador, ORONORTE',
  letter:['Nací en Burlington, Vermont, crecí en Argentina y volví a Estados Unidos a los doce años. Desde entonces he creado negocios en fitness, ventas, invención de productos, alimentos y bebidas, construcción, capital de riesgo y moda, de los dos lados de la frontera.','Cada uno me enseñó lo mismo: lo más difícil de un negocio no es la idea. Es cargar con todo a la vez.','Creé ORONORTE para darle a cada fundador el equipo que yo hubiera querido tener: uno que trabaja toda la noche, habla el idioma de tus clientes y te muestra cada dólar por la mañana. Sin promesas. Solo una estrella del norte y un libro contable que dice la verdad.']
 },
 pt:{n_built:'Demo ao vivo',
@@ -1049,7 +1049,7 @@ pt:{n_built:'Demo ao vivo',
  r_aud:'Auditoria independente pré-lançamento · novembro 2026',r_n1:'problemas encontrados',r_n2:'corrigidos antes do lançamento',r_n3:'testes automáticos',
  r_ap:'Um revisor de IA independente, que não escreveu o código, analisou cobrança, segurança e os limites dos agentes procurando o que poderia dar errado. Todo problema crítico e de alto risco foi corrigido e hoje é coberto por um teste que roda a cada mudança.',
  tc:[['Suas chaves nunca saem das suas mãos','Os agentes trabalham pelas suas próprias contas. Nunca veem senhas, frases de recuperação ou chaves de carteira.'],['Limites no código, não promessas','Tetos de gasto e regras de aprovação são fixos no software. Nenhum agente aumenta os próprios limites.'],['Segunda opinião nas grandes decisões','Um revisor independente confere gastos, expansões e manuais, e diz não se não puder conferir.'],['Construído em público','Rodamos a nossa própria empresa no ORONORTE primeiro e mostramos o livro-caixa real toda semana no @oronorteai.']],
- r_lt:'Uma carta do Fundador',r_sig:'Diego · Fundador, ORONORTE',
+ r_lt:'Uma carta do Fundador',r_sig:'Diego K. Currier · Fundador, ORONORTE',
  letter:['Nasci em Burlington, Vermont, cresci na Argentina e voltei aos Estados Unidos aos doze anos. Desde então criei negócios em fitness, vendas, invenção de produtos, alimentos e bebidas, construção, capital de risco e moda, dos dois lados da fronteira.','Cada um deles me ensinou a mesma lição: a parte mais difícil de um negócio não é a ideia. É carregar tudo ao mesmo tempo.','Criei o ORONORTE para dar a cada fundador a equipe que eu gostaria de ter tido: uma que trabalha a noite toda, fala o idioma dos seus clientes e mostra cada dólar pela manhã. Sem promessas. Só uma estrela do norte e um livro-caixa que diz a verdade.']
 }};
 for (const k in T2) Object.assign(T[k], T2[k]);
@@ -1078,7 +1078,7 @@ function selectAgent(k, quiet) {
   $('#apName').textContent = k.toUpperCase(); $('#apRole').textContent = c[0]; $('#apDesc').textContent = c[1];
   $('#apNow').textContent = a[0]; $('#apFlow').innerHTML = `${esc(L.e_to)}: <b>${esc(a[1])}</b>`;
   $$('#apPick button').forEach(b => b.setAttribute('aria-pressed', b.dataset.a === k));
-  if (window.orrery) orrery.focus(k);
+  if (window.oEngine) oEngine.focus(k);
 }
 function litManifesto() {
   const lines = $$('#manifesto .line'); if (!('IntersectionObserver' in window)) { lines.forEach(l => l.classList.add('lit')); return; }
@@ -1149,7 +1149,7 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 })();
 
 // Engine: the syndicate in a galaxy. 3D POLARIS, the Founder's mind above, a ledger that stacks real coins below.
-window.orrery = (() => {
+window.make2DOrrery = () => (() => {
   const box = $('#orrery'), c = $('#orc'); const sp = Space(c, {yaw: .55, pitch: .40, dist: 3.9, cy: .5, scale: () => Math.min(sp.w * .78, sp.h) * .31});
   const x = sp.x, ring = ['atlas', 'vega', 'orion', 'sirius', 'lyra', 'nova'];
   const N = {polaris: {p: [0, 0, 0]}, founder: {p: [0, 1.22, 0]}, ledger: {p: [0, -1.12, 0]}};
@@ -1413,5 +1413,6 @@ function renderV3() {
 
 render();
 </script>
+<script src="engine3d.js"></script>
 </body>
 </html>
