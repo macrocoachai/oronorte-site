@@ -154,7 +154,7 @@ h2{font:700 clamp(30px,4.2vw,52px)/1.08 Inter,sans-serif;letter-spacing:-.02em;m
 .feed .tag{font:500 11px "JetBrains Mono";color:var(--mute)}
 .approve{max-width:520px;margin:6px auto 0;border:1px solid rgba(233,194,90,.45);border-radius:22px;padding:26px;background:linear-gradient(180deg,rgba(233,194,90,.08),rgba(233,194,90,.02))}
 .approve .k{font:600 11px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.approve h4{font:600 22px/1.3 Inter;margin:10px 0 6px}
+.approve .ah{font:600 22px/1.3 Inter;margin:10px 0 6px}
 .approve p{margin:0;color:var(--soft);font-size:15px}
 .approve .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
 .approve .meta div{border:1px solid var(--line);border-radius:12px;padding:10px 12px}
@@ -174,7 +174,7 @@ table.ledger td.ref{font:400 12px "JetBrains Mono";color:var(--mute)}
 .note{margin-top:14px;font-size:12px;color:var(--mute)}
 .learn{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .card-m{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.015)}
-.card-m h5{margin:0 0 8px;font:600 11px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.card-m .h5{margin:0 0 8px;font:600 11px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .card-m p{margin:0;font-size:14px;color:var(--soft)}
 .ranks{display:flex;align-items:flex-end;gap:10px;height:120px;margin-top:6px}
 .ranks i{flex:1;border-radius:8px 8px 2px 2px;background:linear-gradient(180deg,rgba(233,194,90,.7),rgba(233,194,90,.08));transform-origin:bottom;transform:scaleY(.1);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
@@ -278,7 +278,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
 /* ===== v2: cinematic layer ===== */
 .hero h1{text-shadow:0 0 60px rgba(233,194,90,.15)}
 #manifesto{padding:150px 0 120px;text-align:center;overflow:hidden}
-#manifesto .line{display:block;font:600 clamp(26px,4vw,50px)/1.25 Inter,sans-serif;letter-spacing:-.02em;color:rgba(242,238,228,.14);transition:color 1.2s ease}
+#manifesto .line{display:block;font:600 clamp(26px,4vw,50px)/1.25 Inter,sans-serif;letter-spacing:-.02em;color:rgba(242,238,228,.46);transition:color 1.2s ease}
 #manifesto .line.lit{color:var(--text)}
 #manifesto .line.gold.lit{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 #manifesto .line+.line{margin-top:.35em}
@@ -358,7 +358,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
 @media (max-width:980px){.ogrid{grid-template-columns:1fr 1fr}}@media (max-width:600px){.ogrid{grid-template-columns:1fr}}
 #finder .fbox{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
 .fq{border:1px solid var(--line2);border-radius:28px;padding:32px;background:var(--panel)}
-.fq h4{margin:0 0 14px;font:600 12px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.fq .fqh{margin:0 0 14px;font:600 12px Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 .fq .opts{display:grid;gap:10px;margin-bottom:28px}
 .fq .opts:last-child{margin-bottom:0}
 .fq button{text-align:left;background:rgba(255,255,255,.02);border:1px solid var(--line);color:var(--soft);border-radius:16px;padding:15px 18px;font:500 15px Inter;cursor:pointer;min-height:52px;transition:border-color .2s,background .2s,color .2s}
@@ -470,8 +470,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
       <p data-t="t_p">Haz clic en cualquier capítulo o deja que avance solo. Así se ve dirigir una empresa con un sindicato de IA.</p>
     </div>
     <div class="tour reveal" id="tourEl">
-      <div role="tablist" aria-label="Tour chapters"><ol class="chapters" id="chapters"><li><button role="tab" id="ch0" aria-selected="true" aria-controls="stage" data-i="0"><span class="n">01</span><span class="t">Conoce a tu sindicato</span><span class="s">POLARIS es tu agente CEO. Dirige a seis especialistas, asigna su trabajo y te reporta a ti, el Fundador.</span><span class="bar"></span></button></li><li><button role="tab" id="ch1" aria-selected="false" aria-controls="stage" data-i="1"><span class="n">02</span><span class="t">Define el rumbo</span><span class="s">Elige tus mercados e idiomas, fija un límite de gasto diario y decide qué necesita siempre tu aprobación.</span><span class="bar"></span></button></li><li><button role="tab" id="ch2" aria-selected="false" aria-controls="stage" data-i="2"><span class="n">03</span><span class="t">Trabajan las 24 horas</span><span class="s">Cada pocas horas el equipo corre un ciclo: investiga la demanda, crea ofertas, encuentra clientes y publica contenido.</span><span class="bar"></span></button></li><li><button role="tab" id="ch3" aria-selected="false" aria-controls="stage" data-i="3"><span class="n">04</span><span class="t">Tú apruebas lo importante</span><span class="s">El gasto por encima de tu límite, las cuentas nuevas, los contratos y cualquier operación real llegan primero a tu escritorio, con una segunda opinión adjunta.</span><span class="bar"></span></button></li><li><button role="tab" id="ch4" aria-selected="false" aria-controls="stage" data-i="4"><span class="n">05</span><span class="t">El libro contable lo demuestra</span><span class="s">Un ingreso cuenta solo cuando el dinero llega de verdad, con una referencia que puedes comprobar. Los costos y pérdidas también se registran.</span><span class="bar"></span></button></li><li><button role="tab" id="ch5" aria-selected="false" aria-controls="stage" data-i="5"><span class="n">06</span><span class="t">Se ganan su propio equipo</span><span class="s">Lo que funciona dos veces se vuelve una guía. Los agentes suben de rango solo con resultados verificados. El que mantiene 3× su fondeo durante 30 días se vuelve Socio y puede proponer su propio equipo, con tu aprobación para cada agente nuevo.</span><span class="bar"></span></button></li></ol></div>
-      <div class="stage" aria-live="polite">
+      <div><ol class="chapters" id="chapters" role="tablist" aria-label="Tour chapters"><li role="presentation"><button role="tab" id="ch0" aria-selected="true" aria-controls="stage" data-i="0"><span class="n">01</span><span class="t">Conoce a tu sindicato</span><span class="s">POLARIS es tu agente CEO. Dirige a seis especialistas, asigna su trabajo y te reporta a ti, el Fundador.</span><span class="bar"></span></button></li><li role="presentation"><button role="tab" id="ch1" aria-selected="false" aria-controls="stage" data-i="1"><span class="n">02</span><span class="t">Define el rumbo</span><span class="s">Elige tus mercados e idiomas, fija un límite de gasto diario y decide qué necesita siempre tu aprobación.</span><span class="bar"></span></button></li><li role="presentation"><button role="tab" id="ch2" aria-selected="false" aria-controls="stage" data-i="2"><span class="n">03</span><span class="t">Trabajan las 24 horas</span><span class="s">Cada pocas horas el equipo corre un ciclo: investiga la demanda, crea ofertas, encuentra clientes y publica contenido.</span><span class="bar"></span></button></li><li role="presentation"><button role="tab" id="ch3" aria-selected="false" aria-controls="stage" data-i="3"><span class="n">04</span><span class="t">Tú apruebas lo importante</span><span class="s">El gasto por encima de tu límite, las cuentas nuevas, los contratos y cualquier operación real llegan primero a tu escritorio, con una segunda opinión adjunta.</span><span class="bar"></span></button></li><li role="presentation"><button role="tab" id="ch4" aria-selected="false" aria-controls="stage" data-i="4"><span class="n">05</span><span class="t">El libro contable lo demuestra</span><span class="s">Un ingreso cuenta solo cuando el dinero llega de verdad, con una referencia que puedes comprobar. Los costos y pérdidas también se registran.</span><span class="bar"></span></button></li><li role="presentation"><button role="tab" id="ch5" aria-selected="false" aria-controls="stage" data-i="5"><span class="n">06</span><span class="t">Se ganan su propio equipo</span><span class="s">Lo que funciona dos veces se vuelve una guía. Los agentes suben de rango solo con resultados verificados. El que mantiene 3× su fondeo durante 30 días se vuelve Socio y puede proponer su propio equipo, con tu aprobación para cada agente nuevo.</span><span class="bar"></span></button></li></ol></div>
+      <div class="stage" id="stage" role="tabpanel" aria-live="polite">
         <div class="chrome"><i></i><i></i><i></i><span id="stageTitle">oronorte · centro de mando</span></div>
 
         <div class="scene on" data-s="0">
@@ -509,7 +509,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
         <div class="scene" data-s="3">
           <div class="approve">
             <div class="k" data-t="m_ak">Se necesita tu aprobación</div>
-            <h4 data-t="m_ah">VEGA quiere lanzar una plantilla de reservas bilingüe de $29</h4>
+            <div class="ah" data-t="m_ah">VEGA quiere lanzar una plantilla de reservas bilingüe de $29</div>
             <p data-t="m_ap">ATLAS encontró 140 salones locales que buscan páginas de reservas en español. ORION tiene 6 prospectos interesados. Se necesita presupuesto para la primera prueba de anuncios.</p>
             <div class="meta"><div><small data-t="m_m1">Gasto</small><b>$40.00</b></div><div><small data-t="m_m2">Revisión</small><b style="color:var(--good)">✓ pass</b></div><div><small data-t="m_m3">Riesgo</small><b>low</b></div></div>
             <div class="acts"><span class="yes" data-t="m_y">Aprobar</span><span class="no" data-t="m_n">Rechazar</span></div>
@@ -527,9 +527,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
 
         <div class="scene" data-s="5">
           <div class="learn">
-            <div class="card-m"><h5 data-t="m_pb">Guías</h5><p data-t="m_pbp">Cuando algo genera ingresos dos veces con pruebas, se vuelve una guía que todos los agentes siguen.</p></div>
-            <div class="card-m"><h5 data-t="m_gf">Segunda opinión</h5><p data-t="m_gfp">Un revisor independiente revisa cada gasto, cada escalamiento y cada guía. Si no puede revisar, la respuesta es no.</p></div>
-            <div class="card-m" style="grid-column:1/-1"><h5 data-t="m_rk">Rangos ganados con el libro contable</h5><p class="mono" style="font-size:12px;color:var(--gold2);margin:4px 0 6px" data-t="m_ladder">NOVATO → ASOCIADO → CERRADOR → SOCIO (3×, GANA UN EQUIPO) → TITÁN</p><div class="ranks" aria-hidden="true"><i style="height:30%"></i><i style="height:45%;transition-delay:.1s"></i><i style="height:55%;transition-delay:.2s"></i><i style="height:72%;transition-delay:.3s"></i><i style="height:86%;transition-delay:.4s"></i><i style="height:100%;transition-delay:.5s"></i></div></div>
+            <div class="card-m"><div class="h5" data-t="m_pb">Guías</div><p data-t="m_pbp">Cuando algo genera ingresos dos veces con pruebas, se vuelve una guía que todos los agentes siguen.</p></div>
+            <div class="card-m"><div class="h5" data-t="m_gf">Segunda opinión</div><p data-t="m_gfp">Un revisor independiente revisa cada gasto, cada escalamiento y cada guía. Si no puede revisar, la respuesta es no.</p></div>
+            <div class="card-m" style="grid-column:1/-1"><div class="h5" data-t="m_rk">Rangos ganados con el libro contable</div><p class="mono" style="font-size:12px;color:var(--gold2);margin:4px 0 6px" data-t="m_ladder">NOVATO → ASOCIADO → CERRADOR → SOCIO (3×, GANA UN EQUIPO) → TITÁN</p><div class="ranks" aria-hidden="true"><i style="height:30%"></i><i style="height:45%;transition-delay:.1s"></i><i style="height:55%;transition-delay:.2s"></i><i style="height:72%;transition-delay:.3s"></i><i style="height:86%;transition-delay:.4s"></i><i style="height:100%;transition-delay:.5s"></i></div></div>
           </div>
         </div>
       </div>
@@ -629,8 +629,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
     </div>
     <div class="fbox reveal">
       <div class="fq">
-        <h4 data-t="fi_q1">¿Dónde está tu negocio hoy?</h4><div class="opts" id="fq1"><button data-p="launch" aria-pressed="false">Empezando, o lanzando una idea nueva</button><button data-p="syndicate" aria-pressed="true">Ya vendo y quiero más clientes</button><button data-p="empire" aria-pressed="false">Una agencia, o varios negocios</button><button data-p="performance" aria-pressed="false">Prefiero pagar sobre todo cuando traiga ventas</button></div>
-        <h4 data-t="fi_q2">¿Quiénes son tus clientes?</h4><div class="opts" id="fq2"><button data-g="en" aria-pressed="false">Principalmente de habla inglesa</button><button data-g="es" aria-pressed="false">Principalmente de habla hispana</button><button data-g="both" aria-pressed="true">Ambos, o Latinoamérica y Brasil</button></div>
+        <h3 class="fqh" data-t="fi_q1">¿Dónde está tu negocio hoy?</h3><div class="opts" id="fq1"><button data-p="launch" aria-pressed="false">Empezando, o lanzando una idea nueva</button><button data-p="syndicate" aria-pressed="true">Ya vendo y quiero más clientes</button><button data-p="empire" aria-pressed="false">Una agencia, o varios negocios</button><button data-p="performance" aria-pressed="false">Prefiero pagar sobre todo cuando traiga ventas</button></div>
+        <h3 class="fqh" data-t="fi_q2">¿Quiénes son tus clientes?</h3><div class="opts" id="fq2"><button data-g="en" aria-pressed="false">Principalmente de habla inglesa</button><button data-g="es" aria-pressed="false">Principalmente de habla hispana</button><button data-g="both" aria-pressed="true">Ambos, o Latinoamérica y Brasil</button></div>
       </div>
       <div class="fr" aria-live="polite">
         <div class="k" data-t="fi_rec">Tu plan recomendado</div>
@@ -961,7 +961,7 @@ function render() {
   $$('[data-l]').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === lang));
   $('#stageTitle').textContent = L.stage;
 
-  $('#chapters').innerHTML = L.ch.map((c, i) => `<li><button role="tab" id="ch${i}" aria-selected="${i === chapter}" aria-controls="stage" data-i="${i}"><span class="n">0${i + 1}</span><span class="t">${esc(c[0])}</span><span class="s">${esc(c[1])}</span><span class="bar"></span></button></li>`).join('');
+  $('#chapters').innerHTML = L.ch.map((c, i) => `<li role="presentation"><button role="tab" id="ch${i}" aria-selected="${i === chapter}" aria-controls="stage" data-i="${i}"><span class="n">0${i + 1}</span><span class="t">${esc(c[0])}</span><span class="s">${esc(c[1])}</span><span class="bar"></span></button></li>`).join('');
   $$('#chapters button').forEach(b => b.onclick = () => { paused = true; $('#tourEl').classList.add('paused'); go(+b.dataset.i); });
   $('#feed').innerHTML = L.feed.map((r, i) => `<div class="row" style="transition-delay:${i * .25}s"><span class="who">${r[0]}</span><span>${esc(r[1])}</span><span class="tag">${esc(r[2])}</span></div>`).join('');
   $('#ledgerRows').innerHTML = L.ledger.map(r => `<tr><td>${esc(r[0])}</td><td class="ref">${esc(r[1])}</td><td class="a${r[2].startsWith('−') ? ' neg' : ''}">${r[2]}</td></tr>`).join('');
