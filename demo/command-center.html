@@ -356,6 +356,7 @@ function burst(){if(reduced)return;for(let i=0;i<28;i++){const p=document.create
 
 /* ---------- data loop ---------- */
 async function load(){
+  if(location.pathname.startsWith('/demo/')){if(!live)render(previewState(pv));return}
   try{const r=await fetch('/api/state',{cache:'no-store'});if(!r.ok)throw 0;const s=await r.json();live=true;render(s)}
   catch(e){if(!live)render(previewState(pv))}
 }

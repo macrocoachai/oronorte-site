@@ -290,9 +290,9 @@ function drawStudio(){
 
 /* ---- camera: viewBox pan / zoom ---- */
 let vb={x:0,y:0,w:W,h:H}, target=null;
-function setVB(){svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`)}
+function setVB(){if(!(vb.w>0&&vb.h>0)||!isFinite(vb.x+vb.y+vb.w+vb.h))return;svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`)}
 function animateTo(t,ms=900){const from={...vb},t0=performance.now();const ease=p=>1-Math.pow(1-p,4);cancelAnimationFrame(animateTo.r);const step=now=>{const p=Math.min(1,(now-t0)/ms),e=reduced?1:ease(p);for(const k in vb)vb[k]=from[k]+(t[k]-from[k])*e;setVB();if(p<1)animateTo.r=requestAnimationFrame(step)};animateTo.r=requestAnimationFrame(step)}
-function fitTo(r,reg){const s=Math.min((reg.r-reg.l)/r.w,(reg.b-reg.t)/r.h);const w=innerWidth/s,h=innerHeight/s;return{x:r.x+r.w/2-((reg.l+reg.r)/2)/s,y:r.y+r.h/2-((reg.t+reg.b)/2)/s,w,h}}
+function fitTo(r,reg){if(reg.r-reg.l<40||reg.b-reg.t<40)reg={l:0,t:0,r:Math.max(innerWidth,320),b:Math.max(innerHeight,240)};const s=Math.max(1e-3,Math.min((reg.r-reg.l)/r.w,(reg.b-reg.t)/r.h));const w=innerWidth/s,h=innerHeight/s;return{x:r.x+r.w/2-((reg.l+reg.r)/2)/s,y:r.y+r.h/2-((reg.t+reg.b)/2)/s,w,h}}
 const region=(panel)=>({l:24,t:128,r:innerWidth-(panel&&innerWidth>820?Math.min(450,innerWidth-36)+24:24),b:innerHeight-84});
 function fitAll(){animateTo(fitTo({x:0,y:0,w:W,h:H},region(false)))}
 function zoom(f,px=innerWidth/2,py=innerHeight/2){const r=svg.getBoundingClientRect();const mx=vb.x+(px-r.left)/r.width*vb.w,my=vb.y+(py-r.top)/r.height*vb.h;const w=Math.min(W*1.6,Math.max(260,vb.w*f)),h=w*vb.h/vb.w;animateTo({x:mx-(mx-vb.x)*w/vb.w,y:my-(my-vb.y)*h/vb.h,w,h},280)}
@@ -369,7 +369,7 @@ function preview(){
     pipeline:[{title:'Bilingual restaurant websites (LA + Mexico)',owner:'orion',status:'scaling',cost_usd:12,revenue_30d_usd:900,payback_days:6},{title:'EN↔ES translation API for agents',owner:'vega',status:'testing',cost_usd:2,revenue_30d_usd:12,payback_days:9},{title:'Polymarket US leader-tracking research feed',owner:'nova',status:'proposed',cost_usd:3,revenue_30d_usd:40,payback_days:30}]};
 }
 let live=false;
-async function load(){try{const r=await fetch('/api/state',{cache:'no-store'});if(!r.ok)throw 0;live=true;render(await r.json())}catch(e){if(!live)render(preview())}}
+async function load(){if(location.pathname.startsWith('/demo/')){render(preview());return}try{const r=await fetch('/api/state',{cache:'no-store'});if(!r.ok)throw 0;live=true;render(await r.json())}catch(e){if(!live)render(preview())}}
 setVB();load().then(fitAll);setInterval(()=>{if(live)load()},8000);
 addEventListener('resize',()=>{if(!$('#panel').classList.contains('open'))fitAll()});
 </script>
