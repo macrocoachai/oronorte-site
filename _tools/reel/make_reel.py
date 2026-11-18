@@ -38,6 +38,7 @@ i{position:absolute;background:#fff3d0;border-radius:50%}
 .foot{position:absolute;left:96px;right:96px;bottom:150px;display:flex;justify-content:space-between;
 font-size:28px;letter-spacing:.28em;color:#A39C8C}
 .end .wrap{align-items:center;text-align:center}.end .t{font-size:96px}
+.hook .t{font-size:128px;line-height:.98}.hook .b{font-size:48px;color:#F1EDE3}
 """
 STAR = ('<svg viewBox="0 0 64 64" style="width:{s}px;height:{s}px"><defs><linearGradient id="g" x1="0" y1="0" x2="1" '
         'y2="1"><stop offset="0" stop-color="#9A6E22"/><stop offset=".35" stop-color="#FFF3C4"/><stop offset=".6" '
@@ -55,14 +56,14 @@ def _stars(seed):
 
 
 def scene_html(sc, n, total, end=False):
-    title = _esc(sc.get("title"))
+    title = _esc(sc.get("title")).replace("\n", "<br>")
     inner = (f'<div class="wrap">{STAR.format(s=210) if end else ""}'
              f'<div class="k">{_esc(sc.get("kicker", "ORONORTE"))}</div>'
              f'<div class="t {"metal" if end or sc.get("gold") else ""}">{title}</div>'
              f'<div class="b">{_esc(sc.get("body"))}</div></div>')
     foot = '' if end else (f'<div class="foot"><span>ORONORTE</span><span>{n:02d} / {total:02d}</span></div>')
     return (f'<html><head><style>{CSS}</style></head><body class="{"end" if end else ""}">{_stars(n)}'
-            f'{inner}{foot}</body></html>')
+            f'{inner}{foot}</body></html>').replace('<body class="', '<body class="' + ("hook " if sc.get("hook") else ""), 1)
 
 
 def render_stills(spec, folder):
