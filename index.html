@@ -260,9 +260,10 @@ table.ledger td.ref{font:400 12px "JetBrains Mono";color:var(--mute)}
 .join p{color:var(--soft);max-width:600px;margin:20px auto 0;font-weight:300}
 .join .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
 .join form{display:none;max-width:620px;margin:34px auto 0;gap:12px;grid-template-columns:1fr 1fr auto}
-.join.api form{display:grid}
+.join.api form{display:grid}.join form .btn{white-space:nowrap}
 .join.api .ctas{display:none}
 .join input{min-height:52px;border-radius:14px;border:1px solid var(--line2);background:rgba(0,0,0,.35);color:var(--text);padding:0 16px;font:400 15px Inter}
+.join .wlnote{display:none;max-width:620px;margin:14px auto 0;font-size:13px;line-height:1.5;color:var(--mut,#a39c8c)}.join.api .wlnote{display:block}.join .wlnote a{color:var(--gold2);text-decoration:underline}
 .join .msg{min-height:22px;margin-top:14px;font-size:14px;color:var(--gold2)}
 @media (max-width:700px){.join{padding:60px 22px}.join form{grid-template-columns:1fr}}
 
@@ -689,7 +690,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
 
 <section id="join" style="padding-top:40px">
   <div class="wrap">
-    <div class="join reveal" id="joinBox">
+    <div class="join reveal api" id="joinBox">
       <div class="eyebrow" data-t="j_eye">Founding members</div>
       <h2 data-t="j_h">The first 100 get 40% off for life.</h2>
       <p data-t="j_p">We're proving ORONORTE on our own company first, with every result in a live ledger. Founding members get early access, the founding price for life, and a front-row seat to the build.</p>
@@ -700,8 +701,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
       <form id="wl" novalidate="">
         <label class="sr" for="wn">Name</label><input id="wn" name="name" autocomplete="name" placeholder="Name" data-tp="f_name">
         <label class="sr" for="we">Email</label><input id="we" name="email" type="email" autocomplete="email" placeholder="Email" data-tp="f_email">
+        <input id="wh" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <button class="btn gold" type="submit" data-t="f_go">Reserve my spot</button>
       </form>
+      <p class="wlnote" data-th="f_note">By joining you agree to receive founding updates by email. Unsubscribe anytime. <a href="/privacy.html">Privacy Policy</a>. Prefer Instagram? <a href="https://ig.me/m/oronorteai" target="_blank" rel="noopener">Message “NORTE”</a>.</p>
       <div class="msg" id="msg" role="status"></div>
     </div>
   </div>
@@ -733,7 +736,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 70px;color:var(--mute);fo
 
 <script>
 // When the ORONORTE server is live, set this to "/api/waitlist" (or its full URL) to switch the founding CTA to a sign-up form.
-const WAITLIST_API = '';
+const WAITLIST_API = 'https://docs.google.com/forms/d/e/1FAIpQLSdpwG8XqQ-xeBBNjgM2MZ8r6K36v00cGyHDgkqqIbPt6flnGQ/formResponse';
+const WL_FIELDS = {name:'entry.61305274', email:'entry.44872581', lang:'entry.1748841385'};
 
 const ICON = {
   cc:'<svg viewBox="0 0 34 34" fill="none" stroke="#E9C25A" stroke-width="1.4"><rect x="3" y="6" width="28" height="20" rx="3"/><path d="M3 11h28M8 30h18M11 18l3 3 6-6"/></svg>',
@@ -808,7 +812,7 @@ en:{
   ['Can agents grow their own team?','Yes, but only by earning it. An agent that holds 3× its funding for 30 straight days reaches Partner rank and may propose new agents to work under it. Every new agent needs your approval, and when that team turns a profit, its leader becomes a Titan.'],
   ['When can I start?','Founding members get early access first. Message “NORTE” to @oronorteai on Instagram to reserve one of the first 100 spots.']],
  j_eye:'Founding members',j_h:'The first 100 get 40% off for life.',j_p:"We're proving ORONORTE on our own company first, with every result in a live ledger. Founding members get early access, the founding price for life, and a front-row seat to the build.",
- j_c1:'Message “NORTE” on Instagram',j_c2:'Follow @oronorteai',f_name:'Name',f_email:'Email',f_go:'Reserve my spot',ok:"You're on the list. Watch your inbox for founding updates.",err:'Please enter your name and a valid email.',fail:'Something went wrong. Please try again in a minute.',
+ j_c1:'Message “NORTE” on Instagram',j_c2:'Follow @oronorteai',f_name:'Name',f_email:'Email',f_go:'Reserve my spot',f_note:'By joining you agree to receive founding updates by email. Unsubscribe anytime. <a href="/privacy.html">Privacy Policy</a>. Prefer Instagram? <a href="https://ig.me/m/oronorteai" target="_blank" rel="noopener">Message “NORTE”</a>.',ok:"You're on the list. Watch your inbox for founding updates.",err:'Please enter your name and a valid email.',fail:'Something went wrong. Please try again in a minute.',
  ft_t:'Your business, pointed north.',ft_terms:'Terms of Service',ft_priv:'Privacy Policy',
  ft_d:'ORONORTE is software. It does not manage, hold or invest your money, and it does not guarantee any income, profit or return. Results depend on your business, your markets and your decisions, and you can lose money. Trading features are optional, start in paper mode, and run only in your own accounts. Nothing on this site is financial, investment or legal advice.',
  stage:'oronorte · command center'
@@ -873,7 +877,7 @@ es:{
   ['¿Los agentes pueden formar su propio equipo?','Sí, pero solo si se lo ganan. El agente que mantiene 3× su fondeo durante 30 días seguidos llega a Socio y puede proponer agentes nuevos que trabajen bajo su mando. Cada agente nuevo necesita tu aprobación, y cuando ese equipo genera utilidad, su líder se vuelve Titán.'],
   ['¿Cuándo puedo empezar?','Los miembros fundadores tienen acceso anticipado primero. Envía “NORTE” a @oronorteai en Instagram para apartar uno de los primeros 100 lugares.']],
  j_eye:'Miembros fundadores',j_h:'Los primeros 100 tienen 40% de descuento de por vida.',j_p:'Primero estamos probando ORONORTE en nuestra propia empresa, con cada resultado en un libro contable en vivo. Los fundadores tienen acceso anticipado, el precio fundador de por vida y un lugar en primera fila.',
- j_c1:'Envía “NORTE” por Instagram',j_c2:'Sigue a @oronorteai',f_name:'Nombre',f_email:'Correo',f_go:'Apartar mi lugar',ok:'Ya estás en la lista. Revisa tu correo para las novedades fundadoras.',err:'Escribe tu nombre y un correo válido.',fail:'Algo salió mal. Inténtalo de nuevo en un minuto.',
+ j_c1:'Envía “NORTE” por Instagram',j_c2:'Sigue a @oronorteai',f_name:'Nombre',f_email:'Correo',f_go:'Apartar mi lugar',f_note:'Al unirte aceptas recibir novedades fundadoras por correo. Puedes darte de baja cuando quieras. <a href="/privacy.html">Política de privacidad</a>. ¿Prefieres Instagram? <a href="https://ig.me/m/oronorteai" target="_blank" rel="noopener">Envía “NORTE”</a>.',ok:'Ya estás en la lista. Revisa tu correo para las novedades fundadoras.',err:'Escribe tu nombre y un correo válido.',fail:'Algo salió mal. Inténtalo de nuevo en un minuto.',
  ft_t:'Tu negocio, rumbo al norte.',ft_terms:'Términos de Servicio',ft_priv:'Aviso de Privacidad',
  ft_d:'ORONORTE es software. No administra, resguarda ni invierte tu dinero, y no garantiza ingresos, ganancias ni rendimientos. Los resultados dependen de tu negocio, tus mercados y tus decisiones, y puedes perder dinero. Las funciones de trading son opcionales, empiezan en modo simulado y operan solo en tus propias cuentas. Nada en este sitio es asesoría financiera, de inversión ni legal.',
  stage:'oronorte · centro de mando'
@@ -938,7 +942,7 @@ pt:{
   ['Os agentes podem formar a própria equipe?','Sim, mas só conquistando. O agente que mantém 3× o seu financiamento por 30 dias seguidos chega a Sócio e pode propor novos agentes trabalhando para ele. Cada novo agente precisa da sua aprovação, e quando essa equipe dá lucro, o líder vira Titã.'],
   ['Quando posso começar?','Os membros fundadores têm acesso antecipado primeiro. Mande “NORTE” para @oronorteai no Instagram para reservar uma das 100 primeiras vagas.']],
  j_eye:'Membros fundadores',j_h:'Os 100 primeiros têm 40% de desconto vitalício.',j_p:'Estamos provando o ORONORTE na nossa própria empresa primeiro, com cada resultado em um livro-caixa ao vivo. Fundadores têm acesso antecipado, o preço fundador para sempre e um lugar na primeira fila.',
- j_c1:'Mande “NORTE” no Instagram',j_c2:'Siga @oronorteai',f_name:'Nome',f_email:'E-mail',f_go:'Reservar minha vaga',ok:'Você está na lista. Fique de olho no seu e-mail.',err:'Digite seu nome e um e-mail válido.',fail:'Algo deu errado. Tente de novo em um minuto.',
+ j_c1:'Mande “NORTE” no Instagram',j_c2:'Siga @oronorteai',f_name:'Nome',f_email:'E-mail',f_go:'Reservar minha vaga',f_note:'Ao entrar você aceita receber novidades por e-mail. Cancele quando quiser. <a href="/privacy.html">Política de privacidade</a>. Prefere Instagram? <a href="https://ig.me/m/oronorteai" target="_blank" rel="noopener">Mande “NORTE”</a>.',ok:'Você está na lista. Fique de olho no seu e-mail.',err:'Digite seu nome e um e-mail válido.',fail:'Algo deu errado. Tente de novo em um minuto.',
  ft_t:'Seu negócio, rumo ao norte.',ft_terms:'Termos de Serviço',ft_priv:'Política de Privacidade',
  ft_d:'O ORONORTE é um software. Não administra, guarda nem investe o seu dinheiro, e não garante renda, lucro ou retorno. Os resultados dependem do seu negócio, dos seus mercados e das suas decisões, e você pode perder dinheiro. Os recursos de trading são opcionais, começam em modo simulado e operam apenas nas suas próprias contas. Nada neste site é aconselhamento financeiro, de investimento ou jurídico.',
  stage:'oronorte · central de comando'
@@ -957,6 +961,7 @@ function render() {
   document.documentElement.lang = lang;
   $$('[data-t]').forEach(el => { const v = L[el.dataset.t]; if (typeof v === 'string') el.textContent = v; });
   $$('[data-tp]').forEach(el => el.placeholder = L[el.dataset.tp]);
+  $$('[data-th]').forEach(el => { if (L[el.dataset.th]) el.innerHTML = L[el.dataset.th]; });
   $$('[data-l]').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === lang));
   $('#stageTitle').textContent = L.stage;
 
@@ -1020,10 +1025,15 @@ $$('#links a').forEach(a => a.addEventListener('click', () => { $('#links').clas
 if (WAITLIST_API) {
   $('#joinBox').classList.add('api');
   $('#wl').addEventListener('submit', async e => {
-    e.preventDefault(); const L = T[lang], name = $('#wn').value.trim(), email = $('#we').value.trim();
-    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('#msg').textContent = L.err; return; }
-    try { const r = await fetch(WAITLIST_API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({name, email, lang, consent:true})});
-      $('#msg').textContent = r.ok ? L.ok : L.fail; if (r.ok) $('#wl').reset(); } catch (err) { $('#msg').textContent = L.fail; }
+    e.preventDefault(); const L = T[lang], name = $('#wn').value.trim(), email = $('#we').value.trim(), btn = $('#wl button');
+    if ($('#wh').value) return; // bot trap
+    if (!name || name.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 200) { $('#msg').textContent = L.err; return; }
+    btn.disabled = true; $('#msg').textContent = '…';
+    const body = new URLSearchParams({[WL_FIELDS.name]: name, [WL_FIELDS.email]: email, [WL_FIELDS.lang]: lang});
+    try { await fetch(WAITLIST_API, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body});
+      $('#msg').textContent = L.ok; $('#wl').reset(); try { localStorage.setItem('oro_wl', '1'); } catch (_) {}
+    } catch (err) { $('#msg').textContent = L.fail; }
+    btn.disabled = false;
   });
 }
 
