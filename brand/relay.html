@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title>
+<script>
+(async()=>{const f=location.hash.slice(1);if(!/^[\w.-]+\.(png|jpe?g)$/.test(f))return;
+const b=await (await fetch('/brand/'+f,{cache:'no-store'})).arrayBuffer();
+if(window.opener){window.opener.postMessage({oronorteRelay:f,buf:b,type:f.endsWith('png')?'image/png':'image/jpeg'},'*',[b]);document.title='sent';setTimeout(()=>window.close(),500)}})();
+</script>
