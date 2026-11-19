@@ -44,5 +44,17 @@ if spec.get('music'):
     subprocess.run(['ffmpeg','-loglevel','error','-y','-ss',str(ms),'-t',str(total),'-i',spec['music'],'-af',f'afade=t=in:st=0:d=0.6,afade=t=out:st={total-1.4:.2f}:d=1.4,loudnorm=I=-16','-ar','48000',f'{tmp}/p.wav'],check=True)
 else:
     subprocess.run(['python3',os.path.join(here,'..','audio','pad.py'),f'{tmp}/p.wav',str(total+0.5),'7'],check=True)
-subprocess.run(['ffmpeg','-loglevel','error','-y','-i',f'{tmp}/v.mp4','-i',f'{tmp}/p.wav','-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-ar','48000','-shortest',out],check=True)
+audio = f'{tmp}/p.wav'
+if spec.get('voice'):
+    vo = spec['voice']
+    # clean the founder's phone recording: trim, de-noise, de-rumble, gentle compression, broadcast loudness
+    subprocess.run(['ffmpeg','-loglevel','error','-y','-ss',str(vo.get('ss',0)),'-t',str(vo['len']),'-i',vo['file'],'-af',
+        'highpass=f=80,lowpass=f=14000,afftdn=nr=14:nf=-48,equalizer=f=3500:t=q:w=1.2:g=2.5,acompressor=threshold=-20dB:ratio=3:attack=8:release=120,'
+        f"afade=t=in:st=0:d=0.05,afade=t=out:st={vo['len']-0.15:.2f}:d=0.15,adelay={int(vo.get('at',0.35)*1000)}|{int(vo.get('at',0.35)*1000)},apad,loudnorm=I=-16:TP=-1.5",
+        '-ac','2','-ar','48000','-t',str(total),f'{tmp}/vo.wav'],check=True)
+    subprocess.run(['ffmpeg','-loglevel','error','-y','-i',f'{tmp}/p.wav','-i',f'{tmp}/vo.wav','-filter_complex',
+        '[0]volume=0.32,aformat=channel_layouts=stereo[m];[1]asplit[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=350[d];[d][v2]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5',
+        '-ar','48000',f'{tmp}/mix.wav'],check=True)
+    audio = f'{tmp}/mix.wav'
+subprocess.run(['ffmpeg','-loglevel','error','-y','-i',f'{tmp}/v.mp4','-i',audio,'-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-shortest',out],check=True)
 print(out, round(total,1))
