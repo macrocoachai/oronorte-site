@@ -142,16 +142,23 @@ def make(spec, out, music=None, music_license=None, xfade=0.45):
     subprocess.run(cmd, check=True)
     # 3) sound on the cuts: whoosh peak just after each cut, pop when each text lands, sting on the end card
     events = []
-    whoosh = sfx("whoosh_fast/crisp", os.path.join(tmp, "whoosh.wav"))
-    pop = sfx("ui_pop/soft", os.path.join(tmp, "pop.wav"))
-    events.append((pop, 0.35, 0.55))
-    for i, c in enumerate(cuts):
-        events.append((whoosh, max(0.0, c - 0.12), 0.8))
-        if not (spec.get("end") and i == len(cuts) - 1):
-            events.append((pop, c + 0.35, 0.5))
-    if spec.get("end") and cuts:
-        sting = sfx("logo_sting/soft_bloom", os.path.join(tmp, "sting.wav"))
-        events.append((sting, cuts[-1] + 0.05, 0.9))
+    use_sfx = bool(spec.get("sfx"))  # default off: soft original pad instead of effects
+    padded = False
+    if not use_sfx and not music:
+        music = os.path.join(tmp, "pad.wav"); padded = True
+        subprocess.run([sys.executable, os.path.join(HERE, "audio", "pad.py"), music, f"{total:.3f}",
+                        str(sum(map(ord, os.path.basename(out))) % 97)], check=True)
+    if use_sfx:
+        whoosh = sfx("whoosh_fast/crisp", os.path.join(tmp, "whoosh.wav"))
+        pop = sfx("ui_pop/soft", os.path.join(tmp, "pop.wav"))
+        events.append((pop, 0.35, 0.55))
+        for i, c in enumerate(cuts):
+            events.append((whoosh, max(0.0, c - 0.12), 0.8))
+            if not (spec.get("end") and i == len(cuts) - 1):
+                events.append((pop, c + 0.35, 0.5))
+        if spec.get("end") and cuts:
+            sting = sfx("logo_sting/soft_bloom", os.path.join(tmp, "sting.wav"))
+            events.append((sting, cuts[-1] + 0.05, 0.9))
     acmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", silent]
     parts, n = [], 1
     for f, at, vol in events:
@@ -161,11 +168,11 @@ def make(spec, out, music=None, music_license=None, xfade=0.45):
         n += 1
     if music:
         acmd += ["-i", music]
-        parts.append(f"[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume=0.35,"
+        parts.append(f"[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={1.0 if padded else 0.35},"
                      f"afade=t=out:st={max(0, total-1.2):.2f}:d=1.2[a{n}]")
         n += 1
     mix = "".join(f"[a{k}]" for k in range(1, n))
-    parts.append(f"{mix}amix=inputs={n-1}:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[aout]")
+    parts.append(f"{mix}amix=inputs={n-1}:normalize=0,loudnorm=I={-20 if padded else -14}:TP=-1.5:LRA=11[aout]")
     acmd += ["-filter_complex", ";".join(parts), "-map", "0:v", "-map", "[aout]", "-t", f"{total:.3f}",
              "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]
     subprocess.run(acmd, check=True)
@@ -174,7 +181,10 @@ def make(spec, out, music=None, music_license=None, xfade=0.45):
            "sound_effects": "earshot bank (MIT, github.com/Leonxlnx/earshot), rendered from code: "
                             "whoosh_fast/crisp, ui_pop/soft" + (", logo_sting/soft_bloom" if spec.get("end") else ""),
            "music": None}
-    if music:
+    if padded:
+        log["sound_effects"] = None
+        log["music"] = "ORONORTE original ambient pad, synthesized in code (_tools/reel/audio/pad.py)"
+    elif music:
         lic = json.load(open(music_license)) if music_license else None
         if not lic or lic.get("license") not in ("cc0", "pdm", "by"):
             raise SystemExit("music needs a license file with license cc0, pdm or by (never nc/nd/sa for brand posts)")
