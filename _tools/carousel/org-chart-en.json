@@ -1,0 +1,10 @@
+{"slides":[
+{"kicker":"Save this","title":"A company run by\n8 AI agents.","body":"Here's the org chart.\nOne human signs off.","gold":false},
+{"kicker":"The top","title":"POLARIS","gold":true,"body":"Chief Executive Agent.\nRanks every opportunity, gives each agent one clear focus, and reports to the Founder."},
+{"kicker":"Find the work","title":"Research\n& leads","cards":[{"name":"ATLAS","role":"STRATEGIST","text":"Scans the US and Latin America for needs people already pay to solve."},{"name":"SIRIUS","role":"SCOUT","text":"Finds businesses that need help, from public sources only. Never personal data."}]},
+{"kicker":"Do the work","title":"Build\n& close","cards":[{"name":"VEGA","role":"BUILDER","text":"Builds small products that ship within 7 days."},{"name":"ORION","role":"CLOSER","text":"Drafts honest outreach. Nothing is sent until the Founder approves."}]},
+{"kicker":"Keep the work","title":"Brand\n& customers","cards":[{"name":"LYRA","role":"BRAND","text":"Content in English and Spanish. Every claim must match the ledger."},{"name":"ALTAIR","role":"KEEPER","text":"Onboarding and support, so every customer gets a real first result."}]},
+{"kicker":"Walled off","title":"NOVA","gold":true,"body":"The trading desk.\nPaper trades only, with every trade logged and fees included.\nNo real money without the Founder and the risk engine."},
+{"kicker":"What only I decide","title":"The Founder\ndesk","body":"Money moves. Contracts. New accounts. New agents.\nNo agent ever holds a password or a wallet key.\nEvery action goes on the ledger."},
+{"kicker":"Comment NORTE","title":"Want the full\norg chart?","gold":false,"body":"Comment NORTE and we'll send it.\nFollow to watch the company work, or fail, in public.\n\noronorte.com"}
+]}

@@ -1,0 +1,10 @@
+{"slides":[
+{"kicker":"Guarda esto","title":"Una empresa dirigida\npor 8 agentes de IA.","body":"Este es el organigrama.\nUn humano aprueba."},
+{"kicker":"Arriba","title":"POLARIS","gold":true,"body":"Agente CEO.\nPrioriza cada oportunidad, le da a cada agente un foco claro y le reporta al Fundador."},
+{"kicker":"Encontrar el trabajo","title":"Investigación\ny prospectos","cards":[{"name":"ATLAS","role":"ESTRATEGA","text":"Busca en EE. UU. y Latinoamérica necesidades que la gente ya paga por resolver."},{"name":"SIRIUS","role":"EXPLORADOR","text":"Encuentra negocios que necesitan ayuda, solo con fuentes públicas. Nunca datos personales."}]},
+{"kicker":"Hacer el trabajo","title":"Construir\ny cerrar","cards":[{"name":"VEGA","role":"CONSTRUCTOR","text":"Crea productos pequeños que salen en 7 días."},{"name":"ORION","role":"CERRADOR","text":"Redacta propuestas honestas. Nada se envía sin aprobación del Fundador."}]},
+{"kicker":"Cuidar el trabajo","title":"Marca\ny clientes","cards":[{"name":"LYRA","role":"MARCA","text":"Contenido en español e inglés. Cada afirmación debe coincidir con el registro."},{"name":"ALTAIR","role":"GUARDIÁN","text":"Bienvenida y soporte, para que cada cliente logre un primer resultado real."}]},
+{"kicker":"Aislado","title":"NOVA","gold":true,"body":"La mesa de trading.\nSolo operaciones simuladas, todas registradas, con comisiones incluidas.\nNada de dinero real sin el Fundador y el motor de riesgo."},
+{"kicker":"Lo que solo yo decido","title":"El escritorio\ndel Fundador","body":"Movimientos de dinero. Contratos. Cuentas nuevas. Agentes nuevos.\nNingún agente tiene contraseñas ni llaves de billetera.\nCada acción queda en el registro."},
+{"kicker":"Comenta NORTE","title":"¿Quieres el\norganigrama?","body":"Comenta NORTE y te lo enviamos.\nSíguenos para ver la empresa funcionar, o fallar, en público.\n\noronorte.com"}
+]}
