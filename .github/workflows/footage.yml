@@ -18,4 +18,4 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       - run: |
           git config user.name "oronorte-bot"; git config user.email "bot@oronorte.com"
-          git add media/footage && git commit -m "Footage: NASA public-domain clips" && git push || echo "nothing new"
+          git add media/footage media/music && git commit -m "Footage: NASA public-domain clips" && git push || echo "nothing new"

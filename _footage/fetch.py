@@ -56,3 +56,21 @@ def pixabay(q):
 run('nasa', lines('_footage/nasa.txt'), nasa)
 run('pexels', lines('_footage/stock.txt'), pexels)
 run('pixabay', lines('_footage/stock.txt'), pixabay)
+# Real music: Kevin MacLeod (incompetech.com), CC BY 4.0 — credit required in caption.
+def music():
+    out = 'media/music'; os.makedirs(out, exist_ok=True)
+    lp = os.path.join(out, 'credits.json'); log = json.load(open(lp)) if os.path.exists(lp) else {}
+    for t in lines('_footage/music.txt'):
+        s = slug(t)
+        if s in log: continue
+        u = 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/' + urllib.parse.quote(t) + '.mp3'
+        try:
+            data = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0 oronorte'}), timeout=60).read()
+            if len(data) < 100000: raise Exception('too small')
+            open(os.path.join(out, s + '.mp3'), 'wb').write(data)
+            log[s] = {'title': t, 'artist': 'Kevin MacLeod', 'source': 'https://incompetech.com', 'license': 'CC BY 4.0',
+                      'credit': f'Music: "{t}" Kevin MacLeod (incompetech.com), licensed under CC BY 4.0'}
+            print('ok music', s)
+        except Exception as e: print('fail music', t, e)
+    json.dump(log, open(lp, 'w'), indent=1)
+music()
