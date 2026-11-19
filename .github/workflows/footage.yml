@@ -11,7 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-      - run: python3 _footage/fetch_nasa.py
+      - name: fetch
+        run: python3 _footage/fetch.py
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       - run: |
           git config user.name "oronorte-bot"; git config user.email "bot@oronorte.com"
           git add media/footage && git commit -m "Footage: NASA public-domain clips" && git push || echo "nothing new"
