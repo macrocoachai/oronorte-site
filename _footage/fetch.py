@@ -34,7 +34,11 @@ def run(name, queries, finder):
     json.dump(log, open(lp, 'w'), indent=1)
 def nasa(q):
     for it in get('https://images-api.nasa.gov/search?' + urllib.parse.urlencode({'q': q, 'media_type': 'video'}))['collection']['items'][:12]:
-        d = it['data'][0]; files = get(it['href'])
+        d = it['data'][0]
+        txt = (d.get('title','') + ' ' + d.get('description','')).lower()
+        if any(w in txt for w in ['interview','briefing','press conference','news conference','reel','talk','animation','visualization','graphic','lecture','podcast']): continue
+        if not any(w in txt for w in ['time-lapse','timelapse','time lapse','b-roll','broll','views of earth','footage','4k']): continue
+        files = get(it['href'])
         mp4 = [f for f in files if f.endswith('~mobile.mp4')] or [f for f in files if f.endswith('~small.mp4')] or [f for f in files if f.endswith('~orig.mp4')]
         if mp4: yield mp4[0].replace('http://', 'https://').replace(' ', '%20'), {'title': d.get('title'), 'source': 'https://images.nasa.gov/details/' + d.get('nasa_id', ''), 'credit': 'Video: NASA', 'license': 'NASA media guidelines (public domain, no endorsement, no insignia)'}
 def pexels(q):
