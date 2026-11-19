@@ -1,0 +1,17 @@
+name: Fetch public-domain footage
+on:
+  workflow_dispatch:
+  push:
+    paths: ['_footage/*.txt', '_footage/*.py', '.github/workflows/footage.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: python3 _footage/fetch_nasa.py
+      - run: |
+          git config user.name "oronorte-bot"; git config user.email "bot@oronorte.com"
+          git add media/footage && git commit -m "Footage: NASA public-domain clips" && git push || echo "nothing new"
