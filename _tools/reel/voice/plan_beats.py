@@ -18,7 +18,12 @@ def clk(x):
         x -= e-s
     return segs[-1][1]
 tot = sum(len(p[0]) for p in ph); acc = 0; starts = []
-for p in ph: starts.append(clk(acc/tot*S)+at); acc += len(p[0])
+SS=[s for s,e in segs]
+def snap(t):
+    c=min(SS,key=lambda s:abs(s-t)); return c if abs(c-t)<=0.9 else t
+for p in ph: starts.append(snap(clk(acc/tot*S))+at); acc += len(p[0])
+for i in range(1,len(starts)):
+    starts[i]=max(starts[i],starts[i-1]+1.1)
 end = segs[-1][1]+at+0.6
 bounds = [0] + [max(0.1, s-0.15) for s in starts[1:]] + [end]
 beats = [[round(bounds[i+1]-bounds[i], 2), p[1], p[2], p[3]] for i, p in enumerate(ph)]

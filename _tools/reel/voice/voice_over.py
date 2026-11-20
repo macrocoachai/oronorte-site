@@ -27,9 +27,14 @@ def at_speech(x):  # speech-seconds -> clock
         x -= e-s
     return segs[-1][1]
 subs = sp['subs']; tot = sum(len(c) for c in subs); acc = 0; times = []
+SS = [s for s, e in segs]
+def snap(t):
+    c = min(SS, key=lambda s: abs(s-t)); return c if abs(c-t) <= 0.9 else t
 for c in subs:
     a0 = at_speech(acc/tot*S); acc += len(c); a1 = at_speech(acc/tot*S)
-    times.append([a0+at-0.05, a1+at+0.25])
+    times.append([snap(a0)+at-0.05, a1+at+0.25])
+times[0][0] = min(times[0][0], segs[0][0]+at-0.05)
+for i in range(1, len(times)): times[i][0] = max(times[i][0], times[i-1][0]+1.0)
 for i in range(len(times)-1): times[i][1] = min(times[i][1], times[i+1][0])
 # 3) render subtitle PNGs
 CSS = """body{margin:0;width:1080px;height:1920px;background:transparent;font-family:Inter,system-ui,sans-serif}
