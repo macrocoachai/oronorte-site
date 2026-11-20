@@ -1,1 +1,1 @@
-{"video": "/tmp/vo/sub-asi.mp4", "out": "media/reels/2026-11-20-voice-asi.mp4", "voice": {"file": "<founder-recording>", "ss": 1.7, "len": 14.5, "at": 0.35}, "music": "media/music/bossa-antigua.mp3", "music_ss": 175, "music_vol": 0.6, "cuts": [3.81, 8.26, 12.3, 15.15]}
+{"video": "/tmp/vo/sub-asi.mp4", "out": "media/reels/2026-11-20-voice-asi.mp4", "voice": {"file": "<founder-recording>", "ss": 1.7, "len": 14.5, "at": 0.35}, "music": "media/music/stay-the-course.mp3", "music_ss": 30, "music_vol": 0.32, "cuts": [3.81, 8.26, 12.3, 15.15], "whoosh_vol": 0.1}

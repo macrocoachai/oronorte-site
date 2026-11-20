@@ -1,1 +1,1 @@
-{"video": "/tmp/vo/why-es-raw.mp4", "out": "media/reels/2026-11-20-why-i-built-this-es.mp4", "voice": {"file": "<founder-recording>", "ss": 0.7, "len": 15.8, "at": 0.35}, "music": "media/music/inspired.mp3", "music_ss": 46, "music_vol": 0.6, "cuts": [5.34, 7.93, 12.4, 16.45]}
+{"video": "/tmp/vo/why-es-raw.mp4", "out": "media/reels/2026-11-20-why-i-built-this-es.mp4", "voice": {"file": "<founder-recording>", "ss": 0.7, "len": 15.8, "at": 0.35}, "music": "media/music/clean-soul.mp3", "music_ss": 60, "music_vol": 0.32, "cuts": [5.34, 7.93, 12.4, 16.45], "whoosh_vol": 0.1}
