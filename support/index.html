@@ -74,7 +74,7 @@ function log(html){const d=document.createElement('div');d.innerHTML=ts()+' '+ht
 function add(cls,text,src){const d=document.createElement('div');d.className='m '+cls;d.textContent=text;if(src){const s=document.createElement('span');s.className='src';s.textContent=src;d.append(s)}$('#msgs').append(d);$('#msgs').scrollTop=1e6}
 function cap(ev,p){try{window.posthog&&posthog.capture(ev,p)}catch(_){}}
 function ask(q){q=q.trim();if(!q)return;add('u',q);const ql=detect(q);const r=match(q);
- if(r){add('b',r.e[ql],T[ql].src+': '+r.e.s+' · '+Math.round(r.score*100)+'%');log(`<span class="ok">answered</span> [${ql}] → ${r.e.s}`);cap('support_question',{matched:true,topic:r.e.id,lang:ql})}
+ if(r){add('b',r.e[ql],T[ql].src+': '+r.e.s);log(`<span class="ok">answered</span> [${ql}] → ${r.e.s}`);cap('support_question',{matched:true,topic:r.e.id,lang:ql})}
  else{add('b',T[ql].unk);log(`<span class="hand">no verified answer</span> [${ql}] → handoff to human`);cap('support_question',{matched:false,lang:ql})}}
 function apply(){const t=T[L];document.documentElement.lang=L;document.querySelectorAll('[data-t]').forEach(e=>{if(t[e.dataset.t]!=null)e.innerHTML=t[e.dataset.t]});$('#q').placeholder=t.ph_q;$('#pn').placeholder=t.pn;$('#pe').placeholder=t.pe;$('#pb').placeholder=t.pb;
  const c=$('#chips');c.replaceChildren();t.chips.forEach(x=>{const b=document.createElement('button');b.type='button';b.textContent=x;b.onclick=()=>ask(x);c.append(b)});document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===L))}
