@@ -1,0 +1,31 @@
+{
+ "video": "2026-11-22-lux-quiet-time.mp4",
+ "footage": [
+  {
+   "source": "https://pixabay.com/videos/id-50352/",
+   "credit": "Video: meztravel on Pixabay",
+   "license": "Pixabay Content License",
+   "query": "skyscraper office night lights"
+  },
+  {
+   "source": "https://pixabay.com/videos/id-212404/",
+   "credit": "Video: 素君 on Pixabay",
+   "license": "Pixabay Content License",
+   "query": "luxury penthouse night city"
+  },
+  {
+   "source": "https://pixabay.com/videos/id-3134/",
+   "credit": "Video: Life-Of-Vids on Pixabay",
+   "license": "Pixabay Content License",
+   "query": "businessman city skyline night"
+  }
+ ],
+ "music": {
+  "title": "Deliberate Thought",
+  "artist": "Kevin MacLeod",
+  "source": "https://incompetech.com",
+  "license": "CC BY 4.0",
+  "credit": "Music: \"Deliberate Thought\" Kevin MacLeod (incompetech.com), licensed under CC BY 4.0"
+ },
+ "endcard": "ORONORTE original board recording"
+}

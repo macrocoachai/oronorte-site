@@ -1,0 +1,31 @@
+{
+ "video": "2026-11-22-lux-es-criterio.mp4",
+ "footage": [
+  {
+   "source": "https://pixabay.com/videos/id-24136/",
+   "credit": "Video: Scrudgerello on Pixabay",
+   "license": "Pixabay Content License",
+   "query": "luxury penthouse night city"
+  },
+  {
+   "source": "https://pixabay.com/videos/id-80724/",
+   "credit": "Video: MagicTV on Pixabay",
+   "license": "Pixabay Content License",
+   "query": "businessman city skyline night"
+  },
+  {
+   "source": "https://pixabay.com/videos/id-5260/",
+   "credit": "Video: tommyvideo on Pixabay",
+   "license": "Pixabay Content License",
+   "query": "gold abstract particles"
+  }
+ ],
+ "music": {
+  "title": "Night Vigil",
+  "artist": "Kevin MacLeod",
+  "source": "https://incompetech.com",
+  "license": "CC BY 4.0",
+  "credit": "Music: \"Night Vigil\" Kevin MacLeod (incompetech.com), licensed under CC BY 4.0"
+ },
+ "endcard": "ORONORTE original board recording"
+}
