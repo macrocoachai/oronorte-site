@@ -5,4 +5,5 @@
 <url><loc>https://oronorte.com/pt/</loc><xhtml:link rel="alternate" hreflang="en" href="https://oronorte.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://oronorte.com/es/"/><xhtml:link rel="alternate" hreflang="pt" href="https://oronorte.com/pt/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://oronorte.com/"/><changefreq>weekly</changefreq><priority>1.0</priority></url>
 <url><loc>https://oronorte.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 <url><loc>https://oronorte.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<url><loc>https://oronorte.com/pilot/</loc></url>
 </urlset>
