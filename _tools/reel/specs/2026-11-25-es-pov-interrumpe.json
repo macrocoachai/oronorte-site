@@ -1,0 +1,6 @@
+{"scenes": [
+{"hook": true, "kicker": "POV", "title": "Tu agente\nde IA te\ninterrumpe\nla comida.", "body": "", "seconds": 2.6},
+{"kicker": "ORION · ventas", "title": "\"La propuesta\nestá lista.\n¿La envío?\"", "body": "Sin tu sí, no sale.", "seconds": 2.6},
+{"kicker": "Tú", "title": "Revisas.\nApruebas.\nSigues comiendo.", "body": "", "seconds": 2.4},
+{"kicker": "La regla", "title": "El agente trabaja.\nTú decides.", "body": "Cada acción queda registrada.", "gold": true, "seconds": 2.5}],
+"end": {"title": "oronorte.com", "body": "Precio fundador para los primeros 100 miembros que paguen, fijo mientras sigas suscrito."}}
